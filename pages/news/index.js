@@ -1,22 +1,23 @@
-import React, {useCallback, useContext, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
+import axios from "axios";
+import Image from "next/image";
+import Link from "next/link";
 import Row from "../../components/mui/Grid/Row";
 import Col from "../../components/mui/Grid/Col";
 import {Breadcrumbs, Pagination, TextField} from "@mui/material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import {Link} from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import Typography from "@mui/material/Typography";
-import SideBox from "../../components/pages/ShopPage/SideBox";
 import Button from "@mui/material/Button";
 import LinkIcon from '@mui/icons-material/Link';
-import {newsList} from "../../data/newsList";
-import styles from "./NewsPage.module.css";
-import {tags} from "../../data/tags";
 import Box from "@mui/material/Box";
-import axios from "axios";
+import SideBox from "@/components/pages/ShopPage/SideBox";
+import Layout from "@/components/Layout";
+import {tags} from "@/data/tags";
+import styles from "./NewsPage.module.css";
 
 const breadcrumbs = [
-    <Link style={{display: 'flex'}} underline="hover" key="1" color="inherit" to="/">
+    <Link style={{display: 'flex'}} underline="hover" key="1" color="inherit" href="/">
         <HomeIcon style={{fontSize:'18px'}}/>
     </Link>,
     <Typography fontSize={"18px"} key="2" color="text.primary">
@@ -61,9 +62,9 @@ const NewsPage = () => {
                                     <Col xs={12} sm={6} key={index}>
                                         <div className={styles.newsItem}>
                                             <Button sx={{borderRadius:"20px", mb:"10px"}}>
-                                                <img src={item.image} alt={item.title} width="100%" style={{borderRadius:"20px"}} />
+                                                <Image src={item.image} alt={item.title} width={100} height={100} layout="responsive" style={{borderRadius:"20px"}} />
                                             </Button>
-                                            <Link fontSize={25} to={`/news/${item.id}`} className={styles.newsItemTitle}>{item.title}</Link>
+                                            <Link fontSize={25} href={`/news/${item.id}`} className={styles.newsItemTitle}>{item.title}</Link>
                                             <Typography fontSize={15} display="block" color="text.secondary" margin="10px 0">{item.date}</Typography>
                                             <Typography fontSize={17} display="block" color="text.primary" className={styles.newsItemDesc}>{item.desc}</Typography>
                                             <Button component={Link} to={`/news/${item.id}`} variant="contained" color="secondary" sx={{mt:"20px"}}>
@@ -99,7 +100,7 @@ const NewsPage = () => {
                                 <SideBox title="برچسبها">
                                     {
                                         tags.map((item, index) => (
-                                            <Link to="#">
+                                            <Link href="#">
                                                 <Button variant="contained" color="white" sx={{ml:'10px', mb:'10px'}}>{item}</Button>
                                             </Link>
                                         ))
@@ -108,8 +109,8 @@ const NewsPage = () => {
                             </Col>
                             <Col xs={12}>
                                 <SideBox title="تبلیغات ساده">
-                                    <Link to="#" >
-                                        <img src="/img/ads.jpg" alt="تبلیغات" width="100%" style={{borderRadius:"20px", marginTop:'15px'}}/>
+                                    <Link href="#" >
+                                        <Image src="/img/ads.jpg" alt="تبلیغات" width={100} height={100} layout="responsive" style={{borderRadius:"20px", marginTop:'15px'}}/>
                                     </Link>
                                 </SideBox>
                             </Col>
@@ -121,5 +122,13 @@ const NewsPage = () => {
         </Row>
     );
 };
+
+NewsPage.getLayout = (page) => {
+    return(
+        <Layout>
+            {page}
+        </Layout>
+    )
+}
 
 export default NewsPage;

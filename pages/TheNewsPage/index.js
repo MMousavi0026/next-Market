@@ -14,7 +14,7 @@ import Typography from "@mui/material/Typography";
 import SideBox from "../../components/pages/ShopPage/SideBox";
 import {tags} from "../../data/tags";
 import HomeIcon from "@mui/icons-material/Home";
-import styles from "../NewsPage/NewsPage.module.css";
+import styles from "@/pages/news/NewsPage.module.css";
 import {useParams} from "react-router-dom";
 import axios from "axios";
 

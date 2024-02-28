@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import Layout from "@/components/Layout";
 import Row from "@/components/mui/Grid/Row";
 import Col from "@/components/mui/Grid/Col";
@@ -57,7 +57,7 @@ const HomePage = () => {
                             </Col>
                         </Col>
                         <Col xs={12} lg={6} style={{paddingTop: '90px', display: 'flex', justifyContent: 'center'}}>
-                            <Image width={100} height={100} className={styles.homeBoxManImg} src="/img/homeBox1.1.png" alt="shopping"/>
+                            <Image width={100} height={100} layout="responsive" className={styles.homeBoxManImg} src='/homeBox1.png' alt="shopping"/>
                         </Col>
                     </Row>
                 </div>
@@ -239,16 +239,16 @@ const HomePage = () => {
                         </div>
                         <div className={styles.box5Buttons}>
                             <Link href="/" className={styles.box5Button1}>
-                                <Image width={100} height={100} className={styles.googleplayImg} src="/img/googleplay.png" alt=""/>
+                                <Image width={100} height={100} layout="responsive" className={styles.googleplayImg} src="/img/googleplay.png" alt=""/>
                             </Link>
                             <Link href="/">
-                                <Image width={100} height={100} className={styles.appStore} src="/img/appStore.png" alt=""/>
+                                <Image width={100} height={100} layout="responsive" className={styles.appStore} src="/img/appStore.png" alt=""/>
                             </Link>
                         </div>
                     </Col>
                     <Col xs={12} md={6} className={styles.box5Button}>
                         <Link href="/" className={styles.box5Img}>
-                            <Image src="/img/mobile.png" width={100} height={100} alt=""/>
+                            <Image src="/img/mobile.png" width={100} height={100} layout="responsive" alt=""/>
                         </Link>
                     </Col>
                 </Row>

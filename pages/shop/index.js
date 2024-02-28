@@ -1,7 +1,9 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import Row from "../../components/mui/Grid/Row";
-import Col from "../../components/mui/Grid/Col";
-import SideBox from "../../components/pages/ShopPage/SideBox";
+import axios from "axios";
+import Link from "next/link";
+import Image from "next/image";
+import Row from "@/components/mui/Grid/Row";
+import Col from "@/components/mui/Grid/Col";
 import {
     Breadcrumbs,
     FormControl,
@@ -12,16 +14,16 @@ import {
     Select
 } from "@mui/material";
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import {Link} from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import HomeIcon from "@mui/icons-material/Home";
 import ListItem from "@mui/material/ListItem";
 import Divider from "@mui/material/Divider";
-import {productsCategories, reviewsOfRecentProducts} from "../../data/productsData";
+import Product from "@/components/pages/ShopPage/Product";
+import SideBox from "@/components/pages/ShopPage/SideBox";
+import RangeSlider from "@/components/pages/ShopPage/RangeSlider";
+import {productsCategories, reviewsOfRecentProducts} from "@/data/productsData";
 import styles from './shopPage.module.css'
-import Product from "../../components/pages/ShopPage/Product";
-import RangeSlider from "../../components/pages/ShopPage/RangeSlider";
-import axios from "axios";
+import Layout from "@/components/Layout";
 
 const ShopPage = () => {
 
@@ -129,7 +131,7 @@ const ShopPage = () => {
                                     {
                                         dataList.map((item, index) => (
                                             <Col key={index} xs={12} sm={6}>
-                                                <Product {...item} to={`/shop/${item.id}`} />
+                                                <Product {...item} href={`/shop/${item.id}`} />
                                             </Col>
                                         ))
                                     }
@@ -152,7 +154,7 @@ const ShopPage = () => {
                                     {
                                         productsCategories.map((item, index) => (
                                             <ListItem key={index} className={styles.sideBoxItemWrapper}>
-                                                <Link to={item.to}>
+                                                <Link href={item.href}>
                                                     <Typography className={styles.sideBoxItem}>{item.title}</Typography>
                                                 </Link>
                                             </ListItem>
@@ -166,7 +168,7 @@ const ShopPage = () => {
                                         reviewsOfRecentProducts.map((item, index) => (
                                             <React.Fragment key={index}>
                                                 <div style={{display:"flex", flexDirection:"row", alignItems:'center', justifyContent:'space-between', width:'100%', margin:"10px 0"}}>
-                                                    <img src={item.imgSrc} alt={item.title} style={{width: "90px", borderRadius: "10px"}}/>
+                                                    <Image width={90} height={90} src={item.imgSrc} alt={item.title} style={{width: "90px", borderRadius: "10px"}}/>
                                                     <div>
                                                         <Typography variant="body1">{item.title}</Typography>
                                                         <Rating name="read-only" value={3} color="#faaf00" readOnly />
@@ -187,5 +189,13 @@ const ShopPage = () => {
         </Row>
     );
 };
+
+ShopPage.getLayout = (page) => {
+    return(
+        <Layout>
+            {page}
+        </Layout>
+    )
+}
 
 export default ShopPage;
