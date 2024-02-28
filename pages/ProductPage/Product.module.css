@@ -1,0 +1,44 @@
+.pageWrapper {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.productImg {
+    border: solid rgba(128, 128, 128, 0.4) 1px ;
+    border-radius: 40px;
+}
+.cartShoppingButton {
+    box-shadow: none !important;
+    background-color: #01e281 !important;
+    color: #122d40 !important;
+    transition: color 0.3s, background-color 0.3s;
+}
+.cartShoppingButton:hover {
+    background-color: #122d40 !important;
+    color: #01e281 !important;
+}
+.SocialMediaIcon {
+    color: rgb(128, 128, 128) !important;
+    padding: 15px;
+}
+.SocialMediaIcon:hover {
+    color: #01e281 !important;
+}
+.productOptionTitle {
+    background-color: #01e281;
+    color: white;
+    border-radius: 50px;
+    font-size: 12px;
+    padding: 4px 10px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px !important;
+    margin-bottom: 8px !important;
+}
+
+.tabs {
+    display: flex !important;
+    justify-content: center !important;
+}

@@ -1,0 +1,49 @@
+.HomeFeatures {
+    border-radius: 100px;
+    background-color: white;
+    box-shadow: 0 15px 60px 0 rgba(18,45.00000000000004,64,.15) ;
+    margin-top: -107px !important;
+    padding: 20px 30px;
+    flex-wrap: wrap;
+}
+
+.floatBoxItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.floatBoxItemImg {
+    background-color: #ccffea;
+    border-radius: 100%;
+    padding: 10px;
+    margin-left: 15px;
+    width: 2.5rem;
+}
+
+.title {
+    font-size: 1.3rem;
+    display:block;
+    padding-bottom:5px
+}
+
+.description {
+    font-size: 1rem;
+    color: gray;
+    display: block;
+}
+
+@media (max-width: 1200px) {
+    .columns:first-of-type {
+        padding-top: 0!important;
+    }
+    .columns:nth-of-type(2) {
+        padding-top: 0!important;
+    }
+}
+
+@media (max-width: 599px) {
+    .columns:nth-of-type(2) {
+        padding-top: 24px !important;
+    }
+}

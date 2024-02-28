@@ -1,0 +1,178 @@
+.appBar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 170px;
+    margin: 0 2rem;
+    width: calc(100% + 4rem) !important;
+}
+
+.toolbarWrapper {
+    width: 95%;
+    margin-top: -20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.toolbar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logoWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo {
+    width: 13rem;
+}
+
+.search {
+    background-color: rgba(255,255,255,0.15);
+    border-radius: 50px;
+    height: 37px;
+    padding: .5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.searchIcon {
+    margin-left: -10px !important;
+    color: white !important;
+}
+
+.iconsWrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+}
+
+.icon {
+    color: white !important;
+    font-size: 23px;
+    padding: 10px;
+    border-radius: 100vh;
+    border: 1px #354c5d solid;
+    background-color: #122d40;
+    cursor: pointer;
+}
+
+.call {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none;
+    border-radius: 100vh;
+    cursor: pointer;
+    margin-left: 12px !important;
+}
+
+.callIcon {
+    border-radius: 100vh;
+    border: 1px #354c5d solid;
+    transition: border-color 0.3s, color 0.3s!important;
+}
+
+.call:hover .callIcon {
+    border-color: #01e281;
+    color: #01e281;
+}
+
+.callTitle {
+    margin-right: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.iconButton {
+    color: white !important;
+}
+
+.favorite, .person {
+    color: white !important;
+}
+
+.menu {
+    display: none!important;
+    color: white !important;
+}
+
+.activeLink {
+    color: #01e281;
+}
+
+.link {
+    color: white;
+}
+
+.drawerPaperProps {
+    min-width: 22rem;
+    color: white !important;
+    background-color: #122d40 !important;
+}
+
+@media (min-width: 1536px) {
+    .appBar {
+        width: calc(100% + 50rem) !important;
+    }
+    .toolbarWrapper {
+        width: 1450px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .call {
+        display: none;
+    }
+    /*.logo {*/
+    /*    width: 11rem;*/
+    /*}*/
+}
+
+@media (max-width: 900px) {
+    .appBar {
+        height: 110px;
+    }
+    .favorite, .person {
+        display: none!important;
+    }
+    .menu {
+        display: flex!important;
+    }
+    .search {
+        display: none;
+    }
+    .toolbarWrapper {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .toolbarWrapper {
+        padding: 0!important;
+    }
+    /*.logo {*/
+    /*    width: 9rem;*/
+    /*}*/
+}
+
+@media (max-width: 300px) {
+}

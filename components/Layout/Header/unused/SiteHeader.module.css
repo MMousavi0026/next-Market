@@ -1,0 +1,494 @@
+.headerWrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1111;
+}
+
+.header1 {
+    width: 100%;
+    background-color: #122d40;
+    height: 185px;
+    display: flex;
+    justify-content: center;
+}
+
+.header11 {
+    width: 100%;
+    height: 18vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0;
+    margin-right: 3vw;
+    margin-left: 3vw;
+}
+
+.logo {
+    width: 25vw;
+    min-width: 165px;
+    height: auto;
+    margin-left: 10px;
+}
+
+.searchBox {
+    border: none;
+    height: 7.5vw ;
+    width: 280px ;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.input {
+    border: #354c5d solid;
+    border-radius: 90vh ;
+    height: 40px ;
+    width: 250px ;
+    color: white;
+    background-color: #354c5d;
+    opacity: 1 ;
+    padding-left: 30px;
+}
+
+input:focus {
+    outline: white none;
+}
+
+.searchIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 18px;
+    background-color: #122d40;
+    color: white;
+    border-radius: 100vh;
+    border: none;
+    cursor: pointer
+}
+
+button {
+    padding: 0;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.icon {
+    font-size: 23px;
+    color: white;
+    padding:10px;
+    border-radius: 100vh;
+    border: 1px #354c5d solid;
+    background-color: #122d40;
+    cursor: pointer;
+}
+
+.call {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none;
+    border-radius: 100vh;
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+.store, .love, .profile {
+    margin-left: 1vw;
+}
+
+.callIcon {
+    border-radius: 100vh;
+    border: 1px #354c5d solid;
+    transition: border-color 0.3s, color 0.3s;
+}
+
+.call:hover .callIcon {
+    border-color: #01e281;
+    color: #01e281;
+}
+
+.barsWrapper {
+    display: none;
+}
+
+.button {
+    width: 13px;
+    height: 13px;
+    border-radius: 100vh;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .header11 {
+        margin-bottom: 0;
+    }
+
+    .searchBox {
+        display: none;
+    }
+
+    .header1 {
+        height: 15vh;
+        align-items: center;
+    }
+
+    .navMenuWrapper {
+        display: none!important;
+    }
+
+    .barsWrapper {
+        display: flex;
+    }
+
+    .love {
+        display: none;
+    }
+}
+
+@media (max-width: 425px) {
+    .call {
+            display: none;
+        }
+
+    .logo {
+        width: 110px;
+    }
+}
+
+@media (max-width: 1250px) {
+    .navMenu, .navbarWrapper, .navbar {
+        justify-content: center!important;
+    }
+    .dayOffWrapper {
+        display: none;
+    }
+    .navbarWrapper {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 895px) {
+    .call {
+        display: none;
+    }
+}
+
+
+
+.navMenuWrapper {
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    height: 45px;
+    margin-top: -45px;
+}
+
+.navMenu {
+    background-color: #1c3e56;
+    width: 100%;
+    height: 80px;
+    border-radius: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.dayOff {
+    width: 16vw;
+    background-color: #01e281;
+    color: #122d40;
+    border-radius: 100vw;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+.dayOff:hover {
+    background-color: #122d40;
+    color: #01e281!important;
+}
+
+.off {
+    font-size: 2vw;
+    margin-left: 10px;
+}
+
+.navItems {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: white!important;
+    text-decoration: none;
+    transition: color 0.4s;
+    margin-left: 40px;
+}
+.navItems:hover{
+    color: #01e281 !important;
+}
+
+.offItems {
+    width: 90vw;
+    height: 34vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #122d40;
+    border-radius: 10px;
+    padding: 16px 10px;
+    right: 10%;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+li{
+    list-style-type: none;
+}
+
+div ul li div {
+    display: none!important;
+}
+
+div ul li:hover div {
+    display: flex!important;
+}
+
+div ul li ul {
+    display: none!important;
+}
+
+div ul li:hover ul {
+    display: flex!important;
+}
+
+.offItem {
+    min-width: 100px;
+    width: 14vw;
+    border: gray solid 1px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8.3vh 0;
+    transition: border-color .5s;
+    cursor: pointer;
+}
+
+.offItem:hover {
+    border-color: #01e281;
+}
+
+.offItemA {
+    background-color: #1c3e56;
+    min-width: 200px;
+    width: 70%;
+    border: gray solid 1px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8.3vh 0;
+    transition: border-color .5s;
+    cursor: pointer;
+}
+
+.offItemA:hover {
+    border-color: #01e281;
+}
+
+.fish {
+    min-width: 70px;
+    width: 5.5vw;
+}
+
+.dayOffWrapper {
+    position: absolute;
+    left: 12px;
+}
+.dayOffWrapper2 {
+    position: absolute;
+    left: 150px;
+    z-index: 1;
+}
+
+.menubarWrapper {
+    background-color: #1c3e56;
+    min-width: 250px;
+    width: 60vw;
+    height: fit-content;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    display: none;
+    flex-direction: row;
+}
+
+.barsWrapper:hover .menubarWrapper {
+    display: flex;
+}
+
+.socialMediaIconWrapper {
+    background-color: #122d40;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.socialMediaIcon {
+    width: 25px;
+    background-color: #122d40;
+    font-size: 1px;
+    color: white;
+    cursor: pointer;
+}
+
+.menuLi {
+    width: 100%;
+    height: 10vh;
+}
+
+.menubar {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.menuItems {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    cursor: pointer;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-decoration: none;
+    width: 90%;
+    top: 0;
+    margin-right: 20px;
+}
+
+.menuItem {
+    transition: color 0.4s;
+}
+
+.menuItems:hover .menuItem{
+    color: #01e281 !important;
+}
+
+.xmark {
+    font-size: 25px;
+    color: white;
+    padding: 12px;
+    cursor: pointer;
+}
+
+a, NavLink {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.offItemsA {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quickAccess {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 49vw;
+    height: 49vh;
+    background-color: #122d40;
+    border-radius: 10px;
+    padding: 0 10px;
+}
+
+.quickAccessA {
+    background-color: #1c3e56!important;
+    flex-direction: column!important;
+}
+
+.quickAccessColumn {
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+    padding: 0 2vw;
+}
+
+.quickAccessItem {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.quickAccessItem span {
+    transition: color .5s;
+}
+.quickAccessItem:hover span{
+    color: #01e281!important;
+}
+
+.menuDastresti:hover .dastresi {
+    display: flex;
+}
+
+.menuCaption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15vh 0;
+    z-index: 1;
+}
+
+.quickAccessColumnA {
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+    padding: 0 2vw;
+    z-index: 1;
+}

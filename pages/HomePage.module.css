@@ -1,0 +1,386 @@
+.box1Wrapper {
+    width: calc(100% + 4rem) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -40px -2rem 0 2rem !important;
+    background-image: url("https://xtratheme.ir/elementor/supermarket/wp-content/uploads/sites/111/2023/04/bg-hero.jpg");
+    padding-top: 3rem;
+}
+
+.box1 {
+    padding: 25px 5% 0 5%;
+}
+
+.box1Right {
+    display: flex;
+    flex-direction: column!important;
+    align-items: center;
+    justify-content: center;
+}
+
+.box1Item1Buttons {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.button1 {
+    margin: 32px 0 20px 32px!important;
+}
+
+.button1:hover {
+    background-color: #01e281!important;
+}
+
+.button1Text {
+    transition: color 0.4s;
+}
+
+.button1:hover .button1Text {
+    color: #122d40 !important;
+}
+
+.button2 {
+    border: #122d40 solid 2px!important;
+    margin: 32px 0 20px 0!important;
+}
+
+.button2:hover {
+    background-color: #01e281!important;
+    border: #01e281 solid 2px!important;
+}
+
+.homeBoxManImg {
+    width: 50vw;
+    max-width: 600px;
+    min-width: 290px;
+}
+
+.space {
+    height: 32px;
+}
+
+.box2Column1 {
+    height: 600px;
+}
+
+.box2Column2 {
+    background-color: #01e281;
+    border-radius: 25px;
+    height: 600px;
+    background-size: contain!important;
+    background: url(https://xtratheme.ir/elementor/supermarket/wp-content/uploads/sites/111/2023/04/bg-4.png), linear-gradient(90deg, #01e281, #01e281);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+}
+
+.button7, .button4{
+    width: 190px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.4s;
+    margin: 15px 15px 0 0 !important;
+}
+
+.button7:hover {
+    background-color: #354c5d!important;
+}
+
+.button7Text {
+    color: #122d40;
+    transition: color .4s;
+}
+
+.button7:hover .button7Text {
+    color: #01e281;
+}
+
+.button3 {
+    width: 190px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.4s;
+    margin: 15px !important;
+}
+
+.button3:hover {
+    background-color: #ffffff !important;
+}
+
+.button3Text {
+    color: #01e281;
+    transition: color .4s;
+}
+
+.button3:hover .button3Text {
+    color: #122d40;
+}
+
+.box3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: fit-content;
+}
+
+.button4:hover {
+    background-color: #122d40 !important;
+}
+
+.button4Text {
+    transition: color .4s;
+}
+
+.button4:hover .button4Text {
+    color: #01e281;
+}
+
+.box4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+}
+
+.box4Title {
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.love:hover .icon {
+    border: #01e281 solid 1px;
+    color: #01e281;
+}
+
+.love {
+    width: fit-content;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.icon {
+    font-size: 15px;
+    color: #122d40;
+    border: #122d40 solid 1px;
+    border-radius: 100%;
+    padding: 10px;
+    transition: color .3s, border .3s;
+}
+
+.icon:hover {
+    border: #01e281 solid 1px;
+    color: #01e281;
+}
+
+.box4Item:hover .button5 {
+    display: flex!important;
+}
+
+.button5 {
+    width: 90%;
+    background-color: #01e281;
+    height: 40px;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.4s;
+    margin-top: -20px;
+    position: absolute;
+    bottom: -20px;
+}
+
+.button5:hover {
+    background-color: #122d40;
+}
+
+.button5Text {
+    color: #122d40;
+    font-size: 18px;
+    transition: color .4s;
+}
+
+.button5:hover .button5Text {
+    color: #01e281;
+}
+
+.box5 {
+    width: 100%;
+    height: fit-content;
+    border-radius: 35px;
+    background-color: #01e281;
+    background-image: url(https://xtratheme.ir/elementor/supermarket/wp-content/uploads/sites/111/2023/05/box-bg.jpg);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+}
+
+.box5Col1 {
+    padding: 20px;
+}
+
+.box5Text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 55px;
+}
+
+.box5Button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 30px;
+}
+
+.googleplayImg {
+    width: 160px;
+    height: auto;
+}
+
+.appStore {
+    width: 160px;
+    height: auto;
+}
+
+.box5Img {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.box6 {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+.box6Title {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.newsItem {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.box2Column1Item1 {
+    background-size: contain!important;
+    background: url(https://xtratheme.ir/elementor/supermarket/wp-content/uploads/sites/111/2023/05/bg-2.png), linear-gradient(90deg, #ff3f55, #ff3f55), left bottom;
+    background-repeat: no-repeat;
+    border-radius:20px;
+    height: 100%;
+}
+
+.box2Column1Item2 {
+    background-size: contain!important;
+    background: url(https://xtratheme.ir/elementor/supermarket/wp-content/uploads/sites/111/2023/06/bg-1.png), linear-gradient(90deg, #f4f9f5, #f4f9f5);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    border-radius:20px;
+    height: 100%;
+}
+
+.box2Column1Item3 {
+    background-size: contain !important;
+    background: url(https://xtratheme.ir/elementor/supermarket/wp-content/uploads/sites/111/2023/06/bg-3.png), linear-gradient(90deg, #122d40, #122d40);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    border-radius: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 1536px) {
+    .box1Wrapper {
+        width: calc(100% + 32rem) !important;
+        margin: -40px -17rem 0 17rem !important;
+    }
+    .box1 {
+        width: 1450px!important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .someOffer {
+        height: calc(100% + 32px) !important;
+    }
+}
+
+@media (min-width: 900px) {
+    .box5Text1 {
+        text-align: right !important;
+    }
+    .box5Button1 {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .box5Text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 55px;
+    }
+    .box5Buttons {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .box1Item1Buttons {
+        flex-direction: column !important;
+    }
+    .button1 {
+        margin: 32px 0 0 0!important;
+    }
+    .button2 {
+        margin: 15px 0 0 0!important;
+    }
+    .box4Title {
+        justify-content: center !important;
+    }
+    .box5Button {
+        flex-direction: column!important;
+    }
+}

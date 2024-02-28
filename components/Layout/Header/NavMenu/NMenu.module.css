@@ -1,0 +1,87 @@
+.navAppBar {
+  height: 80px;
+  z-index: 1111;
+  border-radius: 100px;
+  margin-top: -40px;
+  justify-content: center;
+}
+.navToolbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.NMenuList {
+  display: flex;
+  flex-direction: column !important;
+  color: white !important;
+}
+
+.navAppBarTitle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: white!important;
+  transition: color 0.4s;
+  margin-left: 40px;
+}
+.navAppBarTitle:hover{
+  color: #01e281 !important;
+}
+
+.giftButton {
+  width: 11rem;
+  height: 60px;
+  margin-left: -12px !important;
+  background-color: #01e281 !important;
+  color: #122d40 !important;
+  transition: color 0.3s, background-color 0.3s;
+}
+.giftIcon {
+  font-size: 1.35rem;
+  margin-left: 10px;
+}
+.giftButton:hover {
+  background-color: #122d40 !important;
+  color: #01e281 !important;
+}
+.giftButton:hover .giftIcon {
+  color: #01e281 !important;
+}
+
+.collapse {
+  display: flex;
+  flex-direction: row;
+}
+.menuPaper {
+  width: fit-content !important;
+  background: #122d40 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px !important;
+  z-index: 11;
+}
+
+.menuItem {
+  transition: color 0.4s;
+}
+.menuItems:hover .menuItem{
+  color: #01e281 !important;
+}
+
+.whiteColor {
+  color: white !important;
+}
+
+@media (max-width: 900px) {
+  .navAppBar {
+    display: none !important;
+  }
+}

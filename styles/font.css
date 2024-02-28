@@ -1,0 +1,7 @@
+@font-face {
+    font-family: "mainFont";
+    src: url("../assets/font/sahelFont/Sahel-Black.woff2") format("woff2"),
+    url("../assets/font/sahelFont/Sahel-Black.woff") format("woff"),
+    url("../assets/font/sahelFont/Sahel-Black.eot") format("eot"),
+    url("../assets/font/sahelFont/Sahel-Black.ttf") format("ttf"),
+}

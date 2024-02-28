@@ -1,0 +1,23 @@
+.pageWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+}
+.breadcrumbs {
+    width: 100%;
+    padding-right: 30px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.sideBoxItemWrapper {
+    cursor: pointer;
+}
+.sideBoxItem {
+    transition: color 0.3s;
+}
+.sideBoxItemWrapper:hover .sideBoxItem {
+    color: #01e281 !important;
+}
