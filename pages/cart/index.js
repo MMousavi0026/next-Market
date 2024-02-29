@@ -23,6 +23,7 @@ import Button from "@mui/material/Button";
 import SideBox from "../../components/pages/ShopPage/SideBox";
 import Product from "../../components/pages/ShopPage/Product";
 import axios from "axios";
+import Layout from "@/components/Layout";
 
 export const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -201,5 +202,13 @@ const CartPage = () => {
         </Row>
     );
 };
+
+CartPage.getLayout = (page) => {
+    return(
+        <Layout>
+            {page}
+        </Layout>
+    )
+}
 
 export default CartPage;

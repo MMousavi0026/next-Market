@@ -31,6 +31,7 @@ import Button from "@mui/material/Button";
 import SideBox from "../../components/pages/ShopPage/SideBox";
 import {StyledTableRow, StyledTableCell, } from "./index";
 import axios from "axios";
+import Layout from "@/components/Layout";
 
 const breadcrumbs = [
     <Link style={{display: 'flex'}} underline="hover" key="1" color="inherite" to="/">
@@ -199,5 +200,13 @@ const CheckoutPage = () => {
         </Row>
     );
 };
+
+CheckoutPage.getLayout = (page) => {
+    return(
+        <Layout>
+            {page}
+        </Layout>
+    )
+}
 
 export default CheckoutPage;

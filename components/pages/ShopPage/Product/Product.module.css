@@ -81,6 +81,8 @@
     align-items: center;
     justify-content: end;
     margin: 10px 0;
+    border: none;
+    background: none;
 }
 
 .button {

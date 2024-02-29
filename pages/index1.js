@@ -1,18 +1,18 @@
-import React, {useEffect, useState} from 'react';
-import Link from "next/link";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 import Layout from "@/components/Layout";
 import Row from "@/components/mui/Grid/Row";
 import Col from "@/components/mui/Grid/Col";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import HomeFeatures from "@/components/pages/homePage/HomeFeatures";
-import styles from "@/pages/HomePage.module.css";
-import {productsCategories} from "@/data/productsData";
 import ProductsCategories from "@/components/Layout/Header/ProductsCategories";
 import Product from "@/components/pages/ShopPage/Product";
-import axios from "axios";
+import HomeFeatures from "@/components/pages/homePage/HomeFeatures";
 import NewsSlider from "@/components/pages/homePage/NewsSlider";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import {productsCategories} from "@/data/productsData";
+import styles from './HomePage.module.css';
 
 const HomePage = () => {
     const [productsList, setProductsList] = useState([])
@@ -24,13 +24,14 @@ const HomePage = () => {
             })
     }, []);
 
+
     return (
-        <Row spacing={4}>
+        <Row rowSpacing={4}>
             <Col xs={12}>
                 <div className={styles.box1Wrapper}>
                     <Row spacing={4} className={styles.box1}>
                         <Col xs={12} lg={6} className={styles.box1Right}>
-                            <div className={styles.box1Title}>
+                            <div>
                                 <Typography variant="h3" textAlign="center" marginTop="35px" color='secondary'>
                                     سوپر مارکت اکسترا
                                 </Typography>
@@ -54,9 +55,9 @@ const HomePage = () => {
                                 </Button>
                             </div>
                         </Col>
-                        <Col xs={12} lg={6} style={{paddingTop: '90px', display: 'flex', justifyContent: 'center'}}>
-                            <div style={{paddingTop: '90px', display: 'flex', justifyContent: 'center'}} className={styles.box1Title}>
-                                <Image width={100} height={100} layout="responsive" src='/img/homeBox1.png' alt="shopping" className={styles.homeBoxManImg}/>
+                        <Col xs={12} lg={6} >
+                            <div>
+                                <Image width={0} height={0} layout="responsive" src='/img/homeBox1.png' alt="shopping" className={styles.homeBoxManImg}/>
                             </div>
                         </Col>
                     </Row>
@@ -239,10 +240,10 @@ const HomePage = () => {
                         </div>
                         <div className={styles.box5Buttons}>
                             <Link href="/" className={styles.box5Button1}>
-                                <Image width={100} height={100} className={styles.googleplayImg} src="/img/googleplay.png" alt=""/>
+                                <Image width={100} height={100} layout="responsive" className={styles.googleplayImg} src="/img/googleplay.png" alt=""/>
                             </Link>
                             <Link href="/">
-                                <Image width={100} height={100} className={styles.appStore} src="/img/appStore.png" alt=""/>
+                                <Image width={100} height={100} layout="responsive" className={styles.appStore} src="/img/appStore.png" alt=""/>
                             </Link>
                         </div>
                     </Col>
@@ -261,17 +262,18 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div style={{width: "100%"}}>
-                    {/*<NewsSlider/>*/}
+                    <NewsSlider/>
                 </div>
             </Col>
+            <Col xs={12}/>
         </Row>
     );
 };
 
-HomePage.getLayout = (page) => {
-    return (
+HomePage.getLayout = (component) => {
+    return(
         <Layout>
-            {page}
+            {component}
         </Layout>
     )
 }

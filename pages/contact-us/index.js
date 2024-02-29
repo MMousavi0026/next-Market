@@ -19,8 +19,8 @@ import Typography from "@mui/material/Typography";
 import EmailIcon from '@mui/icons-material/Email';
 import CallIcon from '@mui/icons-material/Call';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import {Form} from "react-router-dom";
 import Button from "@mui/material/Button";
+import Layout from "@/components/Layout";
 
 const breadcrumbs = [
     <Link style={{display: 'flex'}} underline="hover" key="1" color="inherit" to="/">
@@ -192,5 +192,13 @@ const ContactUsPage = () => {
         </Row>
     );
 };
+
+ContactUsPage.getLayout = function (page) {
+    return(
+        <Layout>
+            {page}
+        </Layout>
+    )
+}
 
 export default ContactUsPage;

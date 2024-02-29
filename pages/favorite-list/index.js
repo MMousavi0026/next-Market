@@ -9,6 +9,7 @@ import Row from "../../components/mui/Grid/Row";
 import Product from "../../components/pages/ShopPage/Product";
 import {productsList} from "../../data/productsData";
 import axios from "axios";
+import Layout from "@/components/Layout";
 
 const breadcrumbs = [
     <Link style={{display: 'flex'}} underline="hover" key="1" color="inherit" to="/">
@@ -52,5 +53,13 @@ const FavoritePage = () => {
         </Row>
     );
 };
+
+FavoritePage.getLayout = (page) => {
+    return(
+        <Layout>
+            {page}
+        </Layout>
+    )
+}
 
 export default FavoritePage;
