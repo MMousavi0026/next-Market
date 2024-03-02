@@ -265,8 +265,13 @@
     color: rgb(159,159,159);
     margin-bottom: 20px;
 }
-.captionImg {
+.captionL {
     margin:0 0 0 32px;
+}
+
+.img {
+    width: 100%;
+    height: auto;
 }
 
 .cooperationWrapper {

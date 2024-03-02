@@ -1,4 +1,7 @@
 import React, {useEffect, useState} from 'react';
+import axios from "axios";
+import Link from "next/link";
+import Row from "../../components/mui/Grid/Row";
 import Col from "../../components/mui/Grid/Col";
 import {
     Accordion,
@@ -19,22 +22,19 @@ import {
     TableRow,
     TextField
 } from "@mui/material";
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import styles from "./CartPage.module.css";
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import {StyledTableRow, StyledTableCell, } from "./index";
+import SideBox from "../../components/pages/ShopPage/SideBox";
+import Layout from "@/components/Layout";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import {Link} from "react-router-dom";
-import Row from "../../components/mui/Grid/Row";
 import HomeIcon from "@mui/icons-material/Home";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Button from "@mui/material/Button";
-import SideBox from "../../components/pages/ShopPage/SideBox";
-import {StyledTableRow, StyledTableCell, } from "./index";
-import axios from "axios";
-import Layout from "@/components/Layout";
+import styles from "./CartPage.module.css";
 
 const breadcrumbs = [
-    <Link style={{display: 'flex'}} underline="hover" key="1" color="inherite" to="/">
+    <Link style={{display: 'flex'}} underline="hover" key="1" color="inherite" href="/">
         <HomeIcon style={{fontSize:'18px'}}/>
     </Link>,
     <Typography fontSize={"18px"} key="2" color="text.primary">
@@ -42,7 +42,7 @@ const breadcrumbs = [
     </Typography>,
 ];
 
-const CheckoutPage = () => {
+const Checkout = () => {
 
     const [cartProducts, setCartProducts] = useState([])
     const [sumPrice, setSumPrice] = useState([])
@@ -76,7 +76,7 @@ const CheckoutPage = () => {
             </Col>
             <Col xs={12} sx={{display: {xs: "none", sm: "block"}}}>
                 <div className={styles.titleWrapper}>
-                    <Link to="/cart-list" style={{fontSize: "25px", color: '#999999'}}>سبد خرید</Link>
+                    <Link href="/cart-list" style={{fontSize: "25px", color: '#999999'}}>سبد خرید</Link>
                     <ArrowBackIcon sx={{m: "0 20px"}}/>
                     <Typography fontSize={25}>جزئیات تسویه حساب</Typography>
                     <ArrowBackIcon sx={{m: "0 20px"}}/>
@@ -165,9 +165,9 @@ const CheckoutPage = () => {
                                 </TableHead>
                                 <TableBody>
                                     {
-                                        cartProducts.map((item) => {
+                                        cartProducts.map((item, index) => {
                                             return (
-                                                <StyledTableRow>
+                                                <StyledTableRow key={index}>
                                                     <StyledTableCell component="th" scope="row">
                                                         <Typography>{item.name} * </Typography>
                                                         <Typography fontWeight="bold">2</Typography>
@@ -201,7 +201,7 @@ const CheckoutPage = () => {
     );
 };
 
-CheckoutPage.getLayout = (page) => {
+Checkout.getLayout = (page) => {
     return(
         <Layout>
             {page}
@@ -209,4 +209,4 @@ CheckoutPage.getLayout = (page) => {
     )
 }
 
-export default CheckoutPage;
+export default Checkout;

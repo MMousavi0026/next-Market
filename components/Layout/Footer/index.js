@@ -1,14 +1,14 @@
 import React from 'react';
+import Image from "next/image";
 import SocialMediaIcon from "./SocialMediaIcon";
 import FooterLink from "./FooterLink";
 import Row from "../../mui/Grid/Row";
 import Col from "../../mui/Grid/Col";
-import DraftsIcon from "@mui/icons-material/Drafts";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import {InputBase, styled} from "@mui/material";
+import DraftsIcon from "@mui/icons-material/Drafts";
 import styles from './footer.module.css'
-import Image from "next/image";
 
 const Footer = () => {
 
@@ -63,7 +63,7 @@ const Footer = () => {
                     <Col xs={12} md={4} className={styles.footerItemWrapper}>
                         <div className={styles.footerItem}>
                             <div className={styles.descriptionWrapper}>
-                                <Image width={100} height={100} layout="responsive" src="/img/logo-sm.png" alt="logo"/>
+                                <Image width={100} height={100} src="/img/logo-sm.png" alt="logo" className={styles.img}/>
                                 <Typography className={styles.description} >سوپرمارکت شکلی از خواربارفروشی ولی بزرگتر از آن است که مشتری خودش محصولات را از قفسه برمی‌دارد یا به اصطلاح سلف سرویس است.</Typography>
                                 <div className={styles.socialMediaIcons}>
                                     <SocialMediaIcon imgSrc="/img/eitaa-icon-white2.png"/>
@@ -114,7 +114,7 @@ const Footer = () => {
                     </Col>
                     <Col xs={12} md={6} className={styles.captionLWrapper}>
                         <div className={styles.captionL}>
-                            <Image width={100} height={100} layout="responsive"  className={styles.captionImg} src="/img/f1.png" alt=""/>
+                            <Image width={100} height={100} className={styles.img} src="/img/f1.png" alt=""/>
                         </div>
                     </Col>
                 </Row>

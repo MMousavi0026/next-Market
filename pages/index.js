@@ -20,7 +20,12 @@ const HomePage = () => {
     useEffect(() => {
         axios.get('https://json.xstack.ir/api/v1/products')
             .then(res => {
-                setProductsList(res.data.data.slice(20, 24))
+                if (res.status === 200) {
+                    setProductsList(res.data.data.slice(20, 24))
+                }
+            })
+            .catch(res => {
+                if(res.response.status === 400) alert("خطایی رخ داد")
             })
     }, []);
 
