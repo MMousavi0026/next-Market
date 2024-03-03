@@ -26,7 +26,6 @@ import styles from './shopPage.module.css'
 import Layout from "@/components/Layout";
 
 const ShopPage = () => {
-
     useEffect(() => {
         axios.get('https://json.xstack.ir/api/v1/products')
             .then(res => {

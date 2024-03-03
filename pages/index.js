@@ -12,22 +12,13 @@ import {productsCategories} from "@/data/productsData";
 import ProductsCategories from "@/components/Layout/Header/ProductsCategories";
 import Product from "@/components/pages/ShopPage/Product";
 import axios from "axios";
-import NewsSlider from "@/components/pages/homePage/NewsSlider";
 
-const HomePage = () => {
-    const [productsList, setProductsList] = useState([])
+const HomePage = ({mainData}) => {
+    const [data] = useState(typeof mainData === "object" && mainData?.length > 0 ? mainData : [])
 
     useEffect(() => {
-        axios.get('https://json.xstack.ir/api/v1/products')
-            .then(res => {
-                if (res.status === 200) {
-                    setProductsList(res.data.data.slice(20, 24))
-                }
-            })
-            .catch(res => {
-                if(res.response.status === 400) alert("خطایی رخ داد")
-            })
-    }, []);
+        if(typeof mainData === "string") alert(mainData)
+    }, [mainData]);
 
     return (
         <Row spacing={4}>
@@ -202,7 +193,7 @@ const HomePage = () => {
                         </Button>
                     </div>
                     <Row spacing={4} width="100%">
-                        {productsList.map((productDataItem, index) => (
+                        {data.map((productDataItem, index) => (
                             <Col xs={12} sm={6} lg={3} key={index}>
                                 <Product {...productDataItem} href={`/shop/${productDataItem.id}`}/>
                             </Col>
@@ -272,6 +263,22 @@ const HomePage = () => {
         </Row>
     );
 };
+
+export const getServerSideProps = async () => {
+    const productsList = await axios.get('https://json.xstack.ir/api/v1/products')
+        .then(res => {
+            return(res.data.data.slice(20, 24))
+        })
+        .catch(() => {
+            return "خطایی رخ داد"
+        })
+
+    return {
+        props: {
+            mainData: productsList
+        }
+    }
+}
 
 HomePage.getLayout = (page) => {
     return (
