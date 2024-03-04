@@ -1,41 +1,38 @@
 import React, {useEffect, useState} from 'react';
-import PersonIcon from '@mui/icons-material/Person';
+import axios from "axios";
+import {useRouter} from "next/router";
+import Link from "next/link";
+import Row from "@/components/mui/Grid/Row";
+import Col from "@/components/mui/Grid/Col";
+import {Breadcrumbs, Chip, TextField} from "@mui/material";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import SideBox from "@/components/pages/ShopPage/SideBox";
+import {tags} from "@/data/tags";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import FolderIcon from '@mui/icons-material/Folder';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import Col from "../../components/mui/Grid/Col";
-import {Breadcrumbs, Chip, TextField} from "@mui/material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import Row from "../../components/mui/Grid/Row";
-import Button from "@mui/material/Button";
-import {Link} from "react-router-dom";
-import Typography from "@mui/material/Typography";
-import SideBox from "../../components/pages/ShopPage/SideBox";
-import {tags} from "../../data/tags";
 import HomeIcon from "@mui/icons-material/Home";
 import styles from "@/pages/news/NewsPage.module.css";
-import {useParams} from "react-router-dom";
-import axios from "axios";
+import Layout from "@/components/Layout";
+import Image from "next/image";
 
-const TheNewsPage = () => {
-    const [thisNewsData, setThisNews] = useState([])
-    const params = useParams();
+const TheNewsPage = ({dataList}) => {
+    const [thisNewsData] = useState(Array.isArray(dataList) ? dataList : [])
+    const router = useRouter();
 
     useEffect(() => {
-        axios.get('https://json.xstack.ir/api/v1/posts')
-            .then(res => {
-                setThisNews(res.data.data)
-            })
-    }, []);
+        if (typeof dataList === "string") alert(dataList)
+    }, [dataList]);
 
-    const thisNews = thisNewsData.find(item => item.id == params.newsId)??{}
+    const thisNews = thisNewsData.find(item => item.id == router.query.id)??{}
 
     const breadcrumbs = [
-        <Typography component={Link} style={{display: 'flex'}} underline="hover" key="1" color="inherit" to="/">
+        <Typography component={Link} style={{display: 'flex'}} underline="hover" key="1" color="inherit" href="/">
             <HomeIcon style={{fontSize:'18px'}}/>
         </Typography>,
-        <Typography component={Link} fontSize={"18px"} underline="hover" key="2" color="inherit.main" to="/news">
+        <Typography component={Link} fontSize={"18px"} underline="hover" key="2" color="inherit.main" href="/news">
             اخبار و مقالات
         </Typography>,
     ];
@@ -57,7 +54,7 @@ const TheNewsPage = () => {
                     <Col xs={12} lg={8}>
                         <Row rowSpacing={4}>
                             <Col xs={12}>
-                                <img src={thisNews?.imgSrc} alt={thisNews?.title} width="100%" style={{borderRadius:"20px"}}/>
+                                <Image src={thisNews?.imgSrc} alt={thisNews?.title} width={100} height={100} layout="responsive" style={{borderRadius:"20px"}}/>
                                 <Typography fontSize={25} fontWeight="bold">{thisNews?.title}</Typography>
                                 <Typography fontSize={20} display="block" margin="10px 0" >{thisNews?.body}</Typography>
                             </Col>
@@ -97,7 +94,7 @@ const TheNewsPage = () => {
                                 <SideBox title="برچسب ها">
                                     {
                                         tags.map((item, index) => (
-                                            <Link to="#">
+                                            <Link href="#" key={index}>
                                                 <Button variant="contained" color="white" sx={{ml:'10px', mb:'10px'}}>{item}</Button>
                                             </Link>
                                         ))
@@ -106,8 +103,8 @@ const TheNewsPage = () => {
                             </Col>
                             <Col xs={12}>
                                 <SideBox title="تبلیغات ساده">
-                                    <Link to="#" >
-                                        <img src="/img/ads.jpg" width="100%" alt="تبلیغات" style={{borderRadius:"20px", marginTop:'15px'}}/>
+                                    <Link href="#" >
+                                        <Image src="/img/ads.jpg" width={100} height={100} layout="responsive" alt="تبلیغات" style={{borderRadius:"20px", marginTop:'15px'}}/>
                                     </Link>
                                 </SideBox>
                             </Col>
@@ -119,5 +116,28 @@ const TheNewsPage = () => {
         </Row>
     );
 };
+
+export const getServerSideProps = async () => {
+    const dataList = await  axios.get('https://json.xstack.ir/api/v1/posts')
+        .then(res => {
+            return(res.data.data)
+        })
+        .catch(() => (
+            "خطایی رخ داد!"
+        ))
+    return {
+        props: {
+            dataList
+        }
+    }
+}
+
+TheNewsPage.getLayout = (page) => {
+    return (
+        <Layout>
+            {page}
+        </Layout>
+    )
+}
 
 export default TheNewsPage;

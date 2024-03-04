@@ -12,11 +12,8 @@ import {
     InputLabel,
     MenuItem,
     Select,
-    styled,
     Table,
     TableBody,
-    TableCell,
-    tableCellClasses,
     TableContainer,
     TableHead,
     TableRow,
@@ -42,11 +39,14 @@ const breadcrumbs = [
     </Typography>,
 ];
 
-const Checkout = () => {
-
-    const [cartProducts, setCartProducts] = useState([])
+const Checkout = ({dataList}) => {
+    const [cartProducts] = useState(Array.isArray(dataList) ? dataList : [])
     const [sumPrice, setSumPrice] = useState([])
     const [city, setCity] = useState('تهران')
+
+    useEffect(() => {
+        if (typeof dataList === "string") alert(dataList)
+    }, [dataList]);
 
     useEffect(() => {
         const updatedSumPrice = cartProducts.map(item => 2 * item.price);
@@ -54,13 +54,6 @@ const Checkout = () => {
     }, [cartProducts]);
 
     const sum = sumPrice.reduce((a, c) => a + c, 0)
-
-    useEffect(() => {
-        axios.get('https://json.xstack.ir/api/v1/products')
-            .then(res => {
-                setCartProducts(res.data.data.slice(10, 15))
-            })
-    }, []);
 
     const handleChange = (event) => {
         setCity(event.target.value);
@@ -200,6 +193,21 @@ const Checkout = () => {
         </Row>
     );
 };
+
+export const getServerSideProps = async () => {
+    const dataList = await axios.get('https://json.xstack.ir/api/v1/products')
+        .then(res => {
+            return (res.data.data.slice(10, 15))
+        })
+        .catch(() => {
+            return "خظایی رخ داد!"
+        })
+    return {
+        props: {
+            dataList
+        }
+    }
+}
 
 Checkout.getLayout = (page) => {
     return(

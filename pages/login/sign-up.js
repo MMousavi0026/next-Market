@@ -1,11 +1,11 @@
 import * as React from 'react';
+import Link from 'next/link';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import {Link} from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -30,7 +30,7 @@ const Copyright = (props) => {
 
 const defaultTheme = createTheme();
 
- const SignUpPage = () => {
+ const SignUp = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -115,7 +115,7 @@ const defaultTheme = createTheme();
                         </Button>
                         <Grid container justifyContent="flex-end">
                             <Grid item>
-                                <Link to="/sign-in" variant="body2">
+                                <Link href="/sign-in" variant="body2">
                                     Already have an account? Sign in
                                 </Link>
                             </Grid>
@@ -127,4 +127,4 @@ const defaultTheme = createTheme();
     );
 }
 
-export default SignUpPage;
+export default SignUp;

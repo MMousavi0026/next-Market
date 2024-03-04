@@ -19,7 +19,7 @@ const HomePage = ({mainData}) => {
     useEffect(() => {
         if(typeof mainData === "string") alert(mainData)
     }, [mainData]);
-
+    console.log(mainData)
     return (
         <Row spacing={4}>
             <Col xs={12}>

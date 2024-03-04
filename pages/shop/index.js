@@ -25,19 +25,16 @@ import {productsCategories, reviewsOfRecentProducts} from "@/data/productsData";
 import styles from './shopPage.module.css'
 import Layout from "@/components/Layout";
 
-const ShopPage = () => {
-    useEffect(() => {
-        axios.get('https://json.xstack.ir/api/v1/products')
-            .then(res => {
-                setProductList(res.data.data);
-                setData(res.data.data.slice(0, 6))
-            })
-    }, []);
-
-    const [productList, setProductList] = useState([]);
-    const [dataList, setData] = useState([]);
+const ShopPage = ({productsList, currentProducts}) => {
+    const [productList] = useState(Array.isArray(productsList) ? productsList : []);
+    const [currentProduct, setCurrentProducts] = useState(productsList.slice(0, 6));
     const [age, setAge] = useState('');
     const [age2, setAge2] = useState('');
+
+    useEffect(() => {
+        if (typeof productsList === "string") alert(productsList)
+        else if (currentProducts === "string" ) alert(currentProducts)
+    }, [productsList, currentProducts]);
 
     const breadcrumbs = [
         <Link style={{display: 'flex'}} underline="hover" key="1" color="inherit" href="/">
@@ -60,7 +57,7 @@ const ShopPage = () => {
 
     const onPaginationChange = useCallback((_, number)=> {
         pageNumberRef.current = number
-        setData(productList.slice((number - 1) * 6, number * 6))
+        setCurrentProducts(productList.slice((number - 1) * 6, number * 6))
     }, [productList])
 
     const scroll = () => {
@@ -128,7 +125,7 @@ const ShopPage = () => {
                             <Col xs={12}>
                                 <Row spacing={4}>
                                     {
-                                        dataList.map((item, index) => (
+                                        currentProduct.map((item, index) => (
                                             <Col key={index} xs={12} sm={6}>
                                                 <Product {...item} href={`/shop/${item.id}`} />
                                             </Col>
@@ -188,6 +185,23 @@ const ShopPage = () => {
         </Row>
     );
 };
+
+export const getServerSideProps = async () => {
+    const dataList = await axios.get('https://json.xstack.ir/api/v1/products')
+        .then(res => {
+            return {
+                productsList: (res.data.data),
+            };
+        })
+        .catch(() => {
+            return "خطایی رخ داد"
+        })
+    return {
+        props: {
+            productsList: dataList.productsList,
+        }
+    }
+}
 
 ShopPage.getLayout = (page) => {
     return(

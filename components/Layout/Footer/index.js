@@ -26,7 +26,7 @@ const Footer = () => {
             [theme.breakpoints.up('xl')]: {
                 width: '15vw',
                 '&:focus': {
-                    width: '33vw',
+                    width: '20vw',
                 },
             },
         },

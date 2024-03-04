@@ -25,24 +25,20 @@ const breadcrumbs = [
     </Typography>,
 ];
 
-const NewsPage = () => {
-    const [dataList, setData] = useState([]);
-    const [newsList, setNews] = useState([]);
+const NewsPage = ({mainData}) => {
+    const [dataList] = useState(Array.isArray(mainData) ? mainData : []);
+    const [newsList, setNews] = useState(dataList.slice(0, 4));
 
     useEffect(() => {
-        axios.get('https://json.xstack.ir/api/v1/posts')
-            .then(res => {
-                setData(res.data.data)
-                setNews(res.data.data.slice(0, 4))
-            })
-    }, []);
+        if (mainData === "string") alert(mainData)
+    }, [mainData]);
 
     const pageNumberRef = useRef(1)
 
     const onPaginationChange = useCallback((_, number)=> {
         pageNumberRef.current = number
         setNews(dataList.slice((number - 1) * 4, number * 4))
-    }, [newsList])
+    }, [dataList])
 
     return (
         <Row rowSpacing={4} className={styles.pageWrapper}>
@@ -67,7 +63,7 @@ const NewsPage = () => {
                                             <Link fontSize={25} href={`/news/${item.id}`} className={styles.newsItemTitle}>{item.title}</Link>
                                             <Typography fontSize={15} display="block" color="text.secondary" margin="10px 0">{item.date}</Typography>
                                             <Typography fontSize={17} display="block" color="text.primary" className={styles.newsItemDesc}>{item.desc}</Typography>
-                                            <Button component={Link} to={`/news/${item.id}`} variant="contained" color="secondary" sx={{mt:"20px"}}>
+                                            <Button component={Link} href={`/news/${item.id}`} variant="contained" color="secondary" sx={{mt:"20px"}}>
                                                 <LinkIcon color="primary" sx={{mr: '5px'}}/>
                                                 <Typography>ادامه مطلب</Typography>
                                             </Button>
@@ -100,7 +96,7 @@ const NewsPage = () => {
                                 <SideBox title="برچسبها">
                                     {
                                         tags.map((item, index) => (
-                                            <Link href="#">
+                                            <Link href="#" key={index}>
                                                 <Button variant="contained" color="white" sx={{ml:'10px', mb:'10px'}}>{item}</Button>
                                             </Link>
                                         ))
@@ -122,6 +118,21 @@ const NewsPage = () => {
         </Row>
     );
 };
+
+export const getServerSideProps = async () => {
+    const dataList = await axios.get('https://json.xstack.ir/api/v1/posts')
+        .then(res => {
+            return(res.data.data)
+        })
+        .catch(() => (
+            "خطایی رخ داد!"
+        ))
+    return {
+        props: {
+            mainData: dataList
+        }
+    }
+}
 
 NewsPage.getLayout = (page) => {
     return(

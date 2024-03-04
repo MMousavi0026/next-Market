@@ -55,25 +55,21 @@ const breadcrumbs = [
     </Typography>,
 ];
 
-const CartPage = () => {
-
-    const [cartProducts, setCartProducts] = useState([])
+const CartPage = ({cartProducts, relatedProducts}) => {
+    const [cartProduct] = useState(typeof cartProducts === "object" && cartProducts.length > 0 ? cartProducts : [])
     const [cartNumber, setCartNumber] = useState(1)
-    const [relatedProducts, setRelatedProducts] = useState([])
+    const [relatedProduct] = useState(typeof relatedProducts === "object" && relatedProducts.length > 0 ? relatedProducts : [])
     const [sumPrice, setSumPrice] = useState([])
 
     useEffect(() => {
-        const updatedSumPrice = cartProducts.map(item => cartNumber * item.price);
-        setSumPrice(updatedSumPrice);
-    }, [cartProducts, cartNumber]);
+        if (typeof cartProducts === "string") alert(cartProducts)
+        else if (relatedProducts === "string") alert(relatedProducts)
+    }, [cartProducts, relatedProducts]);
 
     useEffect(() => {
-        axios.get('https://json.xstack.ir/api/v1/products')
-            .then(res => {
-                setCartProducts(res.data.data.slice(0,5));
-                setRelatedProducts(res.data.data.slice(10,12))
-            })
-    }, []);
+        const updatedSumPrice = cartProduct.map(item => cartNumber * item.price);
+        setSumPrice(updatedSumPrice);
+    }, [cartProduct, cartNumber]);
 
     const sum = sumPrice.reduce((a, c) => a + c, 0)
 
@@ -121,8 +117,7 @@ const CartPage = () => {
                                 </TableHead>
                                 <TableBody>
                                     {
-                                        cartProducts.map((item, index) => {
-
+                                        cartProduct.map((item, index) => {
                                             return (
                                             <StyledTableRow key={index}>
                                                 <StyledTableCell component="th" scope="row">
@@ -131,7 +126,7 @@ const CartPage = () => {
                                                     </IconButton>
                                                 </StyledTableCell>
                                                 <StyledTableCell component={Link} href={`/shop/${item.id}`}>
-                                                    <Image width={100} height={100} layout="responsive" src={item.image} alt={item.name}/>
+                                                    <Image width={100} height={100} src={item.image} alt={item.name}/>
                                                 </StyledTableCell>
                                                 <StyledTableCell component={Link} href={`/shop/${item.id}`}>{item.name}</StyledTableCell>
                                                 <StyledTableCell>{item.price}</StyledTableCell>
@@ -177,9 +172,9 @@ const CartPage = () => {
                         <SideBox title="محصولات مرتبط">
                             <Row spacing={4}>
                                 {
-                                    relatedProducts.map((item, index) => (
+                                    relatedProduct.map((item, index) => (
                                         <Col xs={12} md={6} key={index}>
-                                            <Product {...item} to={item.id}/>
+                                            <Product {...item} href={`/shop/${item.id}`}/>
                                         </Col>
                                     ))
                                 }
@@ -188,15 +183,17 @@ const CartPage = () => {
                     </Col>
                     <Col xs={12} md={6}>
                         <SideBox title="جمع کل سبد خرید">
-                            <TableRow>
-                                <StyledTableCell>جمع جزء</StyledTableCell>
-                                <StyledTableCell>{sum} تومان</StyledTableCell>
-                            </TableRow>
-                            <TableRow>
-                                <StyledTableCell>مجموع</StyledTableCell>
-                                <StyledTableCell>{sum} تومان</StyledTableCell>
-                            </TableRow>
-                            <Button variant="contained" component={Link} href="/checkout" color= "secondary" sx={{mt: "20px"}}>ادامه جهت تسویه حساب</Button>
+                            <Table>
+                                <TableRow>
+                                    <StyledTableCell>جمع جزء</StyledTableCell>
+                                    <StyledTableCell>{sum} تومان</StyledTableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <StyledTableCell>مجموع</StyledTableCell>
+                                    <StyledTableCell>{sum} تومان</StyledTableCell>
+                                </TableRow>
+                            </Table>
+                            <Button variant="contained" component={Link} href="/cart-list/checkout" color= "secondary" sx={{mt: "20px"}}>ادامه جهت تسویه حساب</Button>
                         </SideBox>
                     </Col>
                     <Col xs={12}/>
@@ -205,6 +202,26 @@ const CartPage = () => {
         </>
     );
 };
+
+export const getServerSideProps = async () => {
+    const dataList = await axios.get('https://json.xstack.ir/api/v1/products')
+        .then(res => {
+            return {
+                cartProducts: (res.data.data.slice(0,5)),
+                relatedProducts: (res.data.data.slice(10,12))
+            }
+        })
+        .catch(() => {
+            return "خطایی رخ داد!"
+        })
+
+    return {
+        props: {
+            cartProducts: dataList.cartProducts,
+            relatedProducts: dataList.relatedProducts
+        }
+    }
+}
 
 CartPage.getLayout = (page) => {
     return(

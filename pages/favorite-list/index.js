@@ -7,9 +7,9 @@ import {Breadcrumbs} from "@mui/material";
 import Col from "../../components/mui/Grid/Col";
 import Row from "../../components/mui/Grid/Row";
 import Product from "../../components/pages/ShopPage/Product";
-import {productsList} from "../../data/productsData";
 import axios from "axios";
 import Layout from "@/components/Layout";
+import styles from "./FavoritePage.module.css"
 
 const breadcrumbs = [
     <Link style={{display: 'flex'}} underline="hover" key="1" color="inherit" to="/">
@@ -19,16 +19,13 @@ const breadcrumbs = [
         علاقمندی ها
     </Typography>,
 ];
-const FavoritePage = () => {
-
-    const [dataList, setDataList] = useState([])
+const FavoritePage = ({dataList}) => {
+    const [productsList] = useState(Array.isArray(dataList) ? dataList : [])
 
     useEffect(() => {
-        axios.get('https://json.xstack.ir/api/v1/products')
-            .then(res => {
-                setDataList(res.data.data.slice(15,20))
-            })
-    }, []);
+        if (typeof dataList === "string") alert(dataList)
+    }, [dataList]);
+    console.log(dataList)
 
     return (
         <Row rowSpacing={4}>
@@ -41,9 +38,9 @@ const FavoritePage = () => {
             <Col>
                 <Row spacing={4}>
                     {
-                        dataList.map((item, index) => (
-                            <Col xs={12} sm={2} lg={3}>
-                                <Product closeIcon {...item} to={item.id}/>
+                        productsList.map((item, index) => (
+                            <Col xs={12} sm={2} lg={3} key={index}>
+                                <Product closeIcon {...item} href={`/shop/${item.id}`}/>
                             </Col>
                         ))
                     }
@@ -53,6 +50,21 @@ const FavoritePage = () => {
         </Row>
     );
 };
+
+export const getServerSideProps = async () => {
+    const dataList = await axios.get('https://json.xstack.ir/api/v1/products')
+        .then(res => {
+            return(res.data.data.slice(15,20))
+        })
+        .catch(()  => (
+            "خطایی رخ داد!"
+        ))
+    return {
+        props: {
+            dataList
+        }
+    }
+}
 
 FavoritePage.getLayout = (page) => {
     return(

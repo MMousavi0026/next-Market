@@ -1,31 +1,33 @@
 import React, {useEffect, useState} from 'react';
-import Row from "../../components/mui/Grid/Row";
-import Col from "../../components/mui/Grid/Col";
-import ProductOption from "../../components/pages/ShopPage/Product/ProductOption";
+import axios from "axios";
+import {useRouter} from "next/router";
+import {useDispatch} from "react-redux";
+import {increaseCartByAmount} from "@/redux/reducers/counterCart";
+import Image from "next/image";
+import Row from "@/components/mui/Grid/Row";
+import Col from "@/components/mui/Grid/Col";
+import ProductOption from "@/components/pages/ShopPage/Product/ProductOption";
 import Typography from "@mui/material/Typography";
 import {Checkbox, FormControlLabel, Rating, Tab, Tabs, TextField} from "@mui/material";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCartShopping, faCodeCompare, faHeart} from "@fortawesome/free-solid-svg-icons";
 import Button from "@mui/material/Button";
+import Divider from "@mui/material/Divider";
+import styles from "./Product.module.css"
+import SocialMediaIcon from "./SocialMediaIcon";
+import Box from "@mui/material/Box";
+import PropTypes from "prop-types";
+import SideBox from "@/components/pages/ShopPage/SideBox";
+import Product from "@/components/pages/ShopPage/Product";
+import {shopFeatures} from "@/data/shopFeatures";
+import {increaseCounterBeloved} from "@/redux/reducers/counterBeloved";
+import Layout from "@/components/Layout";
+import {faCartShopping, faCodeCompare, faHeart} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import XIcon from '@mui/icons-material/X';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import EmailIcon from '@mui/icons-material/Email';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import {useDispatch} from "react-redux";
-import {increaseCartByAmount} from "../../redux/reducers/counterCart";
-import Divider from "@mui/material/Divider";
-import styles from "./Product.module.css"
-import SocialMediaIcon from "./SocialMediaIcon";
-import Box from "@mui/material/Box";
-import PropTypes from "prop-types";
-import SideBox from "../../components/pages/ShopPage/SideBox";
-import Product from "../../components/pages/ShopPage/Product";
-import {shopFeatures} from "../../data/shopFeatures";
-import {useParams} from "react-router-dom";
-import {increaseCounterBeloved} from "../../redux/reducers/counterBeloved";
-import axios from "axios";
 
 const CustomTabPanel = ({children, value, index, ...other}) => {
     return (
@@ -64,21 +66,17 @@ const a11yProps = (index) => {
     };
 }
 
-const ProductPage = () => {
-
+const ProductPage = ({dataList}) => {
     const [numRate, setNumRate] = useState(0)
-    const [someProductsList, setProductsList] = useState([])
+    const [someProductsList] = useState(Array.isArray(dataList) ? dataList : [])
     const [cartNumber, setCartNumber] = useState(1)
-    const params = useParams();
+    const router = useRouter();
 
     useEffect(() => {
-        axios.get('https://json.xstack.ir/api/v1/products')
-            .then(res => {
-                setProductsList(res.data.data);
-            })
-    }, []);
+        if (typeof dataList === "string") alert(dataList)
+    }, [dataList]);
 
-    const thisProduct = someProductsList.find(item => item.id == params.productId)??{}
+    const thisProduct = someProductsList.find(item => item.id == router.query.id)??{}
 
     const socialMediaIcon = [
         {icon: FacebookOutlinedIcon, title: "اشتراک گذاری در فیسبوک"},
@@ -112,8 +110,10 @@ const ProductPage = () => {
                 <Row columnSpacing={4}>
                     <Col md={5.5}>
                         <div>
-                            <img
-                                width="100%"
+                            <Image
+                                width={100}
+                                height={100}
+                                layout="responsive"
                                 src={thisProduct.image}
                                 alt={thisProduct.name}
                                 className={styles.productImg}
@@ -211,8 +211,8 @@ const ProductPage = () => {
                             </Col>
                             <Col xs={12} style={{display: 'flex', flexDirection: "column"}}>
                                 {
-                                    shopFeatures.map((item) => (
-                                        <Typography variant="body2" sx={{color: "rgba(128, 128, 128, 1)", mt: "5px"}}>
+                                    shopFeatures.map((item, index) => (
+                                        <Typography variant="body2" key={index} sx={{color: "rgba(128, 128, 128, 1)", mt: "5px"}}>
                                             &#10003; {item.title} {item.description}
                                         </Typography>
                                     ))
@@ -232,8 +232,8 @@ const ProductPage = () => {
                                 }}>
                                     <Typography style={{margin: "0 15px"}}>اشتراک گذاری:</Typography>
                                     {
-                                        socialMediaIcon.map((item) => (
-                                            <SocialMediaIcon icon={item.icon}/>
+                                        socialMediaIcon.map((item, index) => (
+                                            <SocialMediaIcon icon={item.icon} key={index}/>
                                         ))
                                     }
                                 </div>
@@ -273,7 +273,7 @@ const ProductPage = () => {
                                     flexDirection: "column"
                                 }}>
                                     <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
-                                        <img src="/img/4001b4cb302a45af47747d07c1208745.png" alt="user"
+                                        <Image width={100} height={100} src="/img/4001b4cb302a45af47747d07c1208745.png" alt="user"
                                              style={{borderRadius: "50%"}}/>
                                         <div style={{marginRight: "10px"}}>
                                             <Typography variant="h6" display="block">آناهیتا خسروی</Typography>
@@ -397,9 +397,9 @@ const ProductPage = () => {
                 <SideBox title="محصولات مرتبط">
                     <Row spacing={4}>
                         {
-                            someProductsList.slice(0, 3).map((item) => (
-                                <Col xs={12} md={4}>
-                                    <Product {...item}/>
+                            someProductsList.slice(0, 3).map((item, index) => (
+                                <Col xs={12} md={4} key={index}>
+                                    <Product {...item} href={`/shop/${item.id}`}/>
                                 </Col>
                             ))
                         }
@@ -410,9 +410,9 @@ const ProductPage = () => {
                 <SideBox title="محصولات پرفروش">
                     <Row spacing={4}>
                         {
-                            someProductsList.slice(0, 3).map((item) => (
-                                <Col xs={12} md={4}>
-                                    <Product {...item}/>
+                            someProductsList.slice(0, 3).map((item, index) => (
+                                <Col xs={12} md={4} key={index}>
+                                    <Product {...item} href={`/shop/${item.id}`}/>
                                 </Col>
                             ))
                         }
@@ -423,5 +423,29 @@ const ProductPage = () => {
         </Row>
     );
 };
+
+export const getServerSideProps = async () => {
+    const dataList = await axios.get('https://json.xstack.ir/api/v1/products')
+        .then(res => {
+            return(res.data.data);
+        })
+        .catch(() => {
+            return "خطایی رخ داد"
+        })
+
+    return {
+        props: {
+            dataList
+        }
+    }
+}
+
+ProductPage.getLayout = (page) => {
+    return(
+        <Layout>
+            {page}
+        </Layout>
+    )
+}
 
 export default ProductPage;
