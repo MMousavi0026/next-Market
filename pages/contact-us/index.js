@@ -39,6 +39,7 @@ const ContactUsPage = () => {
     };
     return (
         <Row rowSpacing={4} className={styles.wrapper}>
+            <Col xs={12} />
             <Col xs={12} width="100%" className={styles.breadcrumbs}>
                 <Breadcrumbs separator={<NavigateBeforeIcon fontSize="16px" />} aria-label="breadcrumb">
                     {breadcrumbs}

@@ -39,7 +39,7 @@ const FavoritePage = ({dataList}) => {
                 <Row spacing={4}>
                     {
                         productsList.map((item, index) => (
-                            <Col xs={12} sm={2} lg={3} key={index}>
+                            <Col xs={12} sm={6} md={4} lg={3} key={index}>
                                 <Product closeIcon {...item} href={`/shop/${item.id}`}/>
                             </Col>
                         ))

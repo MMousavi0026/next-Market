@@ -12,6 +12,7 @@ import {productsCategories} from "@/data/productsData";
 import ProductsCategories from "@/components/Layout/Header/ProductsCategories";
 import Product from "@/components/pages/ShopPage/Product";
 import axios from "axios";
+import NewsSlider from "@/components/pages/homePage/NewsSlider";
 
 const HomePage = ({mainData}) => {
     const [data] = useState(typeof mainData === "object" && mainData?.length > 0 ? mainData : [])
@@ -50,9 +51,9 @@ const HomePage = ({mainData}) => {
                                 </Button>
                             </div>
                         </Col>
-                        <Col xs={12} lg={6} style={{paddingTop: '90px', display: 'flex', justifyContent: 'center'}}>
-                            <div style={{paddingTop: '90px', display: 'flex', justifyContent: 'center'}} className={styles.box1Title}>
-                                <Image width={100} height={100} layout="responsive" src='/img/homeBox1.png' alt="shopping" className={styles.homeBoxManImg}/>
+                        <Col xs={12} lg={6} style={{display: 'flex', justifyContent: 'center'}}>
+                            <div style={{paddingTop: '80px', display: 'flex', justifyContent: 'center'}} className={styles.box1Title}>
+                                <Image width={400} height={400} src='/img/homeBox1.png' alt="shopping"  className={styles.homeBoxManImg}/>
                             </div>
                         </Col>
                     </Row>
@@ -243,8 +244,8 @@ const HomePage = ({mainData}) => {
                         </div>
                     </Col>
                     <Col xs={12} md={6} className={styles.box5Button}>
-                        <Link href="/" className={styles.box5Img}>
-                            <Image src="/img/mobile.png" width={100} height={100} layout="responsive" alt=""/>
+                        <Link href="/" className={styles.box5ImgWrapper}>
+                            <Image src="/img/mobile.png" width={100} height={100} layout="responsive" alt="" className={styles.box5Img}/>
                         </Link>
                     </Col>
                 </Row>

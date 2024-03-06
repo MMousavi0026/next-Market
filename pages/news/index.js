@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Row from "../../components/mui/Grid/Row";
 import Col from "../../components/mui/Grid/Col";
-import {Breadcrumbs, Pagination, TextField} from "@mui/material";
+import {Breadcrumbs, Pagination, PaginationItem, TextField} from "@mui/material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import HomeIcon from "@mui/icons-material/Home";
 import Typography from "@mui/material/Typography";
@@ -15,6 +15,8 @@ import SideBox from "@/components/pages/ShopPage/SideBox";
 import Layout from "@/components/Layout";
 import {tags} from "@/data/tags";
 import styles from "./NewsPage.module.css";
+import {number} from "prop-types";
+import {useRouter} from "next/router";
 
 const breadcrumbs = [
     <Link style={{display: 'flex'}} underline="hover" key="1" color="inherit" href="/">
@@ -33,12 +35,23 @@ const NewsPage = ({mainData}) => {
         if (mainData === "string") alert(mainData)
     }, [mainData]);
 
+    const router = useRouter()
+    const query = new URLSearchParams(router.query);
+    const page = parseInt(query.get('page') || '1', 10);
+
     const pageNumberRef = useRef(1)
 
     const onPaginationChange = useCallback((_, number)=> {
         pageNumberRef.current = number
         setNews(dataList.slice((number - 1) * 4, number * 4))
     }, [dataList])
+
+    const scroll = () => {
+        window.scrollTo({
+            top: 250 ,
+            behavior: "smooth",
+        })
+    }
 
     return (
         <Row rowSpacing={4} className={styles.pageWrapper}>
@@ -72,7 +85,20 @@ const NewsPage = ({mainData}) => {
                                 ))
                             }
                             <Col xs={12} sx={{display: "flex", justifyContent: "center"}}>
-                                <Pagination count={Math.ceil(dataList.length / 4)} color="primary" onChange={onPaginationChange} />
+                                <Pagination
+                                    count={Math.ceil(dataList.length / 4)}
+                                    color="primary"
+                                    onChange={onPaginationChange}
+                                    onClick={scroll}
+                                    renderItem={(item) => (
+                                        <PaginationItem
+                                            component={Link}
+                                            page={page}
+                                            href={item.page > 0 ? `/news?page=${item.page}` : '/news'}
+                                            {...item}
+                                        />
+                                    )}
+                                />
                             </Col>
                             <Col xs={12}/>
                         </Row>
@@ -106,7 +132,7 @@ const NewsPage = ({mainData}) => {
                             <Col xs={12}>
                                 <SideBox title="تبلیغات ساده">
                                     <Link href="#" >
-                                        <Image src="/img/ads.jpg" alt="تبلیغات" width={100} height={100} layout="responsive" style={{borderRadius:"20px", marginTop:'15px'}}/>
+                                        <Image src="/img/ads.jpg" alt="تبلیغات" width={300} height={300} style={{borderRadius:"20px", marginTop:'15px', width: '100%', height: 'auto'}}/>
                                     </Link>
                                 </SideBox>
                             </Col>

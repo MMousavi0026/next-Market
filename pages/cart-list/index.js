@@ -5,7 +5,7 @@ import Image from "next/image";
 import Row from "@/components/mui/Grid/Row";
 import Col from "@/components/mui/Grid/Col";
 import {
-    Breadcrumbs, IconButton,
+    Breadcrumbs, IconButton, Paper,
     styled,
     Table, TableBody,
     TableCell,
@@ -97,14 +97,14 @@ const CartPage = ({cartProducts, relatedProducts}) => {
                         <div className={styles.titleWrapper}>
                             <Typography fontSize={25}>سبد خرید</Typography>
                             <ArrowBackIcon sx={{m: "0 20px"}}/>
-                            <Link href="/checkout" style={{ fontSize: "25px", color: "#999999" }}>جزئیات تسویه حساب</Link>
+                            <Link href="/cart-list/checkout" style={{ fontSize: "25px", color: "#999999" }}>جزئیات تسویه حساب</Link>
                             <ArrowBackIcon sx={{m: "0 20px"}}/>
                             <Typography fontSize={25} color="inherit.main">ثبت سفارش</Typography>
                         </div>
                     </Col>
                     <Col xs={12}>
-                        <TableContainer>
-                            <Table aria-label="customized table">
+                        <TableContainer component={Paper}>
+                            <Table sx={{ minWidth: 700 }} aria-label="customized table">
                                 <TableHead>
                                     <TableRow>
                                         <StyledTableCell> </StyledTableCell>
@@ -151,7 +151,6 @@ const CartPage = ({cartProducts, relatedProducts}) => {
                                             </StyledTableRow>
                                         )})
                                     }
-
                                 </TableBody>
                             </Table>
                         </TableContainer>
@@ -168,12 +167,12 @@ const CartPage = ({cartProducts, relatedProducts}) => {
                             </Col>
                         </Row>
                     </Col>
-                    <Col xs={12} md={6}>
+                    <Col xs={12} lg={6}>
                         <SideBox title="محصولات مرتبط">
                             <Row spacing={4}>
                                 {
                                     relatedProduct.map((item, index) => (
-                                        <Col xs={12} md={6} key={index}>
+                                        <Col xs={12} sm={6} key={index}>
                                             <Product {...item} href={`/shop/${item.id}`}/>
                                         </Col>
                                     ))
@@ -181,7 +180,7 @@ const CartPage = ({cartProducts, relatedProducts}) => {
                             </Row>
                         </SideBox>
                     </Col>
-                    <Col xs={12} md={6}>
+                    <Col xs={12} lg={6}>
                         <SideBox title="جمع کل سبد خرید">
                             <Table>
                                 <TableRow>

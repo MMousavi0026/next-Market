@@ -1,7 +1,7 @@
 import React from 'react';
+import Link from "next/link";
 import Image from "next/image";
 import LinkIcon from "@mui/icons-material/Link";
-import Link from "@mui/material/Link";
 import styles from "./NewsItem.module.css";
 
 const NewsItemComponent = ({title, imgSrc, desc, date, href}) => {

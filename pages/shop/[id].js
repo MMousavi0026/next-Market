@@ -76,7 +76,7 @@ const ProductPage = ({dataList}) => {
         if (typeof dataList === "string") alert(dataList)
     }, [dataList]);
 
-    const thisProduct = someProductsList.find(item => item.id == router.query.id)??{}
+    const thisProduct = someProductsList.find(item => item.id == router.query.id) ?? {}
 
     const socialMediaIcon = [
         {icon: FacebookOutlinedIcon, title: "اشتراک گذاری در فیسبوک"},
@@ -108,22 +108,22 @@ const ProductPage = ({dataList}) => {
             <Col xs={12} height="50px"/>
             <Col xs={12}>
                 <Row columnSpacing={4}>
-                    <Col md={5.5}>
+                    <Col xs={12} md={5.5}>
                         <div>
                             <Image
-                                width={100}
-                                height={100}
-                                layout="responsive"
+                                width={300}
+                                height={300}
                                 src={thisProduct.image}
                                 alt={thisProduct.name}
                                 className={styles.productImg}
                             />
                         </div>
                     </Col>
-                    <Col md={6.5}>
+                    <Col xs={12} md={6.5}>
                         <Row rowSpacing={3}>
                             <Col xs={12}>
-                                <Typography gutterBottom fontWeight="bold" variant="h4">{thisProduct.name}</Typography>
+                                <Typography gutterBottom fontWeight="bold" variant="h4"
+                                            sx={{mt: "20px"}}>{thisProduct.name}</Typography>
                             </Col>
                             <Col xs={12}>
                                 <Rating name="read-only" value={3} readOnly/>
@@ -212,7 +212,8 @@ const ProductPage = ({dataList}) => {
                             <Col xs={12} style={{display: 'flex', flexDirection: "column"}}>
                                 {
                                     shopFeatures.map((item, index) => (
-                                        <Typography variant="body2" key={index} sx={{color: "rgba(128, 128, 128, 1)", mt: "5px"}}>
+                                        <Typography variant="body2" key={index}
+                                                    sx={{color: "rgba(128, 128, 128, 1)", mt: "5px"}}>
                                             &#10003; {item.title} {item.description}
                                         </Typography>
                                     ))
@@ -273,8 +274,13 @@ const ProductPage = ({dataList}) => {
                                     flexDirection: "column"
                                 }}>
                                     <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
-                                        <Image width={100} height={100} src="/img/4001b4cb302a45af47747d07c1208745.png" alt="user"
-                                             style={{borderRadius: "50%"}}/>
+                                        <Image
+                                            width={100}
+                                            height={100}
+                                            src="/img/4001b4cb302a45af47747d07c1208745.png"
+                                            alt="user"
+                                            style={{borderRadius: "50%", width: '90px', height: 'auto'}}
+                                        />
                                         <div style={{marginRight: "10px"}}>
                                             <Typography variant="h6" display="block">آناهیتا خسروی</Typography>
                                             <Typography
@@ -427,7 +433,7 @@ const ProductPage = ({dataList}) => {
 export const getServerSideProps = async () => {
     const dataList = await axios.get('https://json.xstack.ir/api/v1/products')
         .then(res => {
-            return(res.data.data);
+            return (res.data.data);
         })
         .catch(() => {
             return "خطایی رخ داد"
@@ -441,7 +447,7 @@ export const getServerSideProps = async () => {
 }
 
 ProductPage.getLayout = (page) => {
-    return(
+    return (
         <Layout>
             {page}
         </Layout>

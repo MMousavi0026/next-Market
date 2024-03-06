@@ -35,7 +35,7 @@ const NewsSlider = () => {
             {
                 newsList.map((item, index) => (
                     <div key={index}>
-                        <NewsItemComponent to={`/news/${item.id}`} {...item} />
+                        <NewsItemComponent href={`/news/${item.id}`} {...item} />
                     </div>
                 ))
             }

@@ -96,7 +96,7 @@ const Checkout = ({dataList}) => {
                     </AccordionDetails>
                 </Accordion>
             </Col>
-            <Col xs={12} sm={6}>
+            <Col xs={12} md={6}>
                 <SideBox title="جزئیات صورتحساب">
                     <Row spacing={3}>
                         <Col xs={12} sm={6}>
@@ -145,7 +145,7 @@ const Checkout = ({dataList}) => {
                     </Row>
                 </SideBox>
             </Col>
-            <Col xs={12} sm={6}>
+            <Col xs={12} md={6}>
                 <SideBox title="سفارش شما">
                     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center',}}>
                         <TableContainer>
@@ -185,7 +185,7 @@ const Checkout = ({dataList}) => {
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                        <Button variant="contained" color="secondary" sx={{mt: "15px"}}>ثبت سفارش</Button>
+                        <Button variant="contained" color="secondary" sx={{mt: "15px", fontSize: '1.2rem'}}>ثبت سفارش</Button>
                     </div>
                 </SideBox>
             </Col>

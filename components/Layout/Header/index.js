@@ -62,7 +62,7 @@ const Header = () => {
                     <Row columnSpacing={1} className={styles.toolbar}>
                         <Col xs={4} sm={3} lg={3}>
                             <Link href="/"  className={styles.logoWrapper}>
-                                <Image className={styles.logo+" "+styles.img} alt='logo' src="/img/logo-sm.png" width={100} height={100} />
+                                <Image className={styles.logo+" "+styles.img} alt='logo' src="/img/logo-sm.png" width={300} height={300} />
                             </Link>
                         </Col>
                         <Col>

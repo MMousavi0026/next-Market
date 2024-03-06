@@ -9,7 +9,7 @@ import {
     FormControl,
     InputLabel,
     MenuItem,
-    Pagination,
+    Pagination, PaginationItem,
     Rating,
     Select
 } from "@mui/material";
@@ -24,6 +24,7 @@ import RangeSlider from "@/components/pages/ShopPage/RangeSlider";
 import {productsCategories, reviewsOfRecentProducts} from "@/data/productsData";
 import styles from './shopPage.module.css'
 import Layout from "@/components/Layout";
+import {useRouter} from "next/router";
 
 const ShopPage = ({productsList, currentProducts}) => {
     const [productList] = useState(Array.isArray(productsList) ? productsList : []);
@@ -35,6 +36,10 @@ const ShopPage = ({productsList, currentProducts}) => {
         if (typeof productsList === "string") alert(productsList)
         else if (currentProducts === "string" ) alert(currentProducts)
     }, [productsList, currentProducts]);
+
+    const router = useRouter()
+    const query = new URLSearchParams(router.query);
+    const page = parseInt(query.get('page') || '1', 10);
 
     const breadcrumbs = [
         <Link style={{display: 'flex'}} underline="hover" key="1" color="inherit" href="/">
@@ -69,6 +74,7 @@ const ShopPage = ({productsList, currentProducts}) => {
 
     return (
         <Row rowSpacing={4} className={styles.pageWrapper}>
+            <Col xs={12} />
             <Col xs={12} className={styles.breadcrumbs}>
                 <Breadcrumbs separator={<NavigateBeforeIcon fontSize="16px" />} aria-label="breadcrumb">
                     {breadcrumbs}
@@ -134,7 +140,20 @@ const ShopPage = ({productsList, currentProducts}) => {
                                 </Row>
                             </Col>
                             <Col xs={12} sx={{display: "flex", justifyContent: "center"}}>
-                                <Pagination count={Math.ceil(productList.length / 6)} onClick={scroll} color="primary" onChange={onPaginationChange} />
+                                <Pagination
+                                    count={Math.ceil(productList.length / 6)}
+                                    onChange={onPaginationChange}
+                                    onClick={scroll}
+                                    color="primary"
+                                    renderItem={(item) => (
+                                        <PaginationItem
+                                            component={Link}
+                                            page={page}
+                                            href={item.page > 0 ? `/shop?page=${item.page}` : '/shop'}
+                                            {...item}
+                                        />
+                                    )}
+                                />
                             </Col>
                         </Row>
                     </Col>
