@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import {useRouter} from "next/router";
 import {useDispatch} from "react-redux";
 import {increaseCartByAmount} from "@/redux/reducers/counterCart";
 import Image from "next/image";
@@ -12,9 +11,9 @@ import {Checkbox, FormControlLabel, Rating, Tab, Tabs, TextField} from "@mui/mat
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import styles from "./Product.module.css"
-import SocialMediaIcon from "./SocialMediaIcon";
+import SocialMediaIcon from "@/components/pages/ShopPage/SocialMediaIcon";
 import Box from "@mui/material/Box";
-import PropTypes from "prop-types";
+import PropTypes, {object} from "prop-types";
 import SideBox from "@/components/pages/ShopPage/SideBox";
 import Product from "@/components/pages/ShopPage/Product";
 import {shopFeatures} from "@/data/shopFeatures";
@@ -66,17 +65,16 @@ const a11yProps = (index) => {
     };
 }
 
-const ProductPage = ({dataList}) => {
+const ProductPage = ({thisProductData, someProductsList}) => {
     const [numRate, setNumRate] = useState(0)
-    const [someProductsList] = useState(Array.isArray(dataList) ? dataList : [])
+    const [thisProduct] = useState(typeof thisProductData === 'object' ? thisProductData : {})
+    const [someProductList] = useState(Array.isArray(someProductsList) ? someProductsList.slice(20, 26) : [])
     const [cartNumber, setCartNumber] = useState(1)
-    const router = useRouter();
 
     useEffect(() => {
-        if (typeof dataList === "string") alert(dataList)
-    }, [dataList]);
-
-    const thisProduct = someProductsList.find(item => item.id == router.query.id) ?? {}
+        if (typeof thisProductData === "string") alert(thisProductData)
+        if (typeof someProductsList === 'string') alert(someProductsList)
+    }, [thisProductData, someProductsList]);
 
     const socialMediaIcon = [
         {icon: FacebookOutlinedIcon, title: "اشتراک گذاری در فیسبوک"},
@@ -403,7 +401,7 @@ const ProductPage = ({dataList}) => {
                 <SideBox title="محصولات مرتبط">
                     <Row spacing={4}>
                         {
-                            someProductsList.slice(0, 3).map((item, index) => (
+                            someProductList.slice(0, 3).map((item, index) => (
                                 <Col xs={12} md={4} key={index}>
                                     <Product {...item} href={`/shop/${item.id}`}/>
                                 </Col>
@@ -416,7 +414,7 @@ const ProductPage = ({dataList}) => {
                 <SideBox title="محصولات پرفروش">
                     <Row spacing={4}>
                         {
-                            someProductsList.slice(0, 3).map((item, index) => (
+                            someProductList.slice(3, 6).map((item, index) => (
                                 <Col xs={12} md={4} key={index}>
                                     <Product {...item} href={`/shop/${item.id}`}/>
                                 </Col>
@@ -430,10 +428,30 @@ const ProductPage = ({dataList}) => {
     );
 };
 
-export const getServerSideProps = async () => {
-    const dataList = await axios.get('https://json.xstack.ir/api/v1/products')
+export const getStaticPaths = async () => {
+    const data = await axios.get('https://json.xstack.ir/api/v1/products/')
         .then(res => {
-            return (res.data.data);
+            return (res.data.data)
+        })
+    const paths = data.map((product) => ({
+        params: {slug: product.slug},
+    }))
+
+    return {paths, fallback: false}
+}
+
+export const getStaticProps = async ({params}) => {
+    const thisProductData = await axios.get('https://json.xstack.ir/api/v1/product/' + params.slug)
+        .then(res => {
+            return (res.data)
+        })
+        .catch(() => {
+            return "خطایی رخ داد"
+        })
+
+    const someProductsList = await axios.get('https://json.xstack.ir/api/v1/products')
+        .then(res => {
+            return (res.data.data)
         })
         .catch(() => {
             return "خطایی رخ داد"
@@ -441,7 +459,8 @@ export const getServerSideProps = async () => {
 
     return {
         props: {
-            dataList
+            thisProductData,
+            someProductsList
         }
     }
 }

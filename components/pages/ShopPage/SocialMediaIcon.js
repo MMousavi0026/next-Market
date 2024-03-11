@@ -3,7 +3,7 @@ import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Popover from "@mui/material/Popover";
-import styles from "./Product.module.css";
+import styles from "../../../pages/shop/Product.module.css";
 
 const SocialMediaIcon = (props) => {
     const [anchorEl, setAnchorEl] = React.useState(null);

@@ -196,7 +196,7 @@ const HomePage = ({mainData}) => {
                     <Row spacing={4} width="100%">
                         {data.map((productDataItem, index) => (
                             <Col xs={12} sm={6} lg={3} key={index}>
-                                <Product {...productDataItem} href={`/shop/${productDataItem.id}`}/>
+                                <Product {...productDataItem} href={`/shop/${productDataItem.slug}`}/>
                             </Col>
                         ))}
                     </Row>

@@ -1,5 +1,6 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import axios from "axios";
+import {useRouter} from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import Row from "@/components/mui/Grid/Row";
@@ -22,9 +23,8 @@ import Product from "@/components/pages/ShopPage/Product";
 import SideBox from "@/components/pages/ShopPage/SideBox";
 import RangeSlider from "@/components/pages/ShopPage/RangeSlider";
 import {productsCategories, reviewsOfRecentProducts} from "@/data/productsData";
-import styles from './shopPage.module.css'
 import Layout from "@/components/Layout";
-import {useRouter} from "next/router";
+import styles from './shopPage.module.css'
 
 const ShopPage = ({productsList, currentProducts}) => {
     const [productList] = useState(Array.isArray(productsList) ? productsList : []);
@@ -133,7 +133,7 @@ const ShopPage = ({productsList, currentProducts}) => {
                                     {
                                         currentProduct.map((item, index) => (
                                             <Col key={index} xs={12} sm={6}>
-                                                <Product {...item} href={`/shop/${item.id}`} />
+                                                <Product {...item} href={`/shop/${item.slug}`} />
                                             </Col>
                                         ))
                                     }
