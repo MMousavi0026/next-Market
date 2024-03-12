@@ -433,6 +433,7 @@ export const getStaticPaths = async () => {
         .then(res => {
             return (res.data.data)
         })
+
     const paths = data.map((product) => ({
         params: {slug: product.slug},
     }))

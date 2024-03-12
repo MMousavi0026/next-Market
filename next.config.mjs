@@ -3,7 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [
-        "json.xstack.ir"
+        "json.xstack.ir",
+
     ]
   }
 };

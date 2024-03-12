@@ -23,7 +23,7 @@ const breadcrumbs = [
         <HomeIcon style={{fontSize:'18px'}}/>
     </Link>,
     <Typography fontSize={"18px"} key="2" color="text.primary">
-        محصولات
+        اخبار
     </Typography>,
 ];
 
@@ -73,10 +73,10 @@ const NewsPage = ({mainData}) => {
                                             <Button sx={{borderRadius:"20px", mb:"10px"}}>
                                                 <Image src={item.image} alt={item.title} width={100} height={100} layout="responsive" style={{borderRadius:"20px"}} />
                                             </Button>
-                                            <Link fontSize={25} href={`/news/${item.id}`} className={styles.newsItemTitle}>{item.title}</Link>
+                                            <Link fontSize={25} href={`/news/${item.slug}`} className={styles.newsItemTitle}>{item.title}</Link>
                                             <Typography fontSize={15} display="block" color="text.secondary" margin="10px 0">{item.date}</Typography>
                                             <Typography fontSize={17} display="block" color="text.primary" className={styles.newsItemDesc}>{item.desc}</Typography>
-                                            <Button component={Link} href={`/news/${item.id}`} variant="contained" color="secondary" sx={{mt:"20px"}}>
+                                            <Button component={Link} href={`/news/${item.slug}`} variant="contained" color="secondary" sx={{mt:"20px"}}>
                                                 <LinkIcon color="primary" sx={{mr: '5px'}}/>
                                                 <Typography>ادامه مطلب</Typography>
                                             </Button>
@@ -145,7 +145,7 @@ const NewsPage = ({mainData}) => {
     );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
     const dataList = await axios.get('https://json.xstack.ir/api/v1/posts')
         .then(res => {
             return(res.data.data)

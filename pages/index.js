@@ -12,6 +12,10 @@ import {productsCategories} from "@/data/productsData";
 import ProductsCategories from "@/components/Layout/Header/ProductsCategories";
 import Product from "@/components/pages/ShopPage/Product";
 import axios from "axios";
+import homeBoxPic from '@/public/img/homeBox1.png';
+import googlePlayPic from "@/public/img/googleplay.png";
+import appStorePic from "@/public/img/appStore.png";
+import mobileAppPic from "@/public/img/mobile.png";
 import NewsSlider from "@/components/pages/homePage/NewsSlider";
 
 const HomePage = ({mainData}) => {
@@ -53,7 +57,7 @@ const HomePage = ({mainData}) => {
                         </Col>
                         <Col xs={12} lg={6} style={{display: 'flex', justifyContent: 'center'}}>
                             <div style={{paddingTop: '80px', display: 'flex', justifyContent: 'center'}} className={styles.box1Title}>
-                                <Image width={400} height={400} src='/img/homeBox1.png' alt="shopping"  className={styles.homeBoxManImg}/>
+                                <Image width={400} height={400} src={homeBoxPic} alt="shopping"  className={styles.homeBoxManImg}/>
                             </div>
                         </Col>
                     </Row>
@@ -236,16 +240,16 @@ const HomePage = ({mainData}) => {
                         </div>
                         <div className={styles.box5Buttons}>
                             <Link href="/" className={styles.box5Button1}>
-                                <Image width={100} height={100} className={styles.googleplayImg} src="/img/googleplay.png" alt=""/>
+                                <Image width={100} height={100} className={styles.googleplayImg} src={googlePlayPic} alt=""/>
                             </Link>
                             <Link href="/">
-                                <Image width={100} height={100} className={styles.appStore} src="/img/appStore.png" alt=""/>
+                                <Image width={100} height={100} className={styles.appStore} src={appStorePic} alt=""/>
                             </Link>
                         </div>
                     </Col>
                     <Col xs={12} md={6} className={styles.box5Button}>
                         <Link href="/" className={styles.box5ImgWrapper}>
-                            <Image src="/img/mobile.png" width={100} height={100} layout="responsive" alt="" className={styles.box5Img}/>
+                            <Image src={mobileAppPic} width={100} height={100} layout="responsive" alt="" className={styles.box5Img}/>
                         </Link>
                     </Col>
                 </Row>
@@ -265,7 +269,7 @@ const HomePage = ({mainData}) => {
     );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
     const productsList = await axios.get('https://json.xstack.ir/api/v1/products')
         .then(res => {
             return(res.data.data.slice(20, 24))

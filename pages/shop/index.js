@@ -34,7 +34,7 @@ const ShopPage = ({productsList, currentProducts}) => {
 
     useEffect(() => {
         if (typeof productsList === "string") alert(productsList)
-        else if (currentProducts === "string" ) alert(currentProducts)
+        if (currentProducts === "string" ) alert(currentProducts)
     }, [productsList, currentProducts]);
 
     const router = useRouter()
@@ -205,7 +205,7 @@ const ShopPage = ({productsList, currentProducts}) => {
     );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
     const dataList = await axios.get('https://json.xstack.ir/api/v1/products')
         .then(res => {
             return {
@@ -215,6 +215,7 @@ export const getServerSideProps = async () => {
         .catch(() => {
             return "خطایی رخ داد"
         })
+
     return {
         props: {
             productsList: dataList.productsList,

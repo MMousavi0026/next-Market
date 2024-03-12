@@ -1,32 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {useRouter} from "next/router";
+import Image from "next/image";
 import Link from "next/link";
+import Layout from "@/components/Layout";
 import Row from "@/components/mui/Grid/Row";
 import Col from "@/components/mui/Grid/Col";
 import {Breadcrumbs, Chip, TextField} from "@mui/material";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import SideBox from "@/components/pages/ShopPage/SideBox";
-import {tags} from "@/data/tags";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import HomeIcon from "@mui/icons-material/Home";
+import {tags} from "@/data/tags";
 import styles from "@/pages/news/NewsPage.module.css";
-import Layout from "@/components/Layout";
-import Image from "next/image";
 
 const TheNewsPage = ({dataList}) => {
-    const [thisNewsData] = useState(Array.isArray(dataList) ? dataList : [])
-    const router = useRouter();
+    const [thisNewsData] = useState(typeof dataList === 'object' ? dataList : {})
 
     useEffect(() => {
         if (typeof dataList === "string") alert(dataList)
     }, [dataList]);
-
-    const thisNews = thisNewsData.find(item => item.id == router.query.id)??{}
 
     const breadcrumbs = [
         <Typography component={Link} style={{display: 'flex'}} underline="hover" key="1" color="inherit" href="/">
@@ -40,6 +37,7 @@ const TheNewsPage = ({dataList}) => {
     const handleClick = () => {
         console.info('You clicked the Chip.');
     };
+
     return (
         <Row rowSpacing={4} className={styles.pageWrapper}>
             <Col xs={12}/>
@@ -54,22 +52,22 @@ const TheNewsPage = ({dataList}) => {
                     <Col xs={12} lg={8}>
                         <Row rowSpacing={4}>
                             <Col xs={12}>
-                                <Image src={thisNews?.imgSrc} alt={thisNews?.title} width={300} height={300} style={{width: '100%', height: 'auto', borderRadius:"20px"}}/>
-                                <Typography fontSize='2rem' fontWeight="bold">{thisNews?.title}</Typography>
-                                <Typography fontSize='1.5rem' display="block" margin="10px 0" >{thisNews?.body}</Typography>
+                                <Image src={thisNewsData?.imgSrc} alt={thisNewsData?.title} width={300} height={300} style={{width: '100%', height: 'auto', borderRadius:"20px"}}/>
+                                <Typography fontSize='2rem' fontWeight="bold">{thisNewsData?.title}</Typography>
+                                <Typography fontSize='1.5rem' display="block" margin="10px 0" >{thisNewsData?.body}</Typography>
                             </Col>
                             <Col xs={12} className={styles.bottomItemWrapper} >
                                 <div className={styles.bottomItem}>
                                     <AccessTimeIcon color="secondary" fontSize="15px" className={styles.icon}/>
-                                    <Chip label={thisNews?.created_at} variant="outlined" onClick={handleClick} sx={{fontSize:"13px", ml:"7px", py: '20px', borderRadius: '30px'}} />
+                                    <Chip label={thisNewsData?.created_at} variant="outlined" onClick={handleClick} sx={{fontSize:"13px", ml:"7px", py: '20px', borderRadius: '30px'}} />
                                 </div>
                                 <div className={styles.bottomItem}>
                                     <RemoveRedEyeIcon color="secondary" fontSize="15px" className={styles.icon}/>
-                                    <Chip label={`${thisNews?.view} نفر`} variant="outlined" onClick={handleClick} sx={{fontSize:"13px", ml:"7px", py: '20px', borderRadius: '30px'}} />
+                                    <Chip label={`${thisNewsData?.view} نفر`} variant="outlined" onClick={handleClick} sx={{fontSize:"13px", ml:"7px", py: '20px', borderRadius: '30px'}} />
                                 </div>
                                 <div className={styles.bottomItem}>
                                     <LocalOfferIcon color="secondary" fontSize="15px" className={styles.icon}/>
-                                    <Chip label={thisNews?.slug} variant="outlined" onClick={handleClick} sx={{fontSize:"13px", ml:"7px", py: '20px', borderRadius: '30px'}} />
+                                    <Chip label={thisNewsData?.slug} variant="outlined" onClick={handleClick} sx={{fontSize:"13px", ml:"7px", py: '20px', borderRadius: '30px'}} />
                                 </div>
                             </Col>
                             <Col xs={12}/>
@@ -117,10 +115,23 @@ const TheNewsPage = ({dataList}) => {
     );
 };
 
-export const getServerSideProps = async () => {
-    const dataList = await  axios.get('https://json.xstack.ir/api/v1/posts')
+export const getStaticPaths = async () => {
+    const data = await axios.get('https://json.xstack.ir/api/v1/posts')
         .then(res => {
-            return(res.data.data)
+            return (res.data)
+        })
+
+    const paths = data.map((news) => ({
+        params: {slug: news.slug},
+    }))
+
+    return {paths, fallback: false}
+}
+
+export const getStaticProps = async ({params}) => {
+    const dataList = await axios.get('https://json.xstack.ir/api/v1/post/' + params.slug)
+        .then(res => {
+            return(res.data)
         })
         .catch(() => (
             "خطایی رخ داد!"
