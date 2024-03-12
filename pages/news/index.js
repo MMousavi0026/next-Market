@@ -156,7 +156,8 @@ export const getStaticProps = async () => {
     return {
         props: {
             mainData: dataList
-        }
+        },
+        revalidate: 10,
     }
 }
 

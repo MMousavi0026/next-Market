@@ -205,7 +205,8 @@ export const getServerSideProps = async () => {
     return {
         props: {
             dataList
-        }
+        },
+        revalidate: 10,
     }
 }
 

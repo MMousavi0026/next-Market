@@ -4,9 +4,8 @@ const nextConfig = {
   images: {
     domains: [
         "json.xstack.ir",
-
     ]
-  }
+  },
 };
 
 export default nextConfig;

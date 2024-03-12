@@ -218,7 +218,8 @@ export const getServerSideProps = async () => {
         props: {
             cartProducts: dataList.cartProducts,
             relatedProducts: dataList.relatedProducts
-        }
+        },
+        revalidate: 10,
     }
 }
 

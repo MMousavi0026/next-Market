@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import {useRouter} from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/components/Layout";
@@ -17,9 +16,10 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import HomeIcon from "@mui/icons-material/Home";
 import {tags} from "@/data/tags";
 import styles from "@/pages/news/NewsPage.module.css";
+import col from "@/components/mui/Grid/Col";
 
 const TheNewsPage = ({dataList}) => {
-    const [thisNewsData] = useState(typeof dataList === 'object' ? dataList : {})
+    const [thisNewsData] = useState(Array.isArray(dataList) ? dataList[0] : [])
 
     useEffect(() => {
         if (typeof dataList === "string") alert(dataList)
@@ -118,11 +118,11 @@ const TheNewsPage = ({dataList}) => {
 export const getStaticPaths = async () => {
     const data = await axios.get('https://json.xstack.ir/api/v1/posts')
         .then(res => {
-            return (res.data)
+            return (res.data.data)
         })
 
-    const paths = data.map((news) => ({
-        params: {slug: news.slug},
+    const paths = data.map((item) => ({
+        params: {slug: item.slug},
     }))
 
     return {paths, fallback: false}
@@ -136,6 +136,7 @@ export const getStaticProps = async ({params}) => {
         .catch(() => (
             "خطایی رخ داد!"
         ))
+    console.log(dataList)
     return {
         props: {
             dataList
