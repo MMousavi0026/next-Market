@@ -18,7 +18,7 @@ const NavMenu = () => {
                 {
                     item.children?.length && (
                         item.type === "button" ?
-                            <Row spacing={2} sx={{ padding: "10px", }}>
+                            <Row spacing={2} sx={{padding: "10px"}}>
                                 {
                                     item.children.map((discountDataItem, index) => (
                                         <Col xs={2} key={index}>

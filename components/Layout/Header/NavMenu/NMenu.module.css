@@ -85,7 +85,28 @@
     display: none !important;
   }
 }
+.dropBox {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.dropDown {
+  opacity: 0;
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  background-color: #122d40;
+  border-radius: 15px;
+  transition: opacity .3s;
+  pointer-events: none;
+}
 
-.ali {
-  width: 100% ;
+.dropButton:hover .dropDown {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.ali{
+  display: none;
+  pointer-events: none;
 }

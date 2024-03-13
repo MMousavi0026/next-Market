@@ -10,6 +10,15 @@ import Popover from "@mui/material/Popover";
 const NMenuButton = ({children, title, href, elementVertical, elementHorizontal, childrenVertical, childrenHorizontal}) => {
 
     const [anchorEl, setAnchorEl] = useState(null);
+    const [isOpen, setIsOpen] = useState(false)
+
+    const handleMouseEnter = () => {
+        setIsOpen(true);
+    }
+
+    const handleMouseLeave = () => {
+        setIsOpen(false);
+    }
     const handleHoverOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -20,38 +29,25 @@ const NMenuButton = ({children, title, href, elementVertical, elementHorizontal,
 
     return (
         children ? (
-            <>
+            <div
+                aria-owns={open ? 'mouse-over-popover' : undefined}
+                aria-haspopup="true"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                className={styles.dropButton}
+            >
                 <ListItem
-                    id="basic-menu"
-                    aria-controls={open ? 'basic-menu' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? 'true' : undefined}
-                    onClick={handleHoverOpen}
                     sx={{width: "fit-content", cursor: "pointer", color: "white"}}
                     className={styles.menuItems}
                 >
                     <Typography textAlign="center" color="white" className={styles.menuItem+" "+styles.whiteColor} fontSize="1rem">{title}</Typography>
                 </ListItem>
-                <Popover
-                    id="basic-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onCloce={handleHoverClose}
-                    MenuListProps={{
-                        'aria-labelledby': 'basic-menu',
-                    }}
-                    slotProps={{paper: {className: styles.menuPaper}}}
-                    // anchorOrigin={{vertical: elementVertical, horizontal: elementHorizontal,}}
-                    // transformOrigin={{vertical: childrenVertical, horizontal: childrenHorizontal,}}
-                    // disableScrollLock
-                >
+                <div className={styles.dropDown}>
                     {children}
-                </Popover>
-            </>
+                </div>
+            </div>
         ) : (
-            <Link
-                style={{color: "white"}} href={href}
-            >
+            <Link style={{color: "white"}} href={href}>
                 <ListItem className={styles.menuItems}>
                     <Typography textAlign="center" className={styles.menuItem} fontSize="1rem">{title}</Typography>
                 </ListItem>
