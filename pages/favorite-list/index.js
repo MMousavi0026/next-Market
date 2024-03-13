@@ -1,15 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import Link from "@mui/material/Link";
-import HomeIcon from "@mui/icons-material/Home";
-import Typography from "@mui/material/Typography";
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import {Breadcrumbs} from "@mui/material";
-import Col from "../../components/mui/Grid/Col";
-import Row from "../../components/mui/Grid/Row";
-import Product from "../../components/pages/ShopPage/Product";
 import axios from "axios";
+import dynamic from "next/dynamic";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
+import {Breadcrumbs} from "@mui/material";
+import Col from "@/components/mui/Grid/Col";
+import Row from "@/components/mui/Grid/Row";
+import Product from "@/components/pages/ShopPage/Product";
 import Layout from "@/components/Layout";
 import styles from "./FavoritePage.module.css"
+
+const HomeIcon = dynamic(() => import('@mui/icons-material/Home'), {ssr: false})
+const NavigateBeforeIcon = dynamic(() => import('@mui/icons-material/NavigateBefore'), {ssr: false})
+
 
 const breadcrumbs = [
     <Link style={{display: 'flex'}} underline="hover" key="1" color="inherit" to="/">
@@ -63,7 +66,6 @@ export const getServerSideProps = async () => {
         props: {
             dataList
         },
-        revalidate: 10,
     }
 }
 

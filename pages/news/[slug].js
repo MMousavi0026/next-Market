@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/components/Layout";
@@ -9,14 +10,15 @@ import {Breadcrumbs, Chip, TextField} from "@mui/material";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import SideBox from "@/components/pages/ShopPage/SideBox";
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import HomeIcon from "@mui/icons-material/Home";
 import {tags} from "@/data/tags";
 import styles from "@/pages/news/NewsPage.module.css";
-import col from "@/components/mui/Grid/Col";
+
+const AccessTimeIcon = dynamic(() => import('@mui/icons-material/AccessTime'), {ssr: false})
+const LocalOfferIcon = dynamic(() => import('@mui/icons-material/LocalOffer'), {ssr: false})
+const RemoveRedEyeIcon = dynamic(() => import('@mui/icons-material/RemoveRedEye'), {ssr: false})
+const NavigateBeforeIcon = dynamic(() => import('@mui/icons-material/NavigateBefore'), {ssr: false})
+const HomeIcon = dynamic(() => import('@mui/icons-material/Home'), {ssr: false})
+
 
 const TheNewsPage = ({dataList}) => {
     const [thisNewsData] = useState(Array.isArray(dataList) ? dataList[0] : [])

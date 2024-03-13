@@ -7,8 +7,14 @@ import Col from "../../mui/Grid/Col";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import {InputBase, styled} from "@mui/material";
-import DraftsIcon from "@mui/icons-material/Drafts";
+import dynamic from "next/dynamic";
+import EitaaPic from "@/public/img/eitaa-icon-white2.png";
+import InstagramPic from "@/public/img/instagram.png";
+import BalePic from "@/public/img/bale-icon.png";
 import styles from './footer.module.css'
+import {Instagram} from "@mui/icons-material";
+
+const DraftsIcon = dynamic(() => import("@mui/icons-material/Drafts"), {ssr: false})
 
 const Footer = () => {
 
@@ -66,9 +72,9 @@ const Footer = () => {
                                 <Image width={300} height={300} src="/img/logo-sm.png" alt="logo" className={styles.img}/>
                                 <Typography className={styles.description} >سوپرمارکت شکلی از خواربارفروشی ولی بزرگتر از آن است که مشتری خودش محصولات را از قفسه برمی‌دارد یا به اصطلاح سلف سرویس است.</Typography>
                                 <div className={styles.socialMediaIcons}>
-                                    <SocialMediaIcon imgSrc="/img/eitaa-icon-white2.png"/>
-                                    <SocialMediaIcon imgSrc="/img/instagram.png"/>
-                                    <SocialMediaIcon imgSrc="/img/bale-icon.png"/>
+                                    <SocialMediaIcon imgSrc={EitaaPic}/>
+                                    <SocialMediaIcon imgSrc={InstagramPic}/>
+                                    <SocialMediaIcon imgSrc={BalePic}/>
                                 </div>
                             </div>
                         </div>

@@ -1,13 +1,9 @@
 import React from 'react';
 import {useSelector} from "react-redux";
+import Link from "next/link";
+import Image from "next/image";
 import {AppBar, IconButton, InputBase, styled, Toolbar} from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
 import Badge from "@mui/material/Badge";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import PersonIcon from "@mui/icons-material/Person";
-import MenuIcon from '@mui/icons-material/Menu';
 import Typography from "@mui/material/Typography";
 import Drawer from "../../mui/Drawer";
 import Row from "../../mui/Grid/Row";
@@ -15,8 +11,14 @@ import Col from "../../mui/Grid/Col";
 import ResponsiveMenu from "./ResponsiveMenu/";
 import NavMenu from "./NavMenu";
 import styles from "./Header.module.css";
-import Link from "next/link";
-import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const SearchIcon = dynamic(() => import("@mui/icons-material/Search"), {ssr: false})
+const PhoneInTalkIcon = dynamic(() => import("@mui/icons-material/PhoneInTalk"), {ssr: false})
+const ShoppingCartIcon = dynamic(() => import("@mui/icons-material/ShoppingCart"), {ssr: false})
+const FavoriteIcon = dynamic(() => import("@mui/icons-material/Favorite"), {ssr: false})
+const PersonIcon = dynamic(() => import("@mui/icons-material/Person"), {ssr: false})
+const MenuIcon = dynamic(() => import("@mui/icons-material/Menu"), {ssr: false})
 
 const Header = () => {
     const counterCart = useSelector(x => x.counterCart)

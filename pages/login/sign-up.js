@@ -8,10 +8,13 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import dynamic from "next/dynamic";
+
+const LockOutlinedIcon = dynamic(() => import('@mui/icons-material/LockOutlined'), {ssr: false})
+
 
 const Copyright = (props) => {
     return (

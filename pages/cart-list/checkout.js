@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import Row from "../../components/mui/Grid/Row";
 import Col from "../../components/mui/Grid/Col";
@@ -24,11 +25,12 @@ import Button from "@mui/material/Button";
 import {StyledTableRow, StyledTableCell, } from "./index";
 import SideBox from "../../components/pages/ShopPage/SideBox";
 import Layout from "@/components/Layout";
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import HomeIcon from "@mui/icons-material/Home";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import styles from "./CartPage.module.css";
+
+const NavigateBeforeIcon = dynamic(() => import('@mui/icons-material/NavigateBefore'), {ssr: false})
+const ArrowBackIcon = dynamic(() => import('@mui/icons-material/ArrowBack'), {ssr: false})
+const HomeIcon = dynamic(() => import('@mui/icons-material/Home'), {ssr: false})
+const ExpandMoreIcon = dynamic(() => import('@mui/icons-material/ExpandMore'), {ssr: false})
 
 const breadcrumbs = [
     <Link style={{display: 'flex'}} underline="hover" key="1" color="inherite" href="/">

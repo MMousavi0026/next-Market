@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
 import Layout from "@/components/Layout";
@@ -7,16 +8,15 @@ import Col from "@/components/mui/Grid/Col";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import HomeFeatures from "@/components/pages/homePage/HomeFeatures";
-import styles from "@/pages/HomePage.module.css";
-import {productsCategories} from "@/data/productsData";
 import ProductsCategories from "@/components/Layout/Header/ProductsCategories";
 import Product from "@/components/pages/ShopPage/Product";
-import axios from "axios";
+import NewsSlider from "@/components/pages/homePage/NewsSlider";
 import homeBoxPic from '@/public/img/homeBox1.png';
 import googlePlayPic from "@/public/img/googleplay.png";
 import appStorePic from "@/public/img/appStore.png";
 import mobileAppPic from "@/public/img/mobile.png";
-import NewsSlider from "@/components/pages/homePage/NewsSlider";
+import {productsCategories} from "@/data/productsData";
+import styles from "@/pages/HomePage.module.css";
 
 const HomePage = ({mainData}) => {
     const [data] = useState(typeof mainData === "object" && mainData?.length > 0 ? mainData : [])
@@ -24,10 +24,10 @@ const HomePage = ({mainData}) => {
     useEffect(() => {
         if(typeof mainData === "string") alert(mainData)
     }, [mainData]);
-    console.log(mainData)
+
     return (
         <Row spacing={4}>
-            <Col xs={12}>
+            <Col xs={12} sx={{maxWidth: '100%'}}>
                 <div className={styles.box1Wrapper}>
                     <Row spacing={4} className={styles.box1}>
                         <Col xs={12} lg={6} className={styles.box1Right}>
@@ -63,10 +63,10 @@ const HomePage = ({mainData}) => {
                     </Row>
                 </div>
             </Col>
-            <Col xs={12}>
+            <Col xs={12} sx={{maxWidth: '100%'}}>
                 <HomeFeatures/>
             </Col>
-            <Col xs={12}>
+            <Col xs={12} sx={{maxWidth: '100%'}}>
                 <Row spacing={4} width='100%'>
                     <Col xs={12} lg={8}>
                         <Row spacing={4} className={styles.someOffer}>
@@ -170,7 +170,7 @@ const HomePage = ({mainData}) => {
                     </Col>
                 </Row>
             </Col>
-            <Col xs={12}>
+            <Col xs={12} sx={{maxWidth: '100%'}}>
                 <Row className={styles.box3}>
                     <div>
                         <Typography fontSize='2.3rem' width={100} color="black">دسته بندی</Typography>
@@ -185,7 +185,7 @@ const HomePage = ({mainData}) => {
                     </Row>
                 </Row>
             </Col>
-            <Col xs={12}>
+            <Col xs={12} sx={{maxWidth: '100%'}}>
                 <Row className={styles.box4}>
                     <div className={styles.box4Title}>
                         <div>
@@ -206,7 +206,7 @@ const HomePage = ({mainData}) => {
                     </Row>
                 </Row>
             </Col>
-            <Col xs={12}>
+            <Col xs={12} sx={{maxWidth: '100%'}}>
                 <Row className={styles.box5}>
                     <Col xs={12} md={6} className={styles.box5Col1}>
                         <div className={styles.box5Text}>
@@ -261,7 +261,7 @@ const HomePage = ({mainData}) => {
                         <Typography fontSize='2.3rem' color="#01e281"> اخبار و مقالات</Typography>
                     </div>
                 </div>
-                <div style={{width: "100%"}}>
+                <div style={{maxWidth: "100%"}}>
                     {/*<NewsSlider/>*/}
                 </div>
             </Col>

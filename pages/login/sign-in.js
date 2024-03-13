@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import dynamic from "next/dynamic";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -8,10 +10,11 @@ import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const LockOutlinedIcon = dynamic(() => import('@mui/icons-material/LockOutlined'), {ssr: false})
+
 
 const Copyright = (props) => {
     return (

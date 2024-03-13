@@ -1,22 +1,24 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import axios from "axios";
+import {useRouter} from "next/router";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
+import Layout from "@/components/Layout";
 import Row from "../../components/mui/Grid/Row";
 import Col from "../../components/mui/Grid/Col";
 import {Breadcrumbs, Pagination, PaginationItem, TextField} from "@mui/material";
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import HomeIcon from "@mui/icons-material/Home";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import LinkIcon from '@mui/icons-material/Link';
 import Box from "@mui/material/Box";
 import SideBox from "@/components/pages/ShopPage/SideBox";
-import Layout from "@/components/Layout";
 import {tags} from "@/data/tags";
 import styles from "./NewsPage.module.css";
-import {number} from "prop-types";
-import {useRouter} from "next/router";
+
+const NavigateBeforeIcon = dynamic(() => import('@mui/icons-material/NavigateBefore'), {ssr: false})
+const HomeIcon = dynamic(() => import('@mui/icons-material/Home'), {ssr: false})
+const LinkIcon = dynamic(() => import('@mui/icons-material/Link'), {ssr: false})
+
 
 const breadcrumbs = [
     <Link style={{display: 'flex'}} underline="hover" key="1" color="inherit" href="/">

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Link from "next/link";
 import Menu from "@mui/material/Menu";
 import ListItem from "@mui/material/ListItem";
+import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import styles from "./NMenu.module.css";
 
@@ -21,10 +22,10 @@ const NMenuButton = ({children, title, href, elementVertical, elementHorizontal,
             <>
                 <ListItem
                     id="basic-menu"
-                    aria-controls={open ? 'demo-positioned-menu' : undefined}
+                    aria-controls={open ? 'basic-menu' : undefined}
                     aria-haspopup="true"
                     aria-expanded={open ? 'true' : undefined}
-                    onMouseEnter={handleHoverOpen}
+                    onClick={handleHoverOpen}
                     sx={{width: "fit-content", cursor: "pointer", color: "white"}}
                     className={styles.menuItems}
                 >
@@ -32,13 +33,15 @@ const NMenuButton = ({children, title, href, elementVertical, elementHorizontal,
                 </ListItem>
                 <Menu
                     id="basic-menu"
-                    aria-labelledby="demo-positioned-button"
-                    open={open}
                     anchorEl={anchorEl}
-                    onMouseLeave={handleHoverClose}
-                    anchorOrigin={{vertical: elementVertical, horizontal: elementHorizontal,}}
-                    transformOrigin={{vertical: childrenVertical, horizontal: childrenHorizontal,}}
+                    open={open}
+                    onCloce={handleHoverClose}
+                    // anchorOrigin={{vertical: elementVertical, horizontal: elementHorizontal,}}
+                    // transformOrigin={{vertical: childrenVertical, horizontal: childrenHorizontal,}}
                     // disableScrollLock
+                    MenuListProps={{
+                        'aria-labelledby': 'basic-menu',
+                    }}
                     slotProps={{paper: {className: styles.menuPaper}}}
                 >
                     {children}

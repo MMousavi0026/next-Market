@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
 import Row from "@/components/mui/Grid/Row";
@@ -20,11 +21,12 @@ import Button from "@mui/material/Button";
 import SideBox from "@/components/pages/ShopPage/SideBox";
 import Product from "@/components/pages/ShopPage/Product";
 import Layout from "@/components/Layout";
-import CloseIcon from "@mui/icons-material/Close";
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import HomeIcon from "@mui/icons-material/Home";
 import styles from "./CartPage.module.css"
+
+const CloseIcon = dynamic(() => import('@mui/icons-material/Close'), {ssr: false})
+const NavigateBeforeIcon = dynamic(() => import('@mui/icons-material/NavigateBefore'), {ssr: false})
+const ArrowBackIcon = dynamic(() => import('@mui/icons-material/ArrowBack'), {ssr: false})
+const HomeIcon = dynamic(() => import('@mui/icons-material/Home'), {ssr: false})
 
 export const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -128,7 +130,7 @@ const CartPage = ({cartProducts, relatedProducts}) => {
                                                 <StyledTableCell component={Link} href={`/shop/${item.id}`}>
                                                     <Image width={100} height={100} src={item.image} alt={item.name}/>
                                                 </StyledTableCell>
-                                                <StyledTableCell component={Link} href={`/shop/${item.id}`}>{item.name}</StyledTableCell>
+                                                <StyledTableCell component={Link} href={`/shop/${item.slug}`}>{item.name}</StyledTableCell>
                                                 <StyledTableCell>{item.price}</StyledTableCell>
                                                 <StyledTableCell>
                                                     <div style={{
@@ -218,8 +220,7 @@ export const getServerSideProps = async () => {
         props: {
             cartProducts: dataList.cartProducts,
             relatedProducts: dataList.relatedProducts
-        },
-        revalidate: 10,
+        }
     }
 }
 

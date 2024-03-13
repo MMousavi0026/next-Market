@@ -2,15 +2,17 @@ import React, {useState} from 'react';
 import {useDispatch} from "react-redux";
 import {increaseCounterCart} from "@/redux/reducers/counterCart";
 import {increaseCounterBeloved} from "@/redux/reducers/counterBeloved";
+import Link from "next/link";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import {Card, CardActionArea, CardContent, CardMedia, IconButton} from "@mui/material";
 import ProductOption from "./ProductOption";
-import CloseIcon from '@mui/icons-material/Close';
+import dynamic from "next/dynamic";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCartShopping, faCodeCompare, faHeart, faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 import styles from './Product.module.css';
-import Link from "next/link";
+
+const CloseIcon = dynamic(() => import('@mui/icons-material/Close'), {ssr: false})
 
 const Product = ({ image, name, price, href, closeIcon, }) => {
 

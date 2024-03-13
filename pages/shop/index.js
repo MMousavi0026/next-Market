@@ -3,6 +3,7 @@ import axios from "axios";
 import {useRouter} from "next/router";
 import Link from "next/link";
 import Image from "next/image";
+import Layout from "@/components/Layout";
 import Row from "@/components/mui/Grid/Row";
 import Col from "@/components/mui/Grid/Col";
 import {
@@ -14,17 +15,18 @@ import {
     Rating,
     Select
 } from "@mui/material";
-import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import Typography from "@mui/material/Typography";
-import HomeIcon from "@mui/icons-material/Home";
 import ListItem from "@mui/material/ListItem";
 import Divider from "@mui/material/Divider";
 import Product from "@/components/pages/ShopPage/Product";
 import SideBox from "@/components/pages/ShopPage/SideBox";
 import RangeSlider from "@/components/pages/ShopPage/RangeSlider";
+import dynamic from "next/dynamic";
 import {productsCategories, reviewsOfRecentProducts} from "@/data/productsData";
-import Layout from "@/components/Layout";
 import styles from './shopPage.module.css'
+
+const NavigateBeforeIcon = dynamic(() => import('@mui/icons-material/NavigateBefore'), {ssr: false})
+const HomeIcon = dynamic(() => import('@mui/icons-material/Home'), {ssr: false})
 
 const ShopPage = ({productsList, currentProducts}) => {
     const [productList] = useState(Array.isArray(productsList) ? productsList : []);

@@ -2,31 +2,33 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {useDispatch} from "react-redux";
 import {increaseCartByAmount} from "@/redux/reducers/counterCart";
+import {increaseCounterBeloved} from "@/redux/reducers/counterBeloved";
+import PropTypes from "prop-types";
+import dynamic from "next/dynamic";
 import Image from "next/image";
+import Layout from "@/components/Layout";
 import Row from "@/components/mui/Grid/Row";
 import Col from "@/components/mui/Grid/Col";
-import ProductOption from "@/components/pages/ShopPage/Product/ProductOption";
 import Typography from "@mui/material/Typography";
-import {Checkbox, FormControlLabel, Rating, Tab, Tabs, TextField} from "@mui/material";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
-import styles from "./Product.module.css"
-import SocialMediaIcon from "@/components/pages/ShopPage/SocialMediaIcon";
 import Box from "@mui/material/Box";
-import PropTypes, {object} from "prop-types";
+import ProductOption from "@/components/pages/ShopPage/Product/ProductOption";
+import {Checkbox, FormControlLabel, Rating, Tab, Tabs, TextField} from "@mui/material";
+import SocialMediaIcon from "@/components/pages/ShopPage/SocialMediaIcon";
 import SideBox from "@/components/pages/ShopPage/SideBox";
 import Product from "@/components/pages/ShopPage/Product";
-import {shopFeatures} from "@/data/shopFeatures";
-import {increaseCounterBeloved} from "@/redux/reducers/counterBeloved";
-import Layout from "@/components/Layout";
-import {faCartShopping, faCodeCompare, faHeart} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCartShopping, faCodeCompare, faHeart} from "@fortawesome/free-solid-svg-icons";
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import XIcon from '@mui/icons-material/X';
-import PinterestIcon from '@mui/icons-material/Pinterest';
-import EmailIcon from '@mui/icons-material/Email';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import {shopFeatures} from "@/data/shopFeatures";
+import styles from "./Product.module.css"
+
+const WhatsAppIcon = dynamic(() => import('@mui/icons-material/WhatsApp'), {ssr: false})
+const XIcon = dynamic(() => import('@mui/icons-material/X'), {ssr: false})
+const PinterestIcon = dynamic(() => import('@mui/icons-material/Pinterest'), {ssr: false})
+const EmailIcon = dynamic(() => import('@mui/icons-material/Email'), {ssr: false})
+const ContentCopyIcon = dynamic(() => import('@mui/icons-material/ContentCopy'), {ssr: false})
 
 const CustomTabPanel = ({children, value, index, ...other}) => {
     return (

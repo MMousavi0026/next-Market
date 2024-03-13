@@ -66,7 +66,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px !important;
-  z-index: 11;
+  /*z-index: 11;*/
 }
 
 .menuItem {
@@ -84,4 +84,8 @@
   .navAppBar {
     display: none !important;
   }
+}
+
+.ali {
+  width: 100% ;
 }

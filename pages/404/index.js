@@ -1,14 +1,16 @@
 import React from 'react';
+import dynamic from "next/dynamic";
+import Link from "next/link";
 import Row from "@/components/mui/Grid/Row";
 import Col from "@/components/mui/Grid/Col";
-import Link from "next/link";
-import HomeIcon from "@mui/icons-material/Home";
 import Typography from "@mui/material/Typography";
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import {Breadcrumbs} from "@mui/material";
 import Layout from "@/components/Layout";
 import Button from "@mui/material/Button";
 import styles from "./404.module.css"
+
+const NavigateBeforeIcon = dynamic(() => import('@mui/icons-material/NavigateBefore'), {ssr: false})
+const HomeIcon = dynamic(() => import('@mui/icons-material/Home'), {ssr: false})
 
 const breadcrumbs = [
     <Link style={{display: 'flex'}} underline="hover" key="1" color="#999999" href="/">

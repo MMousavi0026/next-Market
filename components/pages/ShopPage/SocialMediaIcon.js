@@ -1,8 +1,5 @@
 import React from 'react';
-import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Popover from "@mui/material/Popover";
 import styles from "../../../pages/shop/Product.module.css";
 
 const SocialMediaIcon = (props) => {

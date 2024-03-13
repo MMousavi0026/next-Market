@@ -1,4 +1,10 @@
 import {createTheme, lighten} from "@mui/material/styles";
+import {Noto_Sans_Arabic} from "next/font/google";
+
+const NotoSansArabic = Noto_Sans_Arabic({
+    weight: '400',
+    subsets: ['arabic'],
+})
 
 const theme = createTheme({
     direction: "rtl",
@@ -10,7 +16,7 @@ const theme = createTheme({
         },
         MuiTypography: {
             defaultProps: {
-                variant: "span"
+                variant: "button"
             }
         },
     },
@@ -33,6 +39,9 @@ const theme = createTheme({
         inherit: {
             main: "#999999"
         }
+    },
+    typography: {
+        fontFamily: NotoSansArabic.style.fontFamily
     }
 })
 

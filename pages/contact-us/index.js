@@ -11,16 +11,19 @@ import {
     paperClasses, Select,
     TextField
 } from "@mui/material";
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import Col from "../../components/mui/Grid/Col";
 import Link from "@mui/material/Link";
-import HomeIcon from "@mui/icons-material/Home";
 import Typography from "@mui/material/Typography";
-import EmailIcon from '@mui/icons-material/Email';
-import CallIcon from '@mui/icons-material/Call';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Button from "@mui/material/Button";
 import Layout from "@/components/Layout";
+import dynamic from "next/dynamic";
+
+const NavigateBeforeIcon = dynamic(() => import('@mui/icons-material/NavigateBefore'), {ssr: false})
+const HomeIcon = dynamic(() => import('@mui/icons-material/Home'), {ssr: false})
+const EmailIcon = dynamic(() => import('@mui/icons-material/Email'), {ssr: false})
+const CallIcon = dynamic(() => import('@mui/icons-material/Call'), {ssr: false})
+const LocationOnIcon = dynamic(() => import('@mui/icons-material/LocationOn'), {ssr: false})
+
 
 const breadcrumbs = [
     <Link style={{display: 'flex'}} underline="hover" key="1" color="inherit" to="/">
