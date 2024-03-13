@@ -5,6 +5,7 @@ import ListItem from "@mui/material/ListItem";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import styles from "./NMenu.module.css";
+import Popover from "@mui/material/Popover";
 
 const NMenuButton = ({children, title, href, elementVertical, elementHorizontal, childrenVertical, childrenHorizontal}) => {
 
@@ -31,21 +32,21 @@ const NMenuButton = ({children, title, href, elementVertical, elementHorizontal,
                 >
                     <Typography textAlign="center" color="white" className={styles.menuItem+" "+styles.whiteColor} fontSize="1rem">{title}</Typography>
                 </ListItem>
-                <Menu
+                <Popover
                     id="basic-menu"
                     anchorEl={anchorEl}
                     open={open}
                     onCloce={handleHoverClose}
-                    // anchorOrigin={{vertical: elementVertical, horizontal: elementHorizontal,}}
-                    // transformOrigin={{vertical: childrenVertical, horizontal: childrenHorizontal,}}
-                    // disableScrollLock
                     MenuListProps={{
                         'aria-labelledby': 'basic-menu',
                     }}
                     slotProps={{paper: {className: styles.menuPaper}}}
+                    // anchorOrigin={{vertical: elementVertical, horizontal: elementHorizontal,}}
+                    // transformOrigin={{vertical: childrenVertical, horizontal: childrenHorizontal,}}
+                    // disableScrollLock
                 >
                     {children}
-                </Menu>
+                </Popover>
             </>
         ) : (
             <Link
