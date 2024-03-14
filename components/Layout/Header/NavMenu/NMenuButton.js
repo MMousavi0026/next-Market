@@ -7,42 +7,18 @@ import Typography from "@mui/material/Typography";
 import styles from "./NMenu.module.css";
 import Popover from "@mui/material/Popover";
 
-const NMenuButton = ({children, title, href, elementVertical, elementHorizontal, childrenVertical, childrenHorizontal}) => {
-
-    const [anchorEl, setAnchorEl] = useState(null);
-    const [isOpen, setIsOpen] = useState(false)
-
-    const handleMouseEnter = () => {
-        setIsOpen(true);
-    }
-
-    const handleMouseLeave = () => {
-        setIsOpen(false);
-    }
-    const handleHoverOpen = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleHoverClose = () => {
-        setAnchorEl(null);
-    };
-    const open = Boolean(anchorEl);
+const NMenuButton = ({children, title, href, className}) => {
 
     return (
         children ? (
-            <div
-                aria-owns={open ? 'mouse-over-popover' : undefined}
-                aria-haspopup="true"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                className={styles.dropButton}
-            >
+            <div className={styles.dropButton}>
                 <ListItem
                     sx={{width: "fit-content", cursor: "pointer", color: "white"}}
                     className={styles.menuItems}
                 >
                     <Typography textAlign="center" color="white" className={styles.menuItem+" "+styles.whiteColor} fontSize="1rem">{title}</Typography>
                 </ListItem>
-                <div className={styles.dropDown}>
+                <div className={styles.dropDown + ' ' + className}>
                     {children}
                 </div>
             </div>

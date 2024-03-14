@@ -2,17 +2,20 @@ const menuData = [
     {
         id: 1,
         title: "صفحه اصلی",
-        href: "/"
+        href: "/",
+        type: 'menu-button'
     },
     {
         id: 2,
         title: "ورود / ثبت نام",
-        href: "/login"
+        href: "/login",
+        type: 'menu-button'
     },
     {
         id: 3,
         title: "همه محصولات",
-        href: "/shop"
+        href: "/shop",
+        type: 'menu-button'
     },
     {
         id: 4,
@@ -188,12 +191,14 @@ const menuData = [
     {
         id: 6,
         title: "اخبار",
-        href: "/news"
+        href: "/news",
+        type: 'menu-button'
     },
     {
         id: 7,
         title: "تماس با ما",
-        href: "/contact-us"
+        href: "/contact-us",
+        type: 'menu-button'
     },
 ]
 

@@ -34,6 +34,7 @@
     position: absolute;
     top: 5px;
     left: 15px;
+    backdrop-filter: blur(2px);
 }
 .POTitle {
     padding: 5px 10px;

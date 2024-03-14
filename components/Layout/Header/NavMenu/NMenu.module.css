@@ -69,8 +69,19 @@
   /*z-index: 11;*/
 }
 
+.listItemChild {
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+}
+.listItem:hover .listItemChild {
+  opacity: 1;
+  pointer-events: all;
+}
+
 .menuItem {
   transition: color 0.4s;
+  padding-bottom: 5px;
 }
 .menuItems:hover .menuItem{
   color: #01e281 !important;
@@ -80,11 +91,6 @@
   color: white !important;
 }
 
-@media (max-width: 900px) {
-  .navAppBar {
-    display: none !important;
-  }
-}
 .dropBox {
   display: flex;
   flex-direction: column;
@@ -95,6 +101,7 @@
   position: absolute;
   top: 60px;
   width: 100%;
+  height: fit-content;
   background-color: #122d40;
   border-radius: 15px;
   transition: opacity .3s;
@@ -106,7 +113,8 @@
   pointer-events: all;
 }
 
-.ali{
-  display: none;
-  pointer-events: none;
+@media (max-width: 900px) {
+  .navAppBar {
+    display: none !important;
+  }
 }

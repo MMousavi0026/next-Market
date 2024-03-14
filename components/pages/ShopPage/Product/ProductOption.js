@@ -18,7 +18,7 @@ const ProductOption = ({iconName, title, iconVertical, iconHorizontal, textVerti
     const open = Boolean(anchorEl);
 
     return (
-        <div {...props}>
+        <div {...props} className={styles.optionWrapper}>
             <button className={styles.love} aria-owns={open ? 'mouse-over-popover' : undefined} aria-haspopup="true" onMouseEnter={handlePopoverOpen} onMouseLeave={handlePopoverClose}>
                 <FontAwesomeIcon className={styles.icon} icon={iconName} />
             </button>
