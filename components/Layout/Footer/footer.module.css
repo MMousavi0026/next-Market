@@ -40,7 +40,7 @@
     justify-content: center;
     cursor: pointer;
     transition: background-color 0.4s, color .4s;
-    margin-left: -6px !important;
+    margin-left: -2px !important;
 }
 
 .button1:hover {
@@ -62,7 +62,7 @@
 .search {
     background-color: white;
     border-radius: 50px;
-    height: 37px;
+    height: 55px;
     padding: .5rem;
     display: flex;
     flex-direction: row;
@@ -121,13 +121,13 @@
 }
 
 .linkIcon {
-    font-size: 20px;
+    font-size: 4rem;
     padding: 7px;
     border-radius: 100%;
-    color: #01e281;
+    color: #01e281 !important;
     background-color: rgba(1, 226, 129, 0.2);
     margin-left: 6px;
-    transition: background-color .3s, color .3s;
+    transition: background-color .3s, color .3s !important;
 }
 
 .footerLink {
@@ -138,6 +138,7 @@
     justify-content: flex-start;
     cursor: pointer;
     line-height: 50px;
+    color: white;
 }
 
 .footerLink:hover span {
@@ -145,17 +146,17 @@
 }
 
 .footerLink:hover .linkIcon {
-    color: #122d40;
+    color: #122d40 !important;
     background-color: #01e281;
 }
 .footerLinkText {
     transition: color .3s;
-    font-size: 16px;
+    font-size: 1.6rem;
     color: white;
 }
 
 .button2 {
-    background-color: #01e281;
+    background-color: #01e281 !important;
     padding: 11px 27px;
     display: flex;
     flex-direction: row;
@@ -166,16 +167,13 @@
 }
 
 .button2:hover {
-    background-color: #ffffff;
+    background-color: #ffffff !important;
 }
 
 .button2Text {
     color: #122d40;
     transition: color .4s;
-}
-
-.button2:hover .button2Text {
-    color: #122d40;
+    padding: 0 5px;
 }
 
 .caption {
@@ -227,7 +225,7 @@
     justify-content: space-around;
 }
 .description {
-    font-size: 17px;
+    font-size: 1.8rem !important;
     text-align: right;
     width: 100%;
     color: white;
@@ -250,7 +248,7 @@
     justify-content: space-between;
 }
 .linksTitle {
-    font-size: 22px;
+    font-size: 3rem !important;
     color: white;
 }
 .links {
@@ -262,7 +260,7 @@
 }
 
 .captionTitle {
-    font-size: 14px;
+    font-size: 1.6rem !important;
     color: rgb(159,159,159);
     margin-bottom: 20px;
 }

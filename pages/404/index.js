@@ -12,25 +12,11 @@ import styles from "./404.module.css"
 const NavigateBeforeIcon = dynamic(() => import('@mui/icons-material/NavigateBefore'), {ssr: false})
 const HomeIcon = dynamic(() => import('@mui/icons-material/Home'), {ssr: false})
 
-const breadcrumbs = [
-    <Link style={{display: 'flex'}} underline="hover" key="1" color="#999999" href="/">
-        <HomeIcon style={{fontSize:'18px'}}/>
-    </Link>,
-    <Typography fontSize={"18px"} key="2" color="text.primary">
-        سبد خرید
-    </Typography>,
-];
-
 const FourHundredFour = () => {
     return (
         <>
             <main>
                 <Row spacing={4}>
-                    <Col xs={12}>
-                        <Breadcrumbs separator={<NavigateBeforeIcon fontSize="16px" />} aria-label="breadcrumb">
-                            {breadcrumbs}
-                        </Breadcrumbs>
-                    </Col>
                     <Col xs={12}/>
                     <Col xs={12} className={styles.item}>
                         <Typography fontSize={300} fontWeight="bold" color="secondary" lineHeight="1">۴۰۴</Typography>

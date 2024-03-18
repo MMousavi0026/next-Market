@@ -17,6 +17,7 @@
 }
 .sideBoxItem {
     transition: color 0.3s;
+    font-size: 1.8rem !important;
 }
 .sideBoxItemWrapper:hover .sideBoxItem {
     color: #01e281 !important;

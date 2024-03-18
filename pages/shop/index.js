@@ -48,7 +48,7 @@ const ShopPage = ({productsList, currentProducts}) => {
             <HomeIcon style={{fontSize:'18px'}}/>
         </Link>,
         <Typography fontSize={"18px"} key="2" color="text.primary">
-            اخبار
+            محصولات
         </Typography>,
     ];
 
@@ -78,7 +78,7 @@ const ShopPage = ({productsList, currentProducts}) => {
         <Row rowSpacing={4} className={styles.pageWrapper}>
             <Col xs={12} />
             <Col xs={12} className={styles.breadcrumbs}>
-                <Breadcrumbs separator={<NavigateBeforeIcon fontSize="16px" />} aria-label="breadcrumb">
+                <Breadcrumbs separator={<NavigateBeforeIcon sx={{fontSize: '2rem'}} />} aria-label="breadcrumb">
                     {breadcrumbs}
                 </Breadcrumbs>
             </Col>
@@ -87,11 +87,11 @@ const ShopPage = ({productsList, currentProducts}) => {
                 <Row spacing={6}>
                     <Col xs={12} lg={8}>
                         <Row rowSpacing={4}>
-                            <Col xs={12} sx={{display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
-                                <Typography>نمایش {((pageNumberRef.current - 1) * 6) + 1} - {pageNumberRef.current * 6} از {productList.length} نتیجه</Typography>
+                            <Col xs={12} sx={{display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"space-between", flexWrap: 'wrap'}}>
+                                <Typography fontSize='1.8rem'>نمایش {((pageNumberRef.current - 1) * 6) + 1} - {pageNumberRef.current * 6} از {productList.length} نتیجه</Typography>
                                 <div>
-                                    <FormControl sx={{ m: 1, minWidth: 120 , color:"primary"}}>
-                                        <InputLabel id="demo-simple-select-helper-label" >تعداد محصول در هر صفحه</InputLabel>
+                                    <FormControl sx={{ m: 1, minWidth: 250 , color:"primary"}}>
+                                        <InputLabel sx={{fontSize: '1.8rem', width: 'fit-content'}} id="demo-simple-select-helper-label" >تعداد محصول در هر صفحه</InputLabel>
                                         <Select
                                             labelId="demo-simple-select-helper-label"
                                             id="demo-simple-select-helper"
@@ -99,19 +99,20 @@ const ShopPage = ({productsList, currentProducts}) => {
                                             label="تعداد محصول در هر صفحه"
                                             onChange={pageHandleChange}
                                             fullWidth
+                                            sx={{fontSize: '1.8rem'}}
                                         >
                                             <MenuItem value="">
-                                                <i>تعداد محصول در هر صفحه</i>
+                                                <i style={{fontSize: '1.8rem'}}>تعداد محصول در هر صفحه</i>
                                             </MenuItem>
-                                            <MenuItem value={6}>۶ محصول در هر صفحه</MenuItem>
-                                            <MenuItem value={8}>۸  محصول در هر صفحه</MenuItem>
-                                            <MenuItem value={12}>۱۲  محصول در هر صفحه</MenuItem>
-                                            <MenuItem value={16}>۱۶  محصول در هر صفحه</MenuItem>
-                                            <MenuItem value={32}>۳۲  محصول در هر صفحه</MenuItem>
+                                            <MenuItem sx={{fontSize: '1.8rem'}} value={6}>۶ محصول در هر صفحه</MenuItem>
+                                            <MenuItem sx={{fontSize: '1.8rem'}} value={8}>۸  محصول در هر صفحه</MenuItem>
+                                            <MenuItem sx={{fontSize: '1.8rem'}} value={12}>۱۲  محصول در هر صفحه</MenuItem>
+                                            <MenuItem sx={{fontSize: '1.8rem'}} value={16}>۱۶  محصول در هر صفحه</MenuItem>
+                                            <MenuItem sx={{fontSize: '1.8rem'}} value={32}>۳۲  محصول در هر صفحه</MenuItem>
                                         </Select>
                                     </FormControl>
-                                    <FormControl sx={{ m: 1, minWidth: 120 }}>
-                                        <InputLabel id="demo-simple-select-helper-label">مرتب سازی پیشفرض</InputLabel>
+                                    <FormControl sx={{ m: 1, minWidth: 250 }}>
+                                        <InputLabel sx={{fontSize: '1.8rem'}} id="demo-simple-select-helper-label">مرتب سازی پیشفرض</InputLabel>
                                         <Select
                                             labelId="demo-simple-select-helper-label"
                                             id="demo-simple-select-helper"
@@ -119,13 +120,14 @@ const ShopPage = ({productsList, currentProducts}) => {
                                             label="مرتب سازی پیشفرض"
                                             onChange={pageHandleChange2}
                                             fullWidth
+                                            sx={{fontSize: '1.8rem'}}
                                         >
-                                            <MenuItem value="">
+                                            <MenuItem sx={{fontSize: '1.8rem'}} value="">
                                                 <i>مرتب سازی پیش فرض</i>
                                             </MenuItem>
-                                            <MenuItem value={10}>مرتب سازی بر اساس محبوبیت</MenuItem>
-                                            <MenuItem value={20}>مرتب سازی بر اساس امتیاز</MenuItem>
-                                            <MenuItem value={30}>مرتب سازی بر اساس فروش</MenuItem>
+                                            <MenuItem sx={{fontSize: '1.8rem'}} value={10}>مرتب سازی بر اساس محبوبیت</MenuItem>
+                                            <MenuItem sx={{fontSize: '1.8rem'}} value={20}>مرتب سازی بر اساس امتیاز</MenuItem>
+                                            <MenuItem sx={{fontSize: '1.8rem'}} value={30}>مرتب سازی بر اساس فروش</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </div>
@@ -151,8 +153,9 @@ const ShopPage = ({productsList, currentProducts}) => {
                                         <PaginationItem
                                             component={Link}
                                             page={page}
-                                            href={item.page > 0 ? `/shop?page=${item.page}` : '/shop'}
+                                            href={item.page > 0 ? `/shop?page=${item.page}` : 'shop'}
                                             {...item}
+                                            sx={{fontSize: '1.8rem'}}
                                         />
                                     )}
                                 />
@@ -185,11 +188,11 @@ const ShopPage = ({productsList, currentProducts}) => {
                                         reviewsOfRecentProducts.map((item, index) => (
                                             <React.Fragment key={index}>
                                                 <div style={{display:"flex", flexDirection:"row", alignItems:'center', justifyContent:'space-between', width:'100%', margin:"10px 0"}}>
-                                                    <Image width={90} height={90} src={item.imgSrc} alt={item.title} style={{width: "90px", borderRadius: "10px"}}/>
+                                                    <Image width={90} height={90} src={item.imgSrc} alt={item.title} style={{width: "90px", borderRadius: "10px", marginLeft: '15px'}}/>
                                                     <div>
-                                                        <Typography variant="body1">{item.title}</Typography>
-                                                        <Rating name="read-only" value={3} color="#faaf00" readOnly />
-                                                        <Typography variant="body2">{item.desc}</Typography>
+                                                        <Typography fontSize='1.8rem' variant="body1">{item.title}</Typography>
+                                                        <Rating name="read-only" value={3} color="#faaf00" readOnly size='large'/>
+                                                        <Typography fontSize='1.6rem' variant="body2">{item.desc}</Typography>
                                                     </div>
                                                 </div>
                                                 {index !== reviewsOfRecentProducts.length - 1 && <Divider/>}

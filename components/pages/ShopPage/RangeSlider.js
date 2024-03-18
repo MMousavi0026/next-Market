@@ -26,7 +26,7 @@ const RangeSlider = () => {
                 step={10000}
                 max={1000000}
             />
-            <Typography>{value[0]} تا {value[1]}</Typography>
+            <Typography fontSize='1.8rem'>{value[0]} تا {value[1]}</Typography>
         </Box>
     );
 }

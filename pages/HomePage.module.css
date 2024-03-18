@@ -80,6 +80,8 @@
     background: url(https://xtratheme.ir/elementor/supermarket/wp-content/uploads/sites/111/2023/04/bg-4.png), linear-gradient(90deg, #01e281, #01e281);
     background-position: right bottom;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
 }
 
 .button7, .button4{
@@ -91,7 +93,7 @@
     justify-content: center;
     cursor: pointer;
     transition: background-color 0.4s;
-    margin: 15px 15px 0 0 !important;
+    margin: 0 15px 0 0 !important;
 }
 
 .button7:hover {
@@ -135,8 +137,7 @@
 .box3 {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    align-items: start;
     width: 100%;
     height: fit-content;
 }
@@ -265,17 +266,25 @@
     padding-top: 30px;
 }
 
+.downloadImg {
+    width: fit-content;
+}
 .googleplayImg {
     width: 160px;
     height: auto;
 }
 
-.appStore {
+.appStoreImg {
     width: 160px;
     height: auto;
 }
 
+.box5Buttons {
+    width: fit-content;
+}
+
 .box5ImgWrapper {
+    width: fit-content;
     height: fit-content;
     display: flex;
     align-items: center;
@@ -292,7 +301,7 @@
     display: flex;
     flex-direction: column !important;
     align-items: center !important;
-    max-width: 100%;
+    margin-bottom: 48px !important;
 }
 
 .box6Title {
@@ -314,8 +323,11 @@
     background-size: contain!important;
     background: url(https://xtratheme.ir/elementor/supermarket/wp-content/uploads/sites/111/2023/05/bg-2.png), linear-gradient(90deg, #ff3f55, #ff3f55), left bottom;
     background-repeat: no-repeat;
+    background-position: left bottom;
     border-radius:20px;
-    height: 100%;
+    height: 284px;
+    display: flex;
+    flex-direction: column;
 }
 
 .box2Column1Item2 {
@@ -324,7 +336,9 @@
     background-repeat: no-repeat;
     background-position: right bottom;
     border-radius:20px;
-    height: 100%;
+    height: 284px;
+    display: flex;
+    flex-direction: column;
 }
 
 .box2Column1Item3 {
@@ -333,7 +347,7 @@
     background-repeat: no-repeat;
     background-position: left bottom;
     border-radius: 20px;
-    height: 100%;
+    height: 284PX;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -377,7 +391,6 @@
         margin-bottom: 55px;
     }
     .box5Buttons {
-        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;

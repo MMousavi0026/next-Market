@@ -54,21 +54,21 @@ const TheNewsPage = ({dataList}) => {
                     <Col xs={12} lg={8}>
                         <Row rowSpacing={4}>
                             <Col xs={12}>
-                                <Image src={thisNewsData?.imgSrc} alt={thisNewsData?.title} width={300} height={300} style={{width: '100%', height: 'auto', borderRadius:"20px"}}/>
+                                <Image src={thisNewsData.imgSrc} alt={thisNewsData.title} width={300} height={300} style={{width: '100%', height: 'auto', borderRadius:"20px"}}/>
                                 <Typography fontSize='2rem' fontWeight="bold">{thisNewsData?.title}</Typography>
-                                <Typography fontSize='1.5rem' display="block" margin="10px 0" >{thisNewsData?.body}</Typography>
+                                <Typography fontSize='1.6rem' display="block" margin="10px 0" >{thisNewsData?.body}</Typography>
                             </Col>
                             <Col xs={12} className={styles.bottomItemWrapper} >
                                 <div className={styles.bottomItem}>
-                                    <AccessTimeIcon color="secondary" fontSize="15px" className={styles.icon}/>
+                                    <AccessTimeIcon color="secondary" className={styles.icon}/>
                                     <Chip label={thisNewsData?.created_at} variant="outlined" onClick={handleClick} sx={{fontSize:"13px", ml:"7px", py: '20px', borderRadius: '30px'}} />
                                 </div>
                                 <div className={styles.bottomItem}>
-                                    <RemoveRedEyeIcon color="secondary" fontSize="15px" className={styles.icon}/>
+                                    <RemoveRedEyeIcon color="secondary" className={styles.icon}/>
                                     <Chip label={`${thisNewsData?.view} نفر`} variant="outlined" onClick={handleClick} sx={{fontSize:"13px", ml:"7px", py: '20px', borderRadius: '30px'}} />
                                 </div>
                                 <div className={styles.bottomItem}>
-                                    <LocalOfferIcon color="secondary" fontSize="15px" className={styles.icon}/>
+                                    <LocalOfferIcon color="secondary" className={styles.icon}/>
                                     <Chip label={thisNewsData?.slug} variant="outlined" onClick={handleClick} sx={{fontSize:"13px", ml:"7px", py: '20px', borderRadius: '30px'}} />
                                 </div>
                             </Col>

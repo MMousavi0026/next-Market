@@ -34,7 +34,7 @@ const ExpandMoreIcon = dynamic(() => import('@mui/icons-material/ExpandMore'), {
 
 const breadcrumbs = [
     <Link style={{display: 'flex'}} underline="hover" key="1" color="inherite" href="/">
-        <HomeIcon style={{fontSize:'18px'}}/>
+        <HomeIcon sx={{fontSize: '2rem'}}/>
     </Link>,
     <Typography fontSize={"18px"} key="2" color="text.primary">
         صفحه تسویه حساب
@@ -65,7 +65,7 @@ const Checkout = ({dataList}) => {
         <Row spacing={4}>
             <Col xs={12} />
             <Col xs={12}>
-                <Breadcrumbs separator={<NavigateBeforeIcon fontSize="16px" />} aria-label="breadcrumb">
+                <Breadcrumbs separator={<NavigateBeforeIcon fontSize="1.8rem" />} aria-label="breadcrumb">
                     {breadcrumbs}
                 </Breadcrumbs>
             </Col>
@@ -85,7 +85,7 @@ const Checkout = ({dataList}) => {
                         aria-controls="panel1-content"
                         id="panel1-header"
                     >
-                        <Typography fontWeight="bold">
+                        <Typography fontSize='1.8rem' fontWeight="bold">
                             کد تخفیف دارید؟ برای نوشتن کد اینجا کلیک کنید
                         </Typography>
                     </AccordionSummary>
@@ -93,8 +93,16 @@ const Checkout = ({dataList}) => {
                         <TextField
                             variant="outlined"
                             label="کد تخفیف"
+                            sx={{
+                                "& .MuiInputLabel-formControl": {
+                                    fontSize: '1.4rem'
+                                },
+                                "& .MuiOutlinedInput-notchedOutline": {
+                                    fontSize: '1.4rem'
+                                },
+                            }}
                         />
-                        <Button variant="contained" color="secondary" sx={{ml: "10px"}}>اعمال کد تخفیف</Button>
+                        <Button variant="contained" color="secondary" sx={{ml: "10px", fontSize: '1.6rem'}}>اعمال کد تخفیف</Button>
                     </AccordionDetails>
                 </Accordion>
             </Col>
@@ -112,7 +120,7 @@ const Checkout = ({dataList}) => {
                         </Col>
                         <Col xs={12}>
                             <FormControl style={{ width:"100%" }}>
-                                <InputLabel color="secondary" id="demo-simple-select-label">شهر</InputLabel>
+                                <InputLabel sx={{fontSize: '1.6rem'}} color="secondary" id="demo-simple-select-label">شهر</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
@@ -121,11 +129,12 @@ const Checkout = ({dataList}) => {
                                     onChange={handleChange}
                                     color="secondary"
                                     fullWidth
+                                    sx={{fontSize: '1.6rem'}}
                                 >
-                                    <MenuItem value={1}>قم</MenuItem>
-                                    <MenuItem value={2}>اصفهان</MenuItem>
-                                    <MenuItem value={3}>کرمان</MenuItem>
-                                    <MenuItem value={4}>مشهد</MenuItem>
+                                    <MenuItem sx={{fontSize: '1.6rem'}} value={1}>قم</MenuItem>
+                                    <MenuItem sx={{fontSize: '1.6rem'}} value={2}>اصفهان</MenuItem>
+                                    <MenuItem sx={{fontSize: '1.6rem'}} value={3}>کرمان</MenuItem>
+                                    <MenuItem sx={{fontSize: '1.6rem'}} value={4}>مشهد</MenuItem>
                                 </Select>
                             </FormControl>
                         </Col>
@@ -154,8 +163,8 @@ const Checkout = ({dataList}) => {
                             <Table aria-label="customized table">
                                 <TableHead>
                                     <TableRow>
-                                        <StyledTableCell align="left">محصول</StyledTableCell>
-                                        <StyledTableCell align="left">جمع جزء</StyledTableCell>
+                                        <StyledTableCell sx={{fontSize: '1.8rem'}} align="left">محصول</StyledTableCell>
+                                        <StyledTableCell sx={{fontSize: '1.8rem'}} align="left">جمع جزء</StyledTableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -164,30 +173,30 @@ const Checkout = ({dataList}) => {
                                             return (
                                                 <StyledTableRow key={index}>
                                                     <StyledTableCell component="th" scope="row">
-                                                        <Typography>{item.name} * </Typography>
-                                                        <Typography fontWeight="bold">2</Typography>
+                                                        <Typography sx={{fontSize: '1.4rem'}} >{item.name} * </Typography>
+                                                        <Typography sx={{fontSize: '1.4rem'}}  fontWeight="bold">2</Typography>
                                                     </StyledTableCell>
-                                                    <StyledTableCell>{item.price * 2} تومان</StyledTableCell>
+                                                    <StyledTableCell sx={{fontSize: '1.6rem'}} >{item.price * 2} تومان</StyledTableCell>
                                                 </StyledTableRow>
                                             )
                                         })
                                     }
                                     <StyledTableRow>
                                         <StyledTableCell component="th" scope="row">
-                                            <Typography fontWeight="bold">جمع جزء</Typography>
+                                            <Typography sx={{fontSize: '1.6rem'}} fontWeight="bold">جمع جزء</Typography>
                                         </StyledTableCell>
-                                        <StyledTableCell>{sum} تومان</StyledTableCell>
+                                        <StyledTableCell sx={{fontSize: '1.6rem'}}>{sum} تومان</StyledTableCell>
                                     </StyledTableRow>
                                     <StyledTableRow>
                                         <StyledTableCell component="th" scope="row">
-                                            <Typography fontWeight="bold">مجموع</Typography>
+                                            <Typography sx={{fontSize: '1.6rem'}} fontWeight="bold">مجموع</Typography>
                                         </StyledTableCell>
-                                        <StyledTableCell>{sum} تومان</StyledTableCell>
+                                        <StyledTableCell sx={{fontSize: '1.6rem'}}>{sum} تومان</StyledTableCell>
                                     </StyledTableRow>
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                        <Button variant="contained" color="secondary" sx={{mt: "15px", fontSize: '1.2rem'}}>ثبت سفارش</Button>
+                        <Button variant="contained" color="secondary" sx={{mt: "15px", fontSize: '1.6rem'}}>ثبت سفارش</Button>
                     </div>
                 </SideBox>
             </Col>
@@ -208,7 +217,6 @@ export const getServerSideProps = async () => {
         props: {
             dataList
         },
-        revalidate: 10,
     }
 }
 

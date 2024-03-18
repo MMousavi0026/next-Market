@@ -14,7 +14,7 @@ const SocialMediaIcon = (props) => {
 
     return (
         <Button className={styles.SocialMediaIcon} >
-            <props.icon/>
+            <props.icon className={styles.icon}/>
         </Button>
     );
 };

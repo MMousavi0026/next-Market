@@ -18,7 +18,7 @@ const ProductOption = ({iconName, title, iconVertical, iconHorizontal, textVerti
     const open = Boolean(anchorEl);
 
     return (
-        <div {...props} className={styles.optionWrapper}>
+        <div {...props}>
             <button className={styles.love} aria-owns={open ? 'mouse-over-popover' : undefined} aria-haspopup="true" onMouseEnter={handlePopoverOpen} onMouseLeave={handlePopoverClose}>
                 <FontAwesomeIcon className={styles.icon} icon={iconName} />
             </button>
@@ -33,7 +33,7 @@ const ProductOption = ({iconName, title, iconVertical, iconHorizontal, textVerti
                 disableScrollLock
                 slotProps={{paper: { sx: {backgroundColor: 'secondary.main', borderRadius: "30px", boxShadow:'none', display: "flex", alignItems: "center", justifyContent: "center", mr: "10px"}}}}
             >
-                <Typography variant="span" fontSize="12px" className={styles.POTitle}>{title}</Typography>
+                <Typography variant="span" fontSize="1.2rem" className={styles.POTitle}>{title}</Typography>
             </Popover>
         </div>
     );

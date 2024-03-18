@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Slider from "react-slick";
+import NewsItemComponent from "../NewsItem/NewsItemComponent";
+import {newsList} from "@/data/newsList";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {newsList} from "@/data/newsList";
-import NewsItemComponent from "../NewsItem/NewsItemComponent";
 
 const settings = {
     dots: false,
@@ -13,6 +13,7 @@ const settings = {
     slidesToScroll: 1,
     rtl: true,
     arrows: false,
+    style: {maxWidth: '100%'},
     responsive: [
         {
             breakpoint: 900,

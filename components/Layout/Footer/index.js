@@ -43,9 +43,9 @@ const Footer = () => {
             <Row className={styles.floatBox}>
                 <Col xs={12} md={6} className={styles.floatBoxItem}>
                     <div>
-                        <Typography  fontSize='2rem' color="white.main">در</Typography>
-                        <Typography  fontSize='2rem' color="#01e281"> خبرنامه ویژه </Typography>
-                        <Typography  fontSize='2rem' color="white.main">ما عضو شوید</Typography>
+                        <Typography fontSize='3rem' color="white.main">در</Typography>
+                        <Typography fontSize='3rem' color="#01e281"> خبرنامه ویژه </Typography>
+                        <Typography fontSize='3rem' color="white.main">ما عضو شوید</Typography>
                     </div>
                 </Col>
                 <Col xs={12} md={6} className={styles.inputWrapper}>
@@ -53,12 +53,13 @@ const Footer = () => {
                         <StyledInputBase
                             placeholder="ایمیل خود را وارد کنید"
                             inputProps={{'aria-label': 'search'}}
+                            style={{fontSize: '2rem'}}
                         />
                         <Button variant="contained" color="secondary" className={styles.button1 +" "+ styles.searchIcon}>
                             <div className={styles.button1Text}>
-                                <DraftsIcon color="primary" fontSize='20px' style={{marginLeft: '8px'}}/>
+                                <DraftsIcon color="primary" fontSize='2rem' style={{marginLeft: '8px', fontSize: '2rem'}}/>
                             </div>
-                            <Typography  fontSize='20px' className={styles.button1Text}>عضویت</Typography>
+                            <Typography fontSize='2rem' className={styles.button1Text}>عضویت</Typography>
                         </Button>
                     </div>
                 </Col>
@@ -82,7 +83,7 @@ const Footer = () => {
                     <Col xs={12} md={4} className={styles.footerItemWrapper}>
                         <div className={styles.footerItem}>
                             <div className={styles.linksWrapper}>
-                                <Typography  className={styles.linksTitle}>لینک های مفید</Typography>
+                                <Typography className={styles.linksTitle}>لینک های مفید</Typography>
                                 <div className={styles.links}>
                                     <FooterLink title="مرکز پشتیبانی"/>
                                     <FooterLink title="مرکز پشتیبانی"/>
@@ -97,14 +98,14 @@ const Footer = () => {
                         <div className={styles.footerItem}>
                             <div className={styles.cooperationWrapper}>
                                 <div className={styles.cooperationTitles}>
-                                    <Typography varianr="span" fontSize='22px' textAlign='center' color='white.main'>آیا علاقمند به داشتن </Typography>
-                                    <Typography varianr="span" fontSize='22px' textAlign='center' color='#01e281'>سوپر مارکت هستید؟</Typography>
+                                    <Typography fontSize='3rem' textAlign='center' color='white.main'>آیا علاقمند به داشتن </Typography>
+                                    <Typography fontSize='3rem' textAlign='center' color='#01e281'>سوپر مارکت هستید؟</Typography>
                                 </div>
-                                <Typography varianr="span" fontSize='17px' textAlign='center' color='inherit.main' lineHeight='35px'>
+                                <Typography fontSize='1.8rem' textAlign='center' color='inherit.main' lineHeight='35px'>
                                     اندازه سوپرمارکت‌ها معمولاً از خواربارفروشیهای سنتی بزرگترند و محصولات بیشتری می‌فروشند.
                                 </Typography>
                                 <Button className={styles.button2}>
-                                    <Typography varianr="span" fontSize='16px' className={styles.button2Text}>فروشنده شوید</Typography>
+                                    <Typography fontSize='1.8rem' className={styles.button2Text}>فروشنده شوید</Typography>
                                 </Button>
                             </div>
                         </div>

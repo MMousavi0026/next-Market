@@ -42,12 +42,12 @@
 .search {
     background-color: rgba(255,255,255,0.15);
     border-radius: 50px;
-    height: 37px;
     padding: .5rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+    height: 50px;
 }
 
 .searchIcon {
@@ -70,12 +70,12 @@
 
 .icon {
     color: white !important;
-    font-size: 23px;
-    padding: 10px;
+    padding: 8px;
     border-radius: 100vh;
     border: 1px #354c5d solid;
     background-color: #122d40;
     cursor: pointer;
+    font-size: 4.2rem;
 }
 
 .call {

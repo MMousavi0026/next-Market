@@ -34,7 +34,7 @@ const FavoritePage = ({dataList}) => {
         <Row rowSpacing={4}>
             <Col xs={12} />
             <Col xs={12}>
-                <Breadcrumbs separator={<NavigateBeforeIcon fontSize="16px" />} aria-label="breadcrumb">
+                <Breadcrumbs separator={<NavigateBeforeIcon sx={{fontSize: '2rem'}} />} aria-label="breadcrumb">
                     {breadcrumbs}
                 </Breadcrumbs>
             </Col>

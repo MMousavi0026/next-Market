@@ -50,7 +50,7 @@ export const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 const breadcrumbs = [
     <Link style={{display: 'flex'}} underline="hover" key="1" color="#999999" href="/">
-        <HomeIcon style={{fontSize:'18px'}}/>
+        <HomeIcon sx={{fontSize: '2rem'}}/>
     </Link>,
     <Typography fontSize={"18px"} key="2" color="text.primary">
         سبد خرید
@@ -110,11 +110,11 @@ const CartPage = ({cartProducts, relatedProducts}) => {
                                 <TableHead>
                                     <TableRow>
                                         <StyledTableCell> </StyledTableCell>
-                                        <StyledTableCell align="left"> </StyledTableCell>
-                                        <StyledTableCell align="left">محصول</StyledTableCell>
-                                        <StyledTableCell align="left">قیمت</StyledTableCell>
-                                        <StyledTableCell align="left">تعداد</StyledTableCell>
-                                        <StyledTableCell align="left">جمع جزء</StyledTableCell>
+                                        <StyledTableCell sx={{fontSize: '1.8rem'}} align="left"> </StyledTableCell>
+                                        <StyledTableCell sx={{fontSize: '1.8rem'}} align="left">محصول</StyledTableCell>
+                                        <StyledTableCell sx={{fontSize: '1.8rem'}} align="left">قیمت</StyledTableCell>
+                                        <StyledTableCell sx={{fontSize: '1.8rem'}} align="left">تعداد</StyledTableCell>
+                                        <StyledTableCell sx={{fontSize: '1.8rem'}} align="left">جمع جزء</StyledTableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -127,10 +127,10 @@ const CartPage = ({cartProducts, relatedProducts}) => {
                                                         <CloseIcon color="error"/>
                                                     </IconButton>
                                                 </StyledTableCell>
-                                                <StyledTableCell component={Link} href={`/shop/${item.id}`}>
+                                                <StyledTableCell sx={{fontSize: '1.6rem'}} component={Link} href={`/shop/${item.id}`}>
                                                     <Image width={100} height={100} src={item.image} alt={item.name}/>
                                                 </StyledTableCell>
-                                                <StyledTableCell component={Link} href={`/shop/${item.slug}`}>{item.name}</StyledTableCell>
+                                                <StyledTableCell sx={{fontSize: '1.6rem'}} component={Link} href={`/shop/${item.slug}`}>{item.name}</StyledTableCell>
                                                 <StyledTableCell>{item.price}</StyledTableCell>
                                                 <StyledTableCell>
                                                     <div style={{
@@ -139,17 +139,17 @@ const CartPage = ({cartProducts, relatedProducts}) => {
                                                         alignItems: "center",
                                                         marginBottom: "10px"
                                                     }}>
-                                                        <Button onClick={decrementCartNumber} color="secondary">-</Button>
+                                                        <Button sx={{fontSize: '1.6rem'}} onClick={decrementCartNumber} color="secondary">-</Button>
                                                         <div style={{
                                                             border: "rgba(128, 128, 128, 0.4) solid 1px",
                                                             padding: "5px 15px",
                                                             borderRadius: "10px",
                                                             margin: "0 5px"
                                                         }}>{cartNumber}</div>
-                                                        <Button onClick={incrementCartNumber} color="secondary">+</Button>
+                                                        <Button sx={{fontSize: '1.6rem'}} onClick={incrementCartNumber} color="secondary">+</Button>
                                                     </div>
                                                 </StyledTableCell>
-                                                <StyledTableCell>{cartNumber * item.price} تومان</StyledTableCell>
+                                                <StyledTableCell sx={{fontSize: '1.6rem'}}>{cartNumber * item.price} تومان</StyledTableCell>
                                             </StyledTableRow>
                                         )})
                                     }
@@ -158,14 +158,14 @@ const CartPage = ({cartProducts, relatedProducts}) => {
                         </TableContainer>
                         <Row spacing={2} sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', mt: '5px'}}>
                             <Col xs={12} sm={6}>
-                                <Button variant="contained" component={Link} href='/shop' color="secondary" sx={{ width: {xs: '100%', sm: 'fit-content'} }}>ادامه خرید</Button>
+                                <Button variant="contained" component={Link} href='/shop' color="secondary" sx={{ width: {xs: '100%', sm: 'fit-content', fontSize: '1.6rem'} }}>ادامه خرید</Button>
                             </Col>
                             <Col xs={12} sm={6} sx={{display: 'flex', alignItems: 'center', justifyContent: {xs: 'center', sm: 'end'} }}>
                                 <TextField
                                     variant="outlined"
                                     label="کد تخفیف"
                                 />
-                                <Button variant="contained" color="secondary" sx={{ml: "10px"}}>اعمال کد تخفیف</Button>
+                                <Button variant="contained" color="secondary" sx={{ml: "10px", fontSize: '1.6rem'}}>اعمال کد تخفیف</Button>
                             </Col>
                         </Row>
                     </Col>
@@ -184,17 +184,19 @@ const CartPage = ({cartProducts, relatedProducts}) => {
                     </Col>
                     <Col xs={12} lg={6}>
                         <SideBox title="جمع کل سبد خرید">
-                            <Table>
-                                <TableRow>
-                                    <StyledTableCell>جمع جزء</StyledTableCell>
-                                    <StyledTableCell>{sum} تومان</StyledTableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <StyledTableCell>مجموع</StyledTableCell>
-                                    <StyledTableCell>{sum} تومان</StyledTableCell>
-                                </TableRow>
-                            </Table>
-                            <Button variant="contained" component={Link} href="/cart-list/checkout" color= "secondary" sx={{mt: "20px"}}>ادامه جهت تسویه حساب</Button>
+                            <div>
+                                <Table>
+                                    <TableRow>
+                                        <StyledTableCell sx={{fontSize: '1.6rem'}}>جمع جزء</StyledTableCell>
+                                        <StyledTableCell sx={{fontSize: '1.6rem'}}>{sum} تومان</StyledTableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <StyledTableCell sx={{fontSize: '1.6rem'}}>مجموع</StyledTableCell>
+                                        <StyledTableCell sx={{fontSize: '1.6rem'}}>{sum} تومان</StyledTableCell>
+                                    </TableRow>
+                                </Table>
+                            </div>
+                            <Button variant="contained" component={Link} href="/cart-list/checkout" color= "secondary" sx={{mt: "20px", fontSize: '1.6rem'}}>ادامه جهت تسویه حساب</Button>
                         </SideBox>
                     </Col>
                     <Col xs={12}/>

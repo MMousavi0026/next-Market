@@ -26,6 +26,9 @@
 .SocialMediaIcon:hover {
     color: #01e281 !important;
 }
+.icon {
+    font-size: 2.4rem !important;
+}
 .productOptionTitle {
     background-color: #01e281;
     color: white;

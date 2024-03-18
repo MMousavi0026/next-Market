@@ -11,6 +11,7 @@ import dynamic from "next/dynamic";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCartShopping, faCodeCompare, faHeart, faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 import styles from './Product.module.css';
+import Image from "next/image";
 
 const CloseIcon = dynamic(() => import('@mui/icons-material/Close'), {ssr: false})
 
@@ -30,25 +31,28 @@ const Product = ({ image, name, price, href, closeIcon, }) => {
                 closeIcon ?
                     <div className={styles.closeIconWrapper}>
                         <IconButton color="error" className={styles.closeIcon+" "+styles.button}>
-                            <CloseIcon color="error"/>
+                            <CloseIcon sx={{fontSize: '2.6rem'}} color="error"/>
                         </IconButton>
                     </div>
                 : null
             }
-            <Card component={Link} href={href} sx={{width: '100%', borderRadius: '20px'}}>
-                <CardActionArea style={{paddingBottom: '40px'}}>
+            <Card component={Link} href={href} sx={{width: '100%', borderRadius: 20}}>
+                <CardActionArea style={{height: '100%', paddingBottom: 40, display: 'grid', alignItems: 'flex-start'}}>
                     <CardMedia
-                        component="img"
-                        height="250"
-                        image={image}
-                        alt={name}
-                        style={{objectFit: 'contain'}}
-                    />
+                    >
+                        <Image
+                            src={image}
+                            alt={name}
+                            width={350}
+                            height={350}
+                            style={{objectFit: 'cover', objectPosition: "right", minHeight: 250, width: 'auto'}}
+                        />
+                    </CardMedia>
                     <CardContent>
-                        <Typography gutterBottom variant="h6" component="div">
+                        <Typography fontSize='2rem' gutterBottom variant="h6" component="div">
                             {name}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography fontSize='1.6rem' variant="body2" color="text.secondary">
                             {price} تومان
                         </Typography>
                     </CardContent>

@@ -44,7 +44,7 @@ const ContactUsPage = () => {
         <Row rowSpacing={4} className={styles.wrapper}>
             <Col xs={12} />
             <Col xs={12} width="100%" className={styles.breadcrumbs}>
-                <Breadcrumbs separator={<NavigateBeforeIcon fontSize="16px" />} aria-label="breadcrumb">
+                <Breadcrumbs separator={<NavigateBeforeIcon sx={{fontSize: '2rem'}} />} aria-label="breadcrumb">
                     {breadcrumbs}
                 </Breadcrumbs>
             </Col>
@@ -52,23 +52,23 @@ const ContactUsPage = () => {
                 <Row spacing={4}>
                     <Col xs={12} sm={4}>
                         <div className={styles.feature} style={{cursor:"pointer", display:"flex", flexDirection:"column", alignItems:"center"}}>
-                            <EmailIcon className={styles.icon} color="white.main"/>
-                            <Typography className={styles.featureTitle} variant="h5" marginTop="10px">پشتیبانی</Typography>
-                            <Link href="mailto:support@yoursite.com" sx={{cursor:"pointer", textDecoration:"none"}}>support@yoursite.com</Link>
+                            <EmailIcon fontSize='40' className={styles.icon} color="white.main"/>
+                            <Typography fontSize='2.4rem' className={styles.featureTitle} variant="h5" marginTop="10px">پشتیبانی</Typography>
+                            <Link href="mailto:support@yoursite.com" sx={{cursor:"pointer", textDecoration:"none", fontSize: '1.4rem'}}>support@yoursite.com</Link>
                         </div>
                     </Col>
                     <Col xs={12} sm={4}>
                         <div className={styles.feature} style={{cursor:"pointer", display:"flex", flexDirection:"column", alignItems:"center"}}>
-                            <CallIcon className={styles.icon} color="white.main"/>
-                            <Typography className={styles.featureTitle} variant="h5" marginTop="10px">تلفن تماس</Typography>
-                            <Link href="tel:009822334455" sx={{textDecoration:"none"}}>۹۸۲۲۳۳۴۴۵۵+</Link>
+                            <CallIcon fontSize='40' className={styles.icon} color="white.main"/>
+                            <Typography fontSize='2.4rem' className={styles.featureTitle} variant="h5" marginTop="10px">تلفن تماس</Typography>
+                            <Link href="tel:009822334455" sx={{textDecoration:"none", fontSize: '1.4rem'}}>۹۸۲۲۳۳۴۴۵۵+</Link>
                         </div>
                     </Col>
                     <Col xs={12} sm={4}>
                         <div className={styles.feature} style={{cursor:"pointer", display:"flex", flexDirection:"column", alignItems:"center"}}>
-                            <LocationOnIcon className={styles.icon} color="white.main"/>
-                            <Typography className={styles.featureTitle} variant="h5" marginTop="10px">آدرس</Typography>
-                            <Typography sx={{cursor:"pointer", textDecoration:"none"}}>تهران، خیابان آزادی</Typography>
+                            <LocationOnIcon fontSize='40' className={styles.icon} color="white.main"/>
+                            <Typography fontSize='2.4rem' className={styles.featureTitle} variant="h5" marginTop="10px">آدرس</Typography>
+                            <Typography fontSize='1.6rem' sx={{cursor:"pointer", textDecoration:"none"}}>تهران، خیابان آزادی</Typography>
                         </div>
                     </Col>
                 </Row>
@@ -77,7 +77,7 @@ const ContactUsPage = () => {
                 <Row spacing={3} style={{backgroundColor:"#122d40", borderRadius:"30px", padding:"0 0 32px 32px", boxShadow:'0 10px 15px 0 rgba(0, 0, 0, 0.4)'}}>
                     <Col xs={12}>
                         <div>
-                            <Typography variant="h4" textAlign="center" color="white.main" marginBottom={5} >با ما در ارتباط باشید</Typography>
+                            <Typography fontSize='3rem' variant="h4" textAlign="center" color="white.main" marginBottom={5} >با ما در ارتباط باشید</Typography>
                         </div>
                     </Col>
                     <Col xs={12} md={6}>
@@ -92,6 +92,13 @@ const ContactUsPage = () => {
                             sx={{ width: "100%",
                                 "& .MuiInputBase-input": {
                                     color: "white.main",
+                                    fontSize: '1.6rem'
+                                },
+                                "& .MuiInputLabel-formControl": {
+                                    fontSize: '1.6rem'
+                                },
+                                "& .MuiOutlinedInput-notchedOutline": {
+                                    fontSize: '1.6rem'
                                 },
                             }}
                         />
@@ -108,6 +115,13 @@ const ContactUsPage = () => {
                             sx={{ width: "100%",
                                 "& .MuiInputBase-input": {
                                     color: "white.main",
+                                    fontSize: '1.6rem'
+                                },
+                                "& .MuiInputLabel-formControl": {
+                                    fontSize: '1.6rem'
+                                },
+                                "& .MuiOutlinedInput-notchedOutline": {
+                                    fontSize: '1.6rem'
                                 },
                             }}
                         />
@@ -124,6 +138,13 @@ const ContactUsPage = () => {
                             sx={{ width: "100%",
                                 "& .MuiInputBase-input": {
                                     color: "white.main",
+                                    fontSize: '1.6rem'
+                                },
+                                "& .MuiInputLabel-formControl": {
+                                    fontSize: '1.6rem'
+                                },
+                                "& .MuiOutlinedInput-notchedOutline": {
+                                    fontSize: '1.6rem'
                                 },
                             }}
                         />
@@ -143,23 +164,30 @@ const ContactUsPage = () => {
                                     sx={{
                                         "& .MuiOutlinedInput-notchedOutline": {
                                             borderColor: "white.main",
-                                            borderWidth: "2px"
+                                            borderWidth: "2px",
+                                            fontSize: '1.6rem'
                                         },
                                         "& .MuiInputBase-input": {
                                             color: "white.main",
+                                            fontSize: '1.6rem'
                                         },
                                         "& .MuiSelect-icon": {
-                                            color: "white.main"
+                                            color: "white.main",
+                                            fontSize: '1.6rem',
                                         },
                                         "& .MuiInputLabel-outlined": {
-                                            color: "white.main !important"
+                                            color: "white.main !important",
+                                            fontSize: '1.6rem',
+                                        },
+                                        "& .MuiInputLabel-formControl": {
+                                            fontSize: '1.6rem'
                                         },
                                     }}
                                 >
-                                    <MenuItem value={10}>فروش</MenuItem>
-                                    <MenuItem value={20}>مشتری داری</MenuItem>
-                                    <MenuItem value={30}>پشتیبانی</MenuItem>
-                                    <MenuItem value={30}>سایر</MenuItem>
+                                    <MenuItem sx={{fontSize: '1.6rem'}} value={10}>فروش</MenuItem>
+                                    <MenuItem sx={{fontSize: '1.6rem'}} value={20}>مشتری داری</MenuItem>
+                                    <MenuItem sx={{fontSize: '1.6rem'}} value={30}>پشتیبانی</MenuItem>
+                                    <MenuItem sx={{fontSize: '1.6rem'}} value={30}>سایر</MenuItem>
                                 </Select>
                             </FormControl>
                         </div>
@@ -178,6 +206,13 @@ const ContactUsPage = () => {
                             sx={{
                                 "& .MuiInputBase-input": {
                                     color: "white.main",
+                                    fontSize: '1.6rem'
+                                },
+                                "& .MuiInputLabel-formControl": {
+                                    fontSize: '1.6rem'
+                                },
+                                "& .MuiOutlinedInput-notchedOutline": {
+                                    fontSize: '1.6rem'
                                 },
                             }}
                         />

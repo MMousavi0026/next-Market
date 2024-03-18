@@ -75,12 +75,12 @@ const NewsPage = ({mainData}) => {
                                             <Button sx={{borderRadius:"20px", mb:"10px"}}>
                                                 <Image src={item.image} alt={item.title} width={100} height={100} layout="responsive" style={{borderRadius:"20px"}} />
                                             </Button>
-                                            <Link fontSize={25} href={`/news/${item.slug}`} className={styles.newsItemTitle}>{item.title}</Link>
-                                            <Typography fontSize={15} display="block" color="text.secondary" margin="10px 0">{item.date}</Typography>
-                                            <Typography fontSize={17} display="block" color="text.primary" className={styles.newsItemDesc}>{item.desc}</Typography>
+                                            <Link href={`/news/${item.slug}`} className={styles.newsItemTitle}>{item.title}</Link>
+                                            <Typography fontSize='1.4rem' display="block" color="text.secondary" margin="10px 0">{item.date}</Typography>
+                                            <Typography fontSize='1.8rem' display="block" color="text.primary" className={styles.newsItemDesc}>{item.desc}</Typography>
                                             <Button component={Link} href={`/news/${item.slug}`} variant="contained" color="secondary" sx={{mt:"20px"}}>
                                                 <LinkIcon color="primary" sx={{mr: '5px'}}/>
-                                                <Typography>ادامه مطلب</Typography>
+                                                <Typography fontSize='1.4rem'>ادامه مطلب</Typography>
                                             </Button>
                                         </div>
                                     </Col>
@@ -98,6 +98,7 @@ const NewsPage = ({mainData}) => {
                                             page={page}
                                             href={item.page > 0 ? `/news?page=${item.page}` : '/news'}
                                             {...item}
+                                            sx={{fontSize: '1.8rem'}}
                                         />
                                     )}
                                 />
@@ -116,7 +117,7 @@ const NewsPage = ({mainData}) => {
                                             sx={{ mr: {xs: 0, sm: 2.5}, mb: {xs: 2, sm: 0}, backgroundColor:"white.main"}}
                                             color="secondary"
                                         />
-                                        <Button variant="contained" color="secondary">جستجو</Button>
+                                        <Button sx={{fontSize: '1.6rem'}} variant="contained" color="secondary">جستجو</Button>
                                     </Box>
                                 </SideBox>
                             </Col>
@@ -125,7 +126,7 @@ const NewsPage = ({mainData}) => {
                                     {
                                         tags.map((item, index) => (
                                             <Link href="#" key={index}>
-                                                <Button variant="contained" color="white" sx={{ml:'10px', mb:'10px'}}>{item}</Button>
+                                                <Button variant="contained" color="white" sx={{ml:'10px', mb:'10px', fontSize: '1.4rem'}}>{item}</Button>
                                             </Link>
                                         ))
                                     }

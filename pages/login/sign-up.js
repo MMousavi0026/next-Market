@@ -15,20 +15,6 @@ import dynamic from "next/dynamic";
 
 const LockOutlinedIcon = dynamic(() => import('@mui/icons-material/LockOutlined'), {ssr: false})
 
-
-const Copyright = (props) => {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
-
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();

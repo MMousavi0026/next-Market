@@ -122,19 +122,19 @@ const ProductPage = ({thisProductData, someProductsList}) => {
                     <Col xs={12} md={6.5}>
                         <Row rowSpacing={3}>
                             <Col xs={12}>
-                                <Typography gutterBottom fontWeight="bold" variant="h4"
+                                <Typography fontSize='3.8rem' gutterBottom fontWeight="bold" variant="h4"
                                             sx={{mt: "20px"}}>{thisProduct.name}</Typography>
                             </Col>
                             <Col xs={12}>
-                                <Rating name="read-only" value={3} readOnly/>
+                                <Rating name="read-only" value={3} readOnly size='large'/>
                             </Col>
                             <Col xs={12}>
-                                <Typography fontWeight="bold" variant="h6" color="secondary">
+                                <Typography fontWeight="bold" fontSize='2.4rem' variant="h6" color="secondary">
                                     {thisProduct.price} تومان
                                 </Typography>
                             </Col>
                             <Col xs={12}>
-                                <Typography variant="body1" color="gray">
+                                <Typography fontSize='1.8rem' variant="body1" color="gray">
                                     {thisProduct.description}
                                 </Typography>
                             </Col>
@@ -145,14 +145,15 @@ const ProductPage = ({thisProductData, someProductsList}) => {
                                     alignItems: "center",
                                     marginBottom: "10px"
                                 }}>
-                                    <Button onClick={decrementCartNumber} color="secondary">-</Button>
+                                    <Button sx={{fontSize: '1.8rem'}} onClick={decrementCartNumber} color="secondary">-</Button>
                                     <div style={{
                                         border: "rgba(128, 128, 128, 0.4) solid 1px",
                                         padding: "5px 15px",
                                         borderRadius: "10px",
-                                        margin: "0 5px"
+                                        margin: "0 5px",
+                                        fontSize: '1.6rem'
                                     }}>{cartNumber}</div>
-                                    <Button onClick={incrementCartNumber} color="secondary">+</Button>
+                                    <Button sx={{fontSize: '1.8rem'}} onClick={incrementCartNumber} color="secondary">+</Button>
                                 </div>
                                 <div
                                     style={{
@@ -168,8 +169,8 @@ const ProductPage = ({thisProductData, someProductsList}) => {
                                         onClick={() => dispatch(increaseCartByAmount(cartNumber))}
                                         sx={{mr: '10px'}}
                                     >
-                                        <FontAwesomeIcon style={{marginLeft: '10px'}} icon={faCartShopping}/>
-                                        <Typography>افزودن به سبد خرید</Typography>
+                                        <FontAwesomeIcon style={{marginLeft: '10px', fontSize: '1.8rem'}} icon={faCartShopping}/>
+                                        <Typography fontSize='1.8rem'>افزودن به سبد خرید</Typography>
                                     </Button>
                                     <ProductOption
                                         iconVertical="top"
@@ -196,13 +197,12 @@ const ProductPage = ({thisProductData, someProductsList}) => {
                             </Col>
                             <Col style={{display: 'flex', flexDirection: "column"}}>
                                 <div style={{display: 'flex', flexDirection: "row"}}>
-                                    <Typography variant="body2"> تگ:&nbsp;</Typography>
-                                    <Typography variant="body2"
-                                                sx={{color: "rgba(128, 128, 128, 0.8)"}}>{thisProduct?.tag}</Typography>
+                                    <Typography fontSize='1.5rem' fontWeight='bold' variant="body2"> تگ:&nbsp;</Typography>
+                                    <Typography fontSize='1.5rem' fontWeight='bold' variant="body2" sx={{color: "rgba(128, 128, 128, 0.8)"}}>{thisProduct?.tag}</Typography>
                                 </div>
                                 <div style={{display: 'flex', flexDirection: "row", marginTop: "5px"}}>
-                                    <Typography variant="body2"> دسته بندی:&nbsp;</Typography>
-                                    <Typography variant="body2"
+                                    <Typography fontSize='1.5rem' fontWeight='bold' variant="body2"> دسته بندی:&nbsp;</Typography>
+                                    <Typography fontSize='1.5rem' variant="body2"
                                                 sx={{color: "rgba(128, 128, 128, 0.8)"}}>{thisProduct?.category_id}</Typography>
                                 </div>
                             </Col>
@@ -212,7 +212,7 @@ const ProductPage = ({thisProductData, someProductsList}) => {
                             <Col xs={12} style={{display: 'flex', flexDirection: "column"}}>
                                 {
                                     shopFeatures.map((item, index) => (
-                                        <Typography variant="body2" key={index}
+                                        <Typography fontSize='1.6rem' variant="body2" key={index}
                                                     sx={{color: "rgba(128, 128, 128, 1)", mt: "5px"}}>
                                             &#10003; {item.title} {item.description}
                                         </Typography>
@@ -231,7 +231,7 @@ const ProductPage = ({thisProductData, someProductsList}) => {
                                     padding: "5px 15px",
                                     flexWrap: "wrap",
                                 }}>
-                                    <Typography style={{margin: "0 15px"}}>اشتراک گذاری:</Typography>
+                                    <Typography fontSize='1.8rem' style={{margin: "0 15px"}}>اشتراک گذاری:</Typography>
                                     {
                                         socialMediaIcon.map((item, index) => (
                                             <SocialMediaIcon icon={item.icon} key={index}/>
@@ -247,12 +247,12 @@ const ProductPage = ({thisProductData, someProductsList}) => {
                 <Box width="95%">
                     <Box width="100%" sx={{justifyContent: "center"}}>
                         <Tabs width="100%" value={value} classes={{scroller: styles.tabs}} onChange={handleChange}>
-                            <Tab label="توضیحات" {...a11yProps(0)} />
-                            <Tab label="نظرات" {...a11yProps(1)} />
+                            <Tab sx={{fontSize: '2rem'}} label="توضیحات" {...a11yProps(0)} />
+                            <Tab sx={{fontSize: '2rem'}} label="نظرات" {...a11yProps(1)} />
                         </Tabs>
                     </Box>
                     <CustomTabPanel value={value} index={0}>
-                        <Typography color="white.main">
+                        <Typography fontSize='1.8rem' color="white.main">
                             سوپرمارکت شکلی از خواربارفروشی ولی بزرگتر از آن است که مشتری خودش محصولات را از قفسه
                             برمی‌دارد یا به اصطلاح سلف سرویس است. در حدود ۷۵ تا ۹۰ درصد کالاهای این مغازه‌ها محصولات
                             غذایی هستند. اندازه سوپرمارکت‌ها معمولاً از خواربارفروشیهای سنتی بزرگترند و محصولات بیشتری
@@ -262,7 +262,7 @@ const ProductPage = ({thisProductData, someProductsList}) => {
                     <CustomTabPanel value={value} index={1}>
                         <Row rowSpacing={4} style={{width: "100%", display: 'flex', alignItems: "start"}}>
                             <Col xs={12}>
-                                <Typography variant="h4" color="white.main">۱ دیدگاه برای اسپری چند منظوره</Typography>
+                                <Typography fontSize='2.4rem' variant="h4" color="white.main">۱ دیدگاه برای اسپری چند منظوره</Typography>
                             </Col>
                             <Col xs={12}>
                                 <div style={{
@@ -282,7 +282,7 @@ const ProductPage = ({thisProductData, someProductsList}) => {
                                             style={{borderRadius: "50%", width: '90px', height: 'auto'}}
                                         />
                                         <div style={{marginRight: "10px"}}>
-                                            <Typography variant="h6" display="block">آناهیتا خسروی</Typography>
+                                            <Typography fontSize='1.8rem' variant="h6" display="block">آناهیتا خسروی</Typography>
                                             <Typography
                                                 variant="caption"
                                                 padding="0 5px"
@@ -291,34 +291,35 @@ const ProductPage = ({thisProductData, someProductsList}) => {
                                                     borderRadius: "7px",
                                                     ml: "10px"
                                                 }}
+                                                fontSize='1.2rem'
                                             >
                                                 ۲۷ دی ۱۴۰۲
                                             </Typography>
                                             <div style={{marginTop: "10px"}}>
-                                                <Rating value={3} readOnly/>
+                                                <Rating size='large' value={3} readOnly/>
                                             </div>
                                         </div>
                                     </div>
-                                    <Typography variant="body1" color="rgb(128, 128, 128)"
-                                                sx={{mt: "10px", mb: "15px"}}>
+                                    <Typography variant="body1" color="rgb(128, 128, 128)" sx={{mt: "10px", mb: "15px"}} fontSize='1.6rem'>
                                         بسیار عالی، از حمایت صمیمانه و بهترین محصول شما بسیار متشکرم.
                                     </Typography>
                                 </div>
                             </Col>
                             <Col xs={12}>
-                                <Typography color="white.main">دیدگاه خود را بنویسید </Typography>
-                                <Typography color="white.main">نشانی ایمیل شما منتشر نخواهد شد</Typography>
+                                <Typography fontSize='1.8rem' color="white.main">دیدگاه خود را بنویسید </Typography>
+                                <Typography fontSize='1.8rem' color="white.main">نشانی ایمیل شما منتشر نخواهد شد</Typography>
                             </Col>
                             <Col xs={12}>
                                 <Row spacing={4} sx={{width: "100%", display: "flex",}}>
                                     <Col xs={12}>
-                                        <Typography color="white.main">امتیاز شما *</Typography>
+                                        <Typography fontSize='1.8rem' color="white.main">امتیاز شما *</Typography>
                                         <Rating
                                             name="simple-controlled"
                                             value={numRate}
                                             onChange={(event, newValue) => {
                                                 setNumRate(newValue);
                                             }}
+                                            size='large'
                                             sx={{
                                                 width: "fit-content",
                                                 "& .MuiRating-iconEmpty": {
@@ -341,7 +342,9 @@ const ProductPage = ({thisProductData, someProductsList}) => {
                                                 marginTop: "20px",
                                                 "& .MuiInputBase-input": {
                                                     color: "white.main",
+                                                    fontSize: '1.6rem',
                                                 },
+                                                fontSize: '2rem',
                                             }}
                                         />
                                     </Col>
@@ -356,6 +359,7 @@ const ProductPage = ({thisProductData, someProductsList}) => {
                                             sx={{
                                                 "& .MuiInputBase-input": {
                                                     color: "white.main",
+                                                    fontSize: '1.6rem',
                                                 },
                                             }}
                                         />
@@ -371,6 +375,7 @@ const ProductPage = ({thisProductData, someProductsList}) => {
                                             sx={{
                                                 "& .MuiInputBase-input": {
                                                     color: "white.main",
+                                                    fontSize: '1.6rem',
                                                 },
                                             }}
                                         />
@@ -384,14 +389,15 @@ const ProductPage = ({thisProductData, someProductsList}) => {
                                             sx={{
                                                 color: "white.main",
                                                 "& .muirtl-i4bv87-MuiSvgIcon-root": {
-                                                    color: "white.main"
-                                                }
+                                                    color: "white.main",
+                                                    fontSize: '1.6rem',
+                                                },
+                                                fontSize: '1.6rem',
                                             }}
                                         />
                                     </Col>
                                     <Col xs={12}>
-                                        <Button sx={{width: "fit-content", padding: "10px 40px"}} variant="contained"
-                                                color="secondary">ثبت</Button>
+                                        <Button sx={{width: "fit-content", padding: "10px 40px", fontSize: '1.8rem',}} variant="contained" color="secondary">ثبت</Button>
                                     </Col>
                                 </Row>
                             </Col>

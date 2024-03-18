@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center !important;
     width: 100%;
+    height: 100%;
 }
 
 .product:hover .productTitle {
@@ -34,7 +35,6 @@
     position: absolute;
     top: 5px;
     left: 15px;
-    backdrop-filter: blur(2px);
 }
 .POTitle {
     padding: 5px 10px;
@@ -58,7 +58,7 @@
 
 .button1Text {
     color: #122d40;
-    font-size: 18px;
+    font-size: 1.8rem !important;
     transition: color .4s;
 }
 
@@ -84,6 +84,7 @@
     margin: 10px 0;
     border: none;
     background: none;
+
 }
 
 .button {
@@ -99,11 +100,12 @@
 
 .icon {
     font-size: 15px;
-    color: #122d40;
-    border: #122d40 solid 1px;
     border-radius: 100%;
     padding: 10px;
-    transition: color .3s, border .3s;
+    transition: all .3s;
+    mix-blend-mode: difference;
+    color: #edd2bf;
+    border: #edd2bf solid 1px;
 }
 
 .icon:hover {

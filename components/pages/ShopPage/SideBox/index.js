@@ -8,7 +8,7 @@ const SideBox = ({title, children, ...props}) => {
     return (
         <Box className={styles.boxWrapper} {...props}>
             <div className={styles.titleWrapper}>
-                <Typography variant="h6" textAlign="center">{title}</Typography>
+                <Typography variant="h6" fontSize='2rem' fontWeight='bold' textAlign="center">{title}</Typography>
             </div>
             <div>
                 {children}

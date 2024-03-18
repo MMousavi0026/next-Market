@@ -42,7 +42,7 @@ const theme = createTheme({
     },
     typography: {
         fontFamily: NotoSansArabic.style.fontFamily
-    }
+    },
 })
 
 export default theme;

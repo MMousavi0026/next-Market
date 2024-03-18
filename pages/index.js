@@ -26,30 +26,30 @@ const HomePage = ({mainData}) => {
     }, [mainData]);
 
     return (
-        <Row spacing={4}>
+        <Row spacing={6}>
             <Col xs={12} sx={{maxWidth: '100%'}}>
                 <div className={styles.box1Wrapper}>
                     <Row spacing={4} className={styles.box1}>
                         <Col xs={12} lg={6} className={styles.box1Right}>
                             <div className={styles.box1Title}>
-                                <Typography variant="h3" textAlign="center" marginTop="35px" color='secondary'>
+                                <Typography variant="h3" textAlign="center" marginTop="35px" color='secondary' fontSize='5rem'>
                                     سوپر مارکت اکسترا
                                 </Typography>
-                                <Typography variant="h4" textAlign="center" margin="30px 0">
+                                <Typography variant="h4" textAlign="center" margin="30px 0" fontSize='4rem'>
                                     تازه تر از همه جا
                                 </Typography>
-                                <Typography variant="body1" textAlign="center" color="#535353">
+                                <Typography variant="body1" textAlign="center" color="#535353" fontSize='2rem'>
                                     سوپرمارکت شکلی از خواربارفروشی ولی بزرگتر از آن است که مشتری خودش محصولات را از قفسه برمی‌دارد یا به اصطلاح سلف سرویس است.
                                 </Typography>
                             </div>
                             <div className={styles.box1Item1Buttons}>
                                 <Button component={Link} href="#" variant="contained" className={styles.button1}>
-                                    <Typography fontSize="1.2rem" color="white.main" className={styles.button1Text}>
+                                    <Typography fontSize="2rem" color="white.main" className={styles.button1Text}>
                                         ۲۵٪ تخفیف ویژه
                                     </Typography>
                                 </Button>
                                 <Button component={Link} href="/shop" variant="outlined" className={styles.button2}>
-                                    <Typography fontSize="1.2rem" color="#122d40" className={styles.button1Text}>
+                                    <Typography fontSize="2rem" color="#122d40" className={styles.button1Text}>
                                         مشاهده محصولات
                                     </Typography>
                                 </Button>
@@ -57,7 +57,7 @@ const HomePage = ({mainData}) => {
                         </Col>
                         <Col xs={12} lg={6} style={{display: 'flex', justifyContent: 'center'}}>
                             <div style={{paddingTop: '80px', display: 'flex', justifyContent: 'center'}} className={styles.box1Title}>
-                                <Image width={400} height={400} src={homeBoxPic} alt="shopping"  className={styles.homeBoxManImg}/>
+                                <Image width={400} height={400} src={homeBoxPic} alt="shopping" className={styles.homeBoxManImg}/>
                             </div>
                         </Col>
                     </Row>
@@ -71,9 +71,9 @@ const HomePage = ({mainData}) => {
                     <Col xs={12} lg={8}>
                         <Row spacing={4} className={styles.someOffer}>
                             <Col xs={12} lg={6} height="50%">
-                                <div className={styles.box2Column1Item1}>
+                                <Link href="/shop" className={styles.box2Column1Item1}>
                                     <Typography
-                                        fontSize='1.3rem'
+                                        fontSize='2.2rem'
                                         color='white.main'
                                         display="block"
                                         textAlign='left'
@@ -83,7 +83,7 @@ const HomePage = ({mainData}) => {
                                         تخفیف ۵۰٪
                                     </Typography>
                                     <Typography
-                                        fontSize='2rem'
+                                        fontSize='3.6rem'
                                         color='white.main'
                                         display="block"
                                         textAlign='left'
@@ -92,12 +92,12 @@ const HomePage = ({mainData}) => {
                                     >
                                         سس ها
                                     </Typography>
-                                </div>
+                                </Link>
                             </Col>
                             <Col xs={12} lg={6} height="50%">
-                                <div className={styles.box2Column1Item2}>
+                                <Link href='/shop' className={styles.box2Column1Item2}>
                                     <Typography
-                                        fontSize='1.3rem'
+                                        fontSize='2.2rem'
                                         color='secondary'
                                         display="block"
                                         textAlign='right'
@@ -107,7 +107,7 @@ const HomePage = ({mainData}) => {
                                         تخفیف ۵۰٪
                                     </Typography>
                                     <Typography
-                                        fontSize='2rem'
+                                        fontSize='3.6rem'
                                         color='primary'
                                         display="block"
                                         textAlign='right'
@@ -116,12 +116,12 @@ const HomePage = ({mainData}) => {
                                     >
                                         تنقلات
                                     </Typography>
-                                </div>
+                                </Link>
                             </Col>
                             <Col xs={12} height="50%">
-                                <div className={styles.box2Column1Item3}>
+                                <Link href='/shop' className={styles.box2Column1Item3}>
                                     <Typography
-                                        fontSize='1.3rem'
+                                        fontSize='2.2rem'
                                         color='secondary'
                                         display="block"
                                         textAlign='left'
@@ -131,7 +131,7 @@ const HomePage = ({mainData}) => {
                                         تخفیف ویژه ۵۰٪
                                     </Typography>
                                     <Typography
-                                        fontSize='2rem'
+                                        fontSize='3.6rem'
                                         color='white.main'
                                         display="block"
                                         textAlign='left'
@@ -140,14 +140,14 @@ const HomePage = ({mainData}) => {
                                     >
                                         روی تمامی میوه ها
                                     </Typography>
-                                </div>
+                                </Link>
                             </Col>
                         </Row>
                     </Col>
                     <Col xs={12} lg={4}>
-                        <div className={styles.box2Column2}>
+                        <Link href='/shop' className={styles.box2Column2}>
                             <Typography
-                                fontSize='1.3rem'
+                                fontSize='2.2rem'
                                 color='white.main'
                                 display="block"
                                 textAlign='left'
@@ -157,7 +157,7 @@ const HomePage = ({mainData}) => {
                                 تخفیف ۵۰٪
                             </Typography>
                             <Typography
-                                fontSize='2rem'
+                                fontSize='3.6rem'
                                 color='white.main'
                                 display="block"
                                 textAlign='left'
@@ -166,15 +166,15 @@ const HomePage = ({mainData}) => {
                             >
                                 سبزیجات تازه و با کیفیت
                             </Typography>
-                        </div>
+                        </Link>
                     </Col>
                 </Row>
             </Col>
             <Col xs={12} sx={{maxWidth: '100%'}}>
-                <Row className={styles.box3}>
+                <div className={styles.box3}>
                     <div>
-                        <Typography fontSize='2.3rem' width={100} color="black">دسته بندی</Typography>
-                        <Typography fontSize='2.3rem' width="100%" color='#01e281'> محصولات ما</Typography>
+                        <Typography fontSize='3.8rem' width='100%' color="black">دسته بندی</Typography>
+                        <Typography fontSize='3.8rem' width="100%" color='secondary'> محصولات ما</Typography>
                     </div>
                     <Row spacing={4} marginTop="0">
                         {productsCategories.map((item, index) => (
@@ -183,18 +183,17 @@ const HomePage = ({mainData}) => {
                             </Col>
                         ))}
                     </Row>
-                </Row>
+                </div>
             </Col>
-            <Col xs={12} sx={{maxWidth: '100%'}}>
+            <Col xs={12} sx={{maxWidth: '100%', marginBottom: '20px'}}>
                 <Row className={styles.box4}>
                     <div className={styles.box4Title}>
                         <div>
-                            <Typography fontSize='2.3rem' width="100%" color="black">پرفروش ترین</Typography>
-                            <Typography fontSize='2.3rem' width="100%" color="secondary"> محصولات</Typography>
+                            <Typography fontSize='3.8rem' width="100%" color="black">پرفروش ترین</Typography>
+                            <Typography fontSize='3.8rem' width="100%" color="secondary"> محصولات</Typography>
                         </div>
-                        <Button component={Link} href="/shop" variant="contained" color="secondary"
-                                className={styles.button4}>
-                            <Typography fontSize='18px' color="primary" className={styles.button4Text}>همه محصولات</Typography>
+                        <Button component={Link} href="/shop" variant="contained" color="secondary" className={styles.button4}>
+                            <Typography fontSize='1.8rem' color="primary" className={styles.button4Text}>همه محصولات</Typography>
                         </Button>
                     </div>
                     <Row spacing={4} width="100%">
@@ -212,7 +211,7 @@ const HomePage = ({mainData}) => {
                         <div className={styles.box5Text}>
                             <Typography
                                 variant="h1"
-                                fontSize='2rem'
+                                fontSize='3.6rem'
                                 color='white.main'
                                 display="block"
                                 textAlign='center'
@@ -222,7 +221,7 @@ const HomePage = ({mainData}) => {
                                 سوپر مارکت اکسترا
                             </Typography>
                             <Typography
-                                fontSize='3rem'
+                                fontSize='3.4rem'
                                 color='white.main'
                                 display="block"
                                 textAlign='center'
@@ -232,18 +231,17 @@ const HomePage = ({mainData}) => {
                             >
                                 سفارش با موبایل
                             </Typography>
-                            <Typography className={styles.box5Text1} fontSize='1rem' textAlign='center'
-                                        color="white.main">
+                            <Typography className={styles.box5Text1} fontSize='2rem' textAlign='center' color="white.main">
                                 سوپرمارکت شکلی از خواربارفروشی ولی بزرگتر از آن است که مشتری خودش محصولات را از قفسه
                                 برمی‌دارد.
                             </Typography>
                         </div>
                         <div className={styles.box5Buttons}>
-                            <Link href="/" className={styles.box5Button1}>
+                            <Link href="/" className={styles.box5Button1+' '+styles.downloadImg}>
                                 <Image width={100} height={100} className={styles.googleplayImg} src={googlePlayPic} alt=""/>
                             </Link>
-                            <Link href="/">
-                                <Image width={100} height={100} className={styles.appStore} src={appStorePic} alt=""/>
+                            <Link href="/" className={styles.downloadImg}>
+                                <Image width={100} height={100} className={styles.appStoreImg} src={appStorePic} alt=""/>
                             </Link>
                         </div>
                     </Col>
@@ -257,12 +255,12 @@ const HomePage = ({mainData}) => {
             <Col xs={12} className={styles.box6}>
                 <div className={styles.box6Title}>
                     <div>
-                        <Typography fontSize='2.3rem' color="black">جدید ترین</Typography>
-                        <Typography fontSize='2.3rem' color="#01e281"> اخبار و مقالات</Typography>
+                        <Typography fontSize='3.8rem' color="black">جدید ترین</Typography>
+                        <Typography fontSize='3.8rem' color="#01e281"> اخبار و مقالات</Typography>
                     </div>
                 </div>
                 <div style={{maxWidth: "100%"}}>
-                    {/*<NewsSlider/>*/}
+                    <NewsSlider/>
                 </div>
             </Col>
         </Row>

@@ -2,6 +2,7 @@ import React from 'react';
 import {useSelector} from "react-redux";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import {AppBar, IconButton, InputBase, styled, Toolbar} from "@mui/material";
 import Badge from "@mui/material/Badge";
 import Typography from "@mui/material/Typography";
@@ -11,7 +12,6 @@ import Col from "../../mui/Grid/Col";
 import ResponsiveMenu from "./ResponsiveMenu/";
 import NavMenu from "./NavMenu";
 import styles from "./Header.module.css";
-import dynamic from "next/dynamic";
 
 const SearchIcon = dynamic(() => import("@mui/icons-material/Search"), {ssr: false})
 const PhoneInTalkIcon = dynamic(() => import("@mui/icons-material/PhoneInTalk"), {ssr: false})
@@ -40,13 +40,14 @@ const Header = () => {
     const StyledInputBase = styled(InputBase)(({ theme }) => ({
         color: 'inherit',
         width: '100%',
+        height: '200px',
         '& .MuiInputBase-input': {
             transition: theme.transitions.create('width'),
             [theme.breakpoints.up('sm')]: {
                 width: '27vw',
                 '&:focus': {
                     width: '30vw',
-                },
+                }
             },
             [theme.breakpoints.up('xl')]: {
                 width: '15vw',
@@ -72,9 +73,10 @@ const Header = () => {
                                 <StyledInputBase
                                     placeholder="دنبال چه محصولی هستید؟"
                                     inputProps={{'aria-label': 'search'}}
+                                    style={{fontSize: '1.8rem'}}
                                 />
                                 <IconButton className={styles.searchIcon}>
-                                    <SearchIcon fontSize='20' fontWeight="bold" className={styles.icon}/>
+                                    <SearchIcon fontSize='4.5rem' fontWeight="bold" className={styles.icon}/>
                                 </IconButton>
                             </div>
                         </Col>
@@ -85,8 +87,8 @@ const Header = () => {
                                         <PhoneInTalkIcon fontSize='20' className={styles.icon + " " + styles.callIcon}/>
                                     </IconButton>
                                     <div className={styles.callTitle}>
-                                        <Typography fontSize=".6rem" color="#e6e6e6" textAlign='left' marginBottom='0' >شماره تماس</Typography>
-                                        <Typography fontSize="1rem" color="white.main" fontWeight='bold'>۰۹۲۲۳۳۴۴۵۵</Typography>
+                                        <Typography fontSize="1.2rem" color="#e6e6e6" textAlign='left' marginBottom='0' >شماره تماس</Typography>
+                                        <Typography fontSize="1.7rem" color="white.main" fontWeight='bold'>۰۹۲۲۳۳۴۴۵۵</Typography>
                                     </div>
                                 </Link>
                                 <IconButton component={Link} href="/cart-list" className={styles.iconButton}>
