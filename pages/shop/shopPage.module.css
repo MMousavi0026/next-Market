@@ -16,7 +16,7 @@
     cursor: pointer;
 }
 .sideBoxItem {
-    transition: color 0.3s;
+    transition: all 0.3s;
     font-size: 1.8rem !important;
 }
 .sideBoxItemWrapper:hover .sideBoxItem {

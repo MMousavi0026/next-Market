@@ -22,7 +22,7 @@
 .closeIcon {
     color: white;
     background-color: red;
-    transition: color .3s, background-color .3s !important;
+    transition: all .3s !important;
 }
 .closeIcon:hover {
     color: red;
@@ -50,7 +50,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background-color 0.4s, opacity .3s ease !important;
+    transition: all .3s ease !important;
     margin-top: -20px;
     position: absolute !important;
     bottom: -20px !important;
@@ -59,7 +59,7 @@
 .button1Text {
     color: #122d40;
     font-size: 1.8rem !important;
-    transition: color .4s;
+    transition: all .4s;
 }
 
 .button1:hover .button1Text {

@@ -13,7 +13,7 @@
     box-shadow: none !important;
     background-color: #01e281 !important;
     color: #122d40 !important;
-    transition: color 0.3s, background-color 0.3s;
+    transition: all 0.3s;
 }
 .cartShoppingButton:hover {
     background-color: #122d40 !important;

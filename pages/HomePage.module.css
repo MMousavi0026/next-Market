@@ -40,7 +40,7 @@
 }
 
 .button1Text {
-    transition: color 0.4s;
+    transition: all 0.4s;
 }
 
 .button1:hover .button1Text {
@@ -92,7 +92,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background-color 0.4s;
+    transition: all 0.4s;
     margin: 0 15px 0 0 !important;
 }
 
@@ -102,7 +102,7 @@
 
 .button7Text {
     color: #122d40;
-    transition: color .4s;
+    transition: all .4s;
 }
 
 .button7:hover .button7Text {
@@ -117,7 +117,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background-color 0.4s;
+    transition: all 0.4s;
     margin: 15px !important;
 }
 
@@ -127,7 +127,7 @@
 
 .button3Text {
     color: #01e281;
-    transition: color .4s;
+    transition: all .4s;
 }
 
 .button3:hover .button3Text {
@@ -147,7 +147,7 @@
 }
 
 .button4Text {
-    transition: color .4s;
+    transition: all .4s;
 }
 
 .button4:hover .button4Text {
@@ -192,7 +192,7 @@
     border: #122d40 solid 1px;
     border-radius: 100%;
     padding: 10px;
-    transition: color .3s, border .3s;
+    transition: all .3s;
 }
 
 .icon:hover {
@@ -213,7 +213,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background-color 0.4s;
+    transition: all 0.4s;
     margin-top: -20px;
     position: absolute;
     bottom: -20px;
@@ -226,7 +226,7 @@
 .button5Text {
     color: #122d40;
     font-size: 18px;
-    transition: color .4s;
+    transition: all .4s;
 }
 
 .button5:hover .button5Text {

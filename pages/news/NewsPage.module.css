@@ -17,7 +17,7 @@
     padding: 30px;
 }
 .newsItemTitle {
-    transition: color .3s;
+    transition: all .3s;
     font-size: 2rem ;
 }
 .newsItemTitle:hover {

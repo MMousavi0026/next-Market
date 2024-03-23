@@ -39,7 +39,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background-color 0.4s, color .4s;
+    transition: all .4s;
     margin-left: -2px !important;
 }
 
@@ -49,14 +49,20 @@
 }
 
 .button1Text {
-    transition: color .4s !important;
-    color: #122d40;
+    transition: all .4s !important;
+    color: #122d40 !important;
     display: flex;
     align-items: center;
 }
 
+.button1:hover .draftIcon {
+    color: #01e281 !important;
+}
 .button1:hover .button1Text {
-    color: #01e281;
+    color: #01e281 !important;
+}
+.draftIcon {
+    transition: all .4s !important;
 }
 
 .search {
@@ -127,7 +133,7 @@
     color: #01e281 !important;
     background-color: rgba(1, 226, 129, 0.2);
     margin-left: 6px;
-    transition: background-color .3s, color .3s !important;
+    transition: all .3s !important;
 }
 
 .footerLink {
@@ -150,7 +156,7 @@
     background-color: #01e281;
 }
 .footerLinkText {
-    transition: color .3s;
+    transition: all .3s;
     font-size: 1.6rem;
     color: white;
 }
@@ -163,7 +169,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background-color 0.4s;
+    transition: all 0.4s;
 }
 
 .button2:hover {
@@ -172,7 +178,7 @@
 
 .button2Text {
     color: #122d40;
-    transition: color .4s;
+    transition: all .4s;
     padding: 0 5px;
 }
 

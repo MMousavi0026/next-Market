@@ -260,7 +260,7 @@ const HomePage = ({mainData}) => {
                     </div>
                 </div>
                 <div style={{maxWidth: "100%"}}>
-                    <NewsSlider/>
+                    {/*<NewsSlider/>*/}
                 </div>
             </Col>
         </Row>

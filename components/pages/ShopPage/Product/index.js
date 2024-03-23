@@ -36,7 +36,7 @@ const Product = ({ image, name, price, href, closeIcon, }) => {
                     </div>
                 : null
             }
-            <Card component={Link} href={href} sx={{width: '100%', borderRadius: 20}}>
+            <Card component={Link} href={href} sx={{width: '100%', borderRadius: 5}}>
                 <CardActionArea style={{height: '100%', paddingBottom: 40, display: 'grid', alignItems: 'flex-start'}}>
                     <CardMedia
                     >

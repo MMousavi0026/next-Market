@@ -12,7 +12,6 @@ import EitaaPic from "@/public/img/eitaa-icon-white2.png";
 import InstagramPic from "@/public/img/instagram.png";
 import BalePic from "@/public/img/bale-icon.png";
 import styles from './footer.module.css'
-import {Instagram} from "@mui/icons-material";
 
 const DraftsIcon = dynamic(() => import("@mui/icons-material/Drafts"), {ssr: false})
 
@@ -57,7 +56,7 @@ const Footer = () => {
                         />
                         <Button variant="contained" color="secondary" className={styles.button1 +" "+ styles.searchIcon}>
                             <div className={styles.button1Text}>
-                                <DraftsIcon color="primary" fontSize='2rem' style={{marginLeft: '8px', fontSize: '2rem'}}/>
+                                <DraftsIcon color="primary" className={styles.draftIcon} fontSize='2rem' style={{marginLeft: '8px', fontSize: '2rem'}}/>
                             </div>
                             <Typography fontSize='2rem' className={styles.button1Text}>عضویت</Typography>
                         </Button>

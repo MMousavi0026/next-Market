@@ -30,7 +30,7 @@
   align-items: center;
   cursor: pointer;
   color: white!important;
-  transition: color 0.4s;
+  transition: all 0.4s;
   margin-left: 40px;
 }
 .navAppBarTitle:hover{
@@ -43,11 +43,12 @@
   margin-left: -12px !important;
   background-color: #01e281 !important;
   color: #122d40 !important;
-  transition: color 0.3s, background-color 0.3s;
+  transition: all 0.3s;
 }
 .giftIcon {
   font-size: 1.8rem;
   margin-left: 10px;
+  transition: all 0.3s;
 }
 .giftButton:hover {
   background-color: #122d40 !important;
@@ -73,7 +74,7 @@
 
 .listItemChild {
   opacity: 0;
-  transition: opacity .3s;
+  transition: all .3s;
   pointer-events: none;
 }
 .listItem:hover .listItemChild {
@@ -82,7 +83,7 @@
 }
 
 .menuItem {
-  transition: color 0.4s;
+  transition: all 0.4s;
   padding-bottom: 5px;
 }
 .menuItems:hover .menuItem{
@@ -104,7 +105,7 @@
   height: fit-content;
   background-color: #122d40;
   border-radius: 15px;
-  transition: opacity .3s;
+  transition: all .3s;
   pointer-events: none;
 }
 .dropDownList {

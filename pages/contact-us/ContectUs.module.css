@@ -15,7 +15,7 @@
     color: white;
 }
 .icon, .featureTitle {
-    transition: color .3s, background-color .3s !important;
+    transition: all .3s !important;
 }
 .feature:hover .icon {
     color: #01e281 !important;

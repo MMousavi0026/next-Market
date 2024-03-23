@@ -93,7 +93,7 @@
 .callIcon {
     border-radius: 100vh;
     border: 1px #354c5d solid;
-    transition: border-color 0.3s, color 0.3s!important;
+    transition: all 0.3s!important;
 }
 
 .call:hover .callIcon {
