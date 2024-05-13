@@ -33,9 +33,9 @@ const ResponsiveMenu = () => {
                             item.type === "button" ?
                                 <Row rowSpacing={2} marginTop="-15px" marginBottom width="15rem">
                                     {
-                                        item.children.map((discountDataItem) => {
+                                        item.children.map((discountDataItem, index) => {
                                             return (
-                                                <Col xs={12}>
+                                                <Col xs={12} key={index}>
                                                     <ProductsCategories
                                                         titleColor="white"
                                                         discount="۲۰٪ تخفیف"

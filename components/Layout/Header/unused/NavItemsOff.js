@@ -25,7 +25,7 @@ const NavItemsOff = () => {
             >
                 <div className={styles.offItems}>
                     {
-                        data.map((item) => <productsCategories {...item}>۲۰٪ تخفیف</productsCategories>)}
+                        data.map((item, index) => <productsCategories key={index} {...item}>۲۰٪ تخفیف</productsCategories>)}
                 </div>
             </MenuButtonOff>
         </section>
